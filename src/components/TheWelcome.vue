@@ -5,18 +5,6 @@ import WelcomeItem from "./WelcomeItem.vue";
 <template>
   <div id="image-gallery">
     <WelcomeItem />
-    <WelcomeItem />
-    <WelcomeItem />
-    <WelcomeItem />
-    <WelcomeItem />
-    <WelcomeItem />
-    <WelcomeItem />
-    <WelcomeItem />
-    <WelcomeItem />
-    <WelcomeItem />
-    <WelcomeItem />
-    <WelcomeItem />
-    <WelcomeItem />
   </div>
 </template>
 

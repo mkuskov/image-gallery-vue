@@ -7,9 +7,9 @@ defineProps<{
 <template>
   <div class="greetings">
     <h1 class="header__info">{{ msg }}</h1>
-    <img src="./icons/Vector (1).png" alt="" class="header__icon">
+    <img src="./icons/Vector (1).png" alt="" class="header__icon" />
     <div class="filters">
-      <input placeholder="Наименование" type="filter__name">
+      <input placeholder="Наименование" type="filter__name" />
       <select name="" id="" class="filter__author">
         <option value="" disabled selected hidden>Автор</option>
         <option value="">Автор 1</option>
@@ -48,17 +48,18 @@ h1 {
 .header__icon {
   cursor: pointer;
   position: absolute;
-  top: 35px;
+  top: 30px;
   right: 0;
 }
 
-select, input {
+select,
+input {
   cursor: pointer;
   display: flex;
   padding: 15px 150px 15px 15px;
   text-align: left;
   box-sizing: border-box;
-  background: #FFFFFF;
+  background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 8px;
 }
@@ -73,7 +74,6 @@ h3 {
 }
 
 @media (min-width: 1024px) {
-
   .greetings h1,
   .greetings h3 {
     text-align: left;

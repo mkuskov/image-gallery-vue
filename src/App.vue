@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { RouterView } from "vue-router";
+import TheWelcomeVue from "./components/TheWelcome.vue";
 import HelloWorld from "./components/HelloWorld.vue";
-import Pagination from "./components/Pagination.vue";
+import PaginationGallery from "./components/PaginationGallery.vue";
 </script>
 
 <template>
@@ -12,8 +12,8 @@ import Pagination from "./components/Pagination.vue";
       </div>
     </header>
 
-    <RouterView />
-    <Pagination />
+    <TheWelcomeVue />
+    <PaginationGallery />
   </div>
 </template>
 
