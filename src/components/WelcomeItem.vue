@@ -6,6 +6,7 @@
 
 <style scoped>
 .item {
+  background-image: url('./icons/56e156ae7a9fb41309794613e883bfc0_L.jpg');
   background-color: rgb(226, 226, 226);
   text-align: center;
   height: 275px;
@@ -13,8 +14,11 @@
 }
 
 p {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   padding: 5px;
-  background-color: rgba(255, 255, 255, 0.582);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 @media (min-width: 1024px) {
