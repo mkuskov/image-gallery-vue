@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TheWelcomeVue from "./components/TheWelcome.vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import GalleryApp from "./components/GalleryApp.vue";
 import PaginationGallery from "./components/PaginationGallery.vue";
 </script>
 
@@ -8,7 +8,7 @@ import PaginationGallery from "./components/PaginationGallery.vue";
   <div id="app">
     <header>
       <div class="wrapper">
-        <HelloWorld msg="Image Gallery" />
+        <GalleryApp />
       </div>
     </header>
 
