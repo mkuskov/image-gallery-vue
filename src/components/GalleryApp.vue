@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import FilterInput from './filter_components/FilterInput.vue';
+import FilterDropdown from './filter_components/FilterDropdown.vue';
 </script>
 
 <template>
@@ -8,18 +9,8 @@ import FilterInput from './filter_components/FilterInput.vue';
     <img src="./icons/Vector (1).png" alt="" class="header__icon" />
     <div class="filters">
       <FilterInput />
-      <select name="" id="" class="filter__author">
-        <option value="" disabled selected hidden>Автор</option>
-        <option value="">Автор 1</option>
-        <option value="">Автор 2</option>
-        <option value="">Автор 3</option>
-      </select>
-      <select name="" id="" class="filter__place">
-        <option value="" disabled selected hidden>Место</option>
-        <option value="">Место 1</option>
-        <option value="">Место 2</option>
-        <option value="">Место 3</option>
-      </select>
+      <FilterDropdown dropdownTitle="Автор"/>
+      <FilterDropdown dropdownTitle="Место"/>
       <select name="" id="" class="filter__date">
         <option value="" disabled selected hidden>Дата создания</option>
         <option value="">Дата 1</option>
