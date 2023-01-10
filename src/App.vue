@@ -5,8 +5,8 @@ import PaginationGallery from "./components/PaginationGallery.vue";
 </script>
 
 <template>
-  <div id="app">
-    <header>
+  <div id="app" class="app">
+    <header class="header__main">
       <div class="wrapper">
         <GalleryApp />
       </div>
@@ -17,30 +17,30 @@ import PaginationGallery from "./components/PaginationGallery.vue";
   </div>
 </template>
 
-<style scoped>
+<style>
 * {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.5;
   box-sizing: border-box;
 }
 
-#app {
+.app {
   display: block;
   padding: 44px;
 }
 
-header {
+.header__main {
   line-height: 1.5;
   max-height: 100vh;
   margin-bottom: 44px;
 }
 
 @media (min-width: 1024px) {
-  header {
+  .header__main {
     display: flex;
   }
 
-  header .wrapper {
+  .header__main .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;

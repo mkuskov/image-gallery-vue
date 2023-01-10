@@ -71,12 +71,12 @@ export default {
 
 <template>
     <details class="custom-select" id="dropdown">
-        <summary class="radios">
+        <summary class="dropdown__radios">
             <input type="radio" :name="dropdownTitle" id="default" @change="onChange($event as InputRadioEvent)" :title="dropdownTitle" checked>
             <input v-for="items in AuthorsItemsList" type="radio" :name="dropdownTitle" :id="items.itemId + dropdownTitle" @change="onChange($event as InputRadioEvent)"
                 :title="items.itemTitle">
         </summary>
-        <ul class="list">
+        <ul class="dropdown__list">
             <li v-for="items in AuthorsItemsList">
                 <label :for="items.itemId + dropdownTitle">{{ items.itemTitle }}</label>
             </li>
@@ -84,7 +84,7 @@ export default {
     </details>
 </template>
 
-<style scoped>
+<style>
 details {
     margin-left: 1rem;
     position: relative;
@@ -95,7 +95,7 @@ details[open] {
     z-index: 1;
 }
 
-summary {
+.dropdown__radios {
     border-radius: 10px;
     padding: 1rem;
     cursor: pointer;
@@ -103,17 +103,17 @@ summary {
     list-style: none;
 }
 
-details[open] summary {
+details[open] .dropdown__radios {
     border-radius: 10px 10px 0 0;
     border: 1px solid rgb(48, 48, 48);
     border-bottom: 1px solid rgb(207, 207, 207);
 }
 
-summary::-webkit-details-marker {
+.dropdown__radios::-webkit-details-marker {
     display: none;
 }
 
-details[open] summary:before {
+details[open] .dropdown__radios:before {
     content: '';
     display: block;
     background: transparent;
@@ -122,7 +122,7 @@ details[open] summary:before {
     left: 0;
 }
 
-summary:after {
+.dropdown__radios:after {
     content: '';
     display: inline-block;
     float: right;
@@ -136,11 +136,11 @@ summary:after {
     transition: transform ease-in-out 100ms
 }
 
-summary:focus {
+.dropdown__radios:focus {
     outline: none;
 }
 
-details[open] summary:after {
+details[open] .dropdown__radios:after {
     transform: rotate(-45deg) translate(0%, 0%);
 }
 
@@ -157,6 +157,7 @@ ul {
     border: 1px solid rgb(48, 48, 48);
     max-height: 200px;
     overflow-y: auto;
+    border-top: 1px solid transparent;
 }
 
 li {
@@ -176,11 +177,11 @@ li:last-child {
 
 /* FAKE SELECT */
 
-summary.radios {
+.dropdown__radios.radios {
     counter-reset: radios;
 }
 
-summary.radios:before {
+.dropdown__radios.radios:before {
     content: var(--selection);
 }
 

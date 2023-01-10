@@ -2,11 +2,11 @@
 </script>
 
 <template>
-    <input placeholder="Наименование" type="filter__name" />
+    <input placeholder="Наименование" type="text" class="filters__input"/>
 </template>
 
-<style scoped>
-input {
+<style>
+.filters__input {
     cursor: pointer;
     display: flex;
     padding: 15px 150px 15px 15px;

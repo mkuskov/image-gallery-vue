@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .item {
   background-image: url('./icons/56e156ae7a9fb41309794613e883bfc0_L.jpg');
   background-color: rgb(226, 226, 226);
@@ -13,7 +13,7 @@
   border-radius: 8px;
 }
 
-p {
+.item__name {
   position: absolute;
   bottom: 0;
   width: 100%;

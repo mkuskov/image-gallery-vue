@@ -1,37 +1,37 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="pages-count">
-    <button>&lt;</button>
-    <button>1</button>
-    <button>2</button>
-    <button>...</button>
-    <button>></button>
+  <div class="pagination__container">
+    <button class="pagination__button">&lt;</button>
+    <button class="pagination__button">1</button>
+    <button class="pagination__button">2</button>
+    <button class="pagination__button">...</button>
+    <button class="pagination__button">></button>
   </div>
 </template>
 
-<style scoped>
-.pages-count {
+<style>
+.pagination__container {
   margin-top: 44px;
   font-size: 18px;
   text-align: right;
 }
 
-button {
+.pagination__button {
   padding: 12px 18px 12px 18px;
   background-color: rgb(255, 255, 255);
   border: 1px solid black;
 }
 
-button:first-child {
+.pagination__button:first-child {
   border-radius: 10px 0 0 10px;
 }
 
-button:last-child {
+.pagination__button:last-child {
   border-radius: 0 10px 10px 0;
 }
 
-button:hover {
+.pagination__button:hover {
   cursor: pointer;
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
@@ -43,7 +43,7 @@ button:hover {
     font-size: 18px;
     text-align: center;
   }
-  button {
+  .pagination__button {
     padding: 20px 28px 20px 28px;
     background-color: rgb(255, 255, 255);
     border: 1px solid black;

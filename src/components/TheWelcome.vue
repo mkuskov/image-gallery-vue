@@ -8,7 +8,7 @@ import WelcomeItem from "./WelcomeItem.vue";
   </div>
 </template>
 
-<style scoped>
+<style>
 #image-gallery {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
