@@ -9,8 +9,8 @@ import FilterDropdown from './filter_components/FilterDropdown.vue';
     <img src="./icons/Vector (1).png" alt="" class="header__icon" />
     <div class="filters">
       <FilterInput />
-      <FilterDropdown dropdownTitle="Автор"/>
-      <FilterDropdown dropdownTitle="Место"/>
+      <FilterDropdown dropdownTitle="Автор" />
+      <FilterDropdown dropdownTitle="Место" />
       <select name="" id="" class="filter__date">
         <option value="" disabled selected hidden>Дата создания</option>
         <option value="">Дата 1</option>
@@ -51,6 +51,10 @@ input {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 8px;
+}
+
+.filter__date {
+  margin-left: 1rem;
 }
 
 h3 {

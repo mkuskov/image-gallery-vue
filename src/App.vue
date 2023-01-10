@@ -18,6 +18,12 @@ import PaginationGallery from "./components/PaginationGallery.vue";
 </template>
 
 <style scoped>
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
 #app {
   display: block;
   padding: 44px;
