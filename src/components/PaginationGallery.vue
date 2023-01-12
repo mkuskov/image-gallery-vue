@@ -19,8 +19,7 @@
 
 .pagination__button {
   padding: 12px 18px 12px 18px;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid black;
+  border: 1px solid;
 }
 
 .pagination__button:first-child {
@@ -33,8 +32,6 @@
 
 .pagination__button:hover {
   cursor: pointer;
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
 }
 
 @media (max-width: 660px) {
@@ -45,8 +42,7 @@
   }
   .pagination__button {
     padding: 20px 28px 20px 28px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid black;
+    border: 1px solid;
   }
 }
 </style>

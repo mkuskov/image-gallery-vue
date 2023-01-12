@@ -76,7 +76,7 @@ export default {
             <input v-for="items in AuthorsItemsList" type="radio" :name="dropdownTitle" :id="items.itemId + dropdownTitle" @change="onChange($event as InputRadioEvent)"
                 :title="items.itemTitle">
         </summary>
-        <ul class="dropdown__list">
+        <ul class="dropdown__list bg-white">
             <li v-for="items in AuthorsItemsList">
                 <label :for="items.itemId + dropdownTitle">{{ items.itemTitle }}</label>
             </li>
@@ -99,14 +99,14 @@ details[open] {
     border-radius: 10px;
     padding: 1rem;
     cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid;
     list-style: none;
 }
 
 details[open] .dropdown__radios {
     border-radius: 10px 10px 0 0;
-    border: 1px solid rgb(48, 48, 48);
-    border-bottom: 1px solid rgb(207, 207, 207);
+    border: 1px solid;
+    border-bottom: 1px solid;
 }
 
 .dropdown__radios::-webkit-details-marker {
@@ -145,7 +145,6 @@ details[open] .dropdown__radios:after {
 }
 
 ul {
-    background-color: white;
     border-radius: 0 0 10px 10px;
     list-style: none;
     width: 100%;
@@ -154,7 +153,7 @@ ul {
     padding: 1rem;
     margin: 0;
     box-sizing: border-box;
-    border: 1px solid rgb(48, 48, 48);
+    border: 1px solid;
     max-height: 200px;
     overflow-y: auto;
     border-top: 1px solid transparent;
@@ -225,6 +224,6 @@ ul::-webkit-scrollbar-thumb {
 }
 
 ul::-webkit-scrollbar-thumb:hover {
-    background-color: #1a1a1a;
+    background-color: #5f5f5f;
 }
 </style>

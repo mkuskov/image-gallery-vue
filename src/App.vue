@@ -5,6 +5,7 @@ import PaginationGallery from "./components/PaginationGallery.vue";
 </script>
 
 <template>
+  <v-app>
   <div id="app" class="app">
     <header class="header__main">
       <div class="wrapper">
@@ -15,6 +16,7 @@ import PaginationGallery from "./components/PaginationGallery.vue";
     <TheWelcomeVue />
     <PaginationGallery />
   </div>
+  </v-app>
 </template>
 
 <style>
@@ -25,13 +27,15 @@ import PaginationGallery from "./components/PaginationGallery.vue";
 }
 
 .app {
+  width: 1280px;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
   padding: 44px;
 }
 
 .header__main {
   line-height: 1.5;
-  max-height: 100vh;
   margin-bottom: 44px;
 }
 
