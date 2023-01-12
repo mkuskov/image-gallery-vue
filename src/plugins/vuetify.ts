@@ -14,6 +14,14 @@ export default createVuetify({
           black: '#000000',
           gray: '#b3b3b3',
         }
+      },
+      darkTheme: {
+        dark: true,
+        colors: {
+          white: '#121212',
+          black: '#ffffff',
+          gray: '#b3b3b3',
+        }
       }
     }
   }

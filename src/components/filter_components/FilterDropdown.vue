@@ -124,7 +124,6 @@ details[open] .dropdown__radios:before {
 
 .dropdown__radios:after {
     content: '';
-    display: inline-block;
     float: right;
     margin-top: 5px;
     width: .5rem;

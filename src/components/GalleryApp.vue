@@ -8,7 +8,7 @@ export default {
     const theme = useTheme()
     return {
       theme,
-      toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'lightTheme' : 'dark'
+      toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'lightTheme' : 'darkTheme'
     }
   },
   components: {
