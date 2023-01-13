@@ -1,21 +1,24 @@
 <script setup lang="ts">
-import TheWelcomeVue from "./components/TheWelcome.vue";
-import GalleryApp from "./components/GalleryApp.vue";
+import GalleryComponent from "./components/GalleryComponent.vue";
+import HeaderGallery from "./components/HeaderGallery.vue";
 import PaginationGallery from "./components/PaginationGallery.vue";
 </script>
 
 <template>
   <v-app>
-  <div id="app" class="app">
-    <header class="header__main">
-      <div class="wrapper">
-        <GalleryApp />
+    <div id="app" class="app">
+      <div class="content__wrapper">
+        <header class="content__header">
+          <HeaderGallery />
+        </header>
+        <div class="content">
+          <GalleryComponent />
+        </div>
+        <div class="content__pagination">
+          <PaginationGallery />
+        </div>
       </div>
-    </header>
-
-    <TheWelcomeVue />
-    <PaginationGallery />
-  </div>
+    </div>
   </v-app>
 </template>
 
@@ -34,17 +37,17 @@ import PaginationGallery from "./components/PaginationGallery.vue";
   padding: 44px;
 }
 
-.header__main {
+.content__header {
   line-height: 1.5;
   margin-bottom: 44px;
 }
 
 @media (min-width: 1024px) {
-  .header__main {
+  .content__header {
     display: flex;
   }
 
-  .header__main .wrapper {
+  .content__header .content__wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;

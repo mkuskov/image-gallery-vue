@@ -1,8 +1,8 @@
 <template>
   <v-card class="card">
-  <div class="item">
-    <p class="item__name">Картина</p>
-  </div>
+    <div class="item">
+      <p class="item__name">Картина</p>
+    </div>
   </v-card>
 </template>
 
@@ -10,8 +10,9 @@
 .item {
   position: relative;
   width: 100%;
-  background-image: url('./icons/56e156ae7a9fb41309794613e883bfc0_L.jpg');
+  background-image: url('../../images/56e156ae7a9fb41309794613e883bfc0_L.jpg');
   background-color: rgb(var(--v-theme-white));
+  background-size: cover;
   text-align: left;
   height: 275px;
 }

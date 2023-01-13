@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import WelcomeItem from "./WelcomeItem.vue";
+import ImageComponent from "./UI/ImageComponent.vue";
 </script>
 
 <template>
   <div id="image-gallery">
-    <WelcomeItem />
+    <ImageComponent />
+    <ImageComponent />
+    <ImageComponent />
   </div>
 </template>
 

@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <input placeholder="Наименование" type="text" class="filters__input"/>
+    <input placeholder="Наименование" type="text" class="filters__input" />
 </template>
 
 <style>

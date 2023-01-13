@@ -70,22 +70,24 @@ export default {
 </script>
 
 <template>
-    <details class="custom-select" id="dropdown">
+    <details class="dropdown" id="dropdown">
         <summary class="dropdown__radios">
-            <input type="radio" :name="dropdownTitle" id="default" @change="onChange($event as InputRadioEvent)" :title="dropdownTitle" checked>
-            <input v-for="items in AuthorsItemsList" type="radio" :name="dropdownTitle" :id="items.itemId + dropdownTitle" @change="onChange($event as InputRadioEvent)"
+            <input type="radio" class="dropdown__input" :name="dropdownTitle" id="default" @change="onChange($event as InputRadioEvent)"
+                :title="dropdownTitle" checked>
+            <input v-for="items in AuthorsItemsList" type="radio" class="dropdown__input" :name="dropdownTitle"
+                :id="items.itemId + dropdownTitle" @change="onChange($event as InputRadioEvent)"
                 :title="items.itemTitle">
         </summary>
         <ul class="dropdown__list">
             <li v-for="items in AuthorsItemsList" class="dropdown__list-item">
-                <label :for="items.itemId + dropdownTitle">{{ items.itemTitle }}</label>
+                <label :for="items.itemId + dropdownTitle" class="dropdown__label">{{ items.itemTitle }}</label>
             </li>
         </ul>
     </details>
 </template>
 
 <style>
-details {
+.dropdown {
     margin-left: 1rem;
     position: relative;
     width: 300px;
@@ -103,7 +105,7 @@ details[open] {
     list-style: none;
 }
 
-details[open] .dropdown__radios {
+.dropdown[open] .dropdown__radios {
     border-radius: 10px 10px 0 0;
     border: 1px solid;
     border-bottom: 1px solid rgb(var(--v-theme-border-color));
@@ -113,7 +115,7 @@ details[open] .dropdown__radios {
     display: none;
 }
 
-details[open] .dropdown__radios:before {
+.dropdown[open] .dropdown__radios:before {
     content: '';
     display: block;
     background: transparent;
@@ -139,7 +141,7 @@ details[open] .dropdown__radios:before {
     outline: none;
 }
 
-details[open] .dropdown__radios:after {
+.dropdown[open] .dropdown__radios:after {
     transform: rotate(-45deg) translate(0%, 0%);
 }
 
@@ -184,18 +186,18 @@ details[open] .dropdown__radios:after {
     content: var(--selection);
 }
 
-input[type=radio] {
+.dropdown__input[type=radio] {
     counter-increment: radios;
     appearance: none;
     display: none;
 }
 
-input[type=radio]:checked {
+.dropdown__input[type=radio]:checked {
     display: inline;
     --display: block;
 }
 
-input[type=radio]:after {
+.dropdown__input[type=radio]:after {
     content: attr(title);
     display: inline;
 }
@@ -205,7 +207,7 @@ input[type=radio]:after {
     counter-reset: labels;
 }
 
-label {
+.dropdown__label {
     width: 100%;
     display: flex;
     cursor: pointer;
