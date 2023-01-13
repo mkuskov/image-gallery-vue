@@ -11,7 +11,7 @@
   position: relative;
   width: 100%;
   background-image: url('./icons/56e156ae7a9fb41309794613e883bfc0_L.jpg');
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(var(--v-theme-white));
   text-align: left;
   height: 275px;
 }

@@ -76,8 +76,8 @@ export default {
             <input v-for="items in AuthorsItemsList" type="radio" :name="dropdownTitle" :id="items.itemId + dropdownTitle" @change="onChange($event as InputRadioEvent)"
                 :title="items.itemTitle">
         </summary>
-        <ul class="dropdown__list bg-white">
-            <li v-for="items in AuthorsItemsList">
+        <ul class="dropdown__list">
+            <li v-for="items in AuthorsItemsList" class="dropdown__list-item">
                 <label :for="items.itemId + dropdownTitle">{{ items.itemTitle }}</label>
             </li>
         </ul>
@@ -99,14 +99,14 @@ details[open] {
     border-radius: 10px;
     padding: 1rem;
     cursor: pointer;
-    border: 1px solid;
+    border: 1px solid rgb(var(--v-theme-border-color));
     list-style: none;
 }
 
 details[open] .dropdown__radios {
     border-radius: 10px 10px 0 0;
     border: 1px solid;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid rgb(var(--v-theme-border-color));
 }
 
 .dropdown__radios::-webkit-details-marker {
@@ -143,7 +143,8 @@ details[open] .dropdown__radios:after {
     transform: rotate(-45deg) translate(0%, 0%);
 }
 
-ul {
+.dropdown__list {
+    background: rgb(var(--v-theme-white));
     border-radius: 0 0 10px 10px;
     list-style: none;
     width: 100%;
@@ -158,17 +159,17 @@ ul {
     border-top: 1px solid transparent;
 }
 
-li {
+.dropdown__list-item {
     margin: 0;
     padding: 5px;
     border-bottom: 1px solid transparent;
 }
 
-li:first-child {
+.dropdown__list-item:first-child {
     padding-top: 0;
 }
 
-li:last-child {
+.dropdown__list-item:last-child {
     padding-bottom: 0;
     border-bottom: none;
 }
@@ -199,7 +200,7 @@ input[type=radio]:after {
     display: inline;
 }
 
-ul.list {
+.dropdown__list.list {
     border-top: transparent;
     counter-reset: labels;
 }
@@ -211,18 +212,18 @@ label {
     justify-content: space-between;
 }
 
-ul::-webkit-scrollbar {
+.dropdown__list::-webkit-scrollbar {
     width: 15px;
 }
 
-ul::-webkit-scrollbar-thumb {
+.dropdown__list::-webkit-scrollbar-thumb {
     background-color: #777777;
     border-radius: 20px;
     border: 4px solid transparent;
     background-clip: content-box;
 }
 
-ul::-webkit-scrollbar-thumb:hover {
+.dropdown__list::-webkit-scrollbar-thumb:hover {
     background-color: #5f5f5f;
 }
 </style>

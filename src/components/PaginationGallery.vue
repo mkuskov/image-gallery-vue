@@ -1,46 +1,64 @@
-<script setup lang="ts"></script>
+<script lang="ts">
+  export default {
+    data () {
+      return {
+        page: 1,
+      }
+    },
+  }
+</script>
 
 <template>
-  <div class="pagination__container">
-    <button class="pagination__button">&lt;</button>
-    <button class="pagination__button">1</button>
-    <button class="pagination__button">2</button>
-    <button class="pagination__button">...</button>
-    <button class="pagination__button">></button>
+  <div class="pagination">
+    <v-pagination
+      v-model="page"
+      :length="3"
+      class="pagination__item"
+    ></v-pagination>
   </div>
 </template>
 
 <style>
-.pagination__container {
-  margin-top: 44px;
-  font-size: 18px;
-  text-align: right;
+
+.pagination {
+  width: 30%;
+  margin-top: 20px;
+  float:right
 }
 
-.pagination__button {
-  padding: 12px 18px 12px 18px;
+.v-pagination__item--is-active {
+  background: rgb(var(--v-theme-black));
+  color: rgb(var(--v-theme-white));
+}
+
+.v-pagination__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.v-btn:hover {
+  background: rgb(var(--v-theme-black));
+  color: rgb(var(--v-theme-white));
+}
+
+.v-pagination__item--is-active .v-btn__overlay {
+  opacity: 0;
+  background: rgb(var(--v-theme-black));
+  color: rgb(var(--v-theme-white));
+}
+
+.v-pagination__item, .v-pagination__prev, .v-pagination__next {
   border: 1px solid;
-}
-
-.pagination__button:first-child {
-  border-radius: 10px 0 0 10px;
-}
-
-.pagination__button:last-child {
-  border-radius: 0 10px 10px 0;
-}
-
-.pagination__button:hover {
-  cursor: pointer;
+  border-radius: 5px;
 }
 
 @media (max-width: 660px) {
-  .pages-count {
+  .pagination {
     margin-top: 44px;
     font-size: 18px;
     text-align: center;
   }
-  .pagination__button {
+  .pagination {
     padding: 20px 28px 20px 28px;
     border: 1px solid;
   }

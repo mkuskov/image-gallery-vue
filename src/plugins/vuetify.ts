@@ -12,7 +12,7 @@ export default createVuetify({
         colors: {
           white: '#ffffff',
           black: '#000000',
-          gray: '#b3b3b3',
+          'border-color': '#b3b3b3',
         }
       },
       darkTheme: {
@@ -20,7 +20,7 @@ export default createVuetify({
         colors: {
           white: '#121212',
           black: '#ffffff',
-          gray: '#b3b3b3',
+          'border-color': '#ffffff',
         }
       }
     }

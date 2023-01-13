@@ -75,7 +75,7 @@ export default {
   padding: 15px 150px 15px 15px;
   text-align: left;
   box-sizing: border-box;
-  border: 1px solid;
+  border: 1px solid rgb(var(--v-theme-border-color));;
   border-radius: 8px;
 }
 
