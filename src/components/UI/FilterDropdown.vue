@@ -8,41 +8,6 @@ export default {
     data() {
         return {
             dropdownValue: '',
-            AuthorsItemsList: [
-                {
-                    itemTitle: 'Author 1',
-                    itemId: 'item1'
-
-                },
-                {
-                    itemTitle: 'Author 2',
-                    itemId: 'item2'
-                },
-                {
-                    itemTitle: 'Author 3',
-                    itemId: 'item3'
-                },
-                {
-                    itemTitle: 'Author 4',
-                    itemId: 'item4'
-                },
-                {
-                    itemTitle: 'Author 5',
-                    itemId: 'item5'
-                },
-                {
-                    itemTitle: 'Author 6',
-                    itemId: 'item6'
-                },
-                {
-                    itemTitle: 'Author 7',
-                    itemId: 'item7'
-                },
-                {
-                    itemTitle: 'Author 8',
-                    itemId: 'item8'
-                },
-            ]
         }
     },
     methods: {
@@ -74,13 +39,13 @@ export default {
         <summary class="dropdown__radios">
             <input type="radio" class="dropdown__input" :name="dropdownTitle" id="default" @change="onChange($event as InputRadioEvent)"
                 :title="dropdownTitle" checked>
-            <input v-for="items in AuthorsItemsList" type="radio" class="dropdown__input" :name="dropdownTitle"
-                :id="items.itemId + dropdownTitle" @change="onChange($event as InputRadioEvent)"
-                :title="items.itemTitle">
+            <input v-for="items in $store.state.GALLERY_DATA" type="radio" class="dropdown__input" :name="dropdownTitle"
+                :id="items.id + dropdownTitle" @change="onChange($event as InputRadioEvent)"
+                :title="dropdownTitle === 'Автор' ? items.author : items.place">
         </summary>
         <ul class="dropdown__list">
-            <li v-for="items in AuthorsItemsList" class="dropdown__list-item">
-                <label :for="items.itemId + dropdownTitle" class="dropdown__label">{{ items.itemTitle }}</label>
+            <li v-for="items in $store.state.GALLERY_DATA" class="dropdown__list-item">
+                <label :for="items.id + dropdownTitle" class="dropdown__label">{{ dropdownTitle === 'Автор' ? items.author : items.place }}</label>
             </li>
         </ul>
     </details>

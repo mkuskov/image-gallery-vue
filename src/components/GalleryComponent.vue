@@ -1,12 +1,16 @@
-<script setup lang="ts">
+<script lang="ts">
 import ImageComponent from "./UI/ImageComponent.vue";
+
+export default {
+    components: {
+      ImageComponent,
+    },
+}
 </script>
 
 <template>
   <div id="image-gallery">
-    <ImageComponent />
-    <ImageComponent />
-    <ImageComponent />
+    <ImageComponent v-for="images in $store.state.GALLERY_DATA" :imageTitle="images.name"/>
   </div>
 </template>
 

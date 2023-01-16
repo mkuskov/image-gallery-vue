@@ -1,7 +1,20 @@
-<script setup lang="ts">
+<script lang="ts">
 import GalleryComponent from "./components/GalleryComponent.vue";
 import HeaderGallery from "./components/HeaderGallery.vue";
 import PaginationGallery from "./components/PaginationGallery.vue";
+
+export default {
+  components: {
+    GalleryComponent,
+    HeaderGallery,
+    PaginationGallery
+  },
+  data() {
+    return {
+
+    }
+  },
+}
 </script>
 
 <template>

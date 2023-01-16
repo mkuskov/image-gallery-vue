@@ -1,26 +1,28 @@
-export const GALLERY_DATA = [
+const GALLERY_DATA = [
     {
-        name: 'painting1',
+        name: 'Первая картина',
         img: 'src',
-        author: 'abc',
+        author: 'Первый автор',
         date: '1.12',
-        place: 'italy',
-        id: 'item1',
+        place: 'Италия',
+        id: '1',
     },
     {
-        name: 'painting2',
+        name: 'Вторая картина',
         img: 'src',
-        author: 'abc',
+        author: 'Второй автор',
         date: '1.12',
-        place: 'russia',
-        id: 'item2',
+        place: 'Россия',
+        id: '2',
     },
     {
-        name: 'painting2',
+        name: 'Третья картина',
         img: 'src',
-        author: 'abc',
+        author: 'Третий автор',
         date: '1.12',
-        place: 'germany',
-        id: 'item2',
+        place: 'Германия',
+        id: '3',
     },
 ];
+
+export default GALLERY_DATA;

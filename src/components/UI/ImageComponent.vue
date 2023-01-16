@@ -1,7 +1,15 @@
+<script lang="ts">
+  export default {
+    props: {
+        imageTitle: String,
+    },
+  }
+</script>
+
 <template>
   <v-card class="card">
     <div class="item">
-      <p class="item__name">Картина</p>
+      <p class="item__name">{{ imageTitle }}</p>
     </div>
   </v-card>
 </template>
