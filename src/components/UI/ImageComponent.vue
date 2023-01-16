@@ -2,15 +2,15 @@
   export default {
     props: {
         imageTitle: String,
+        image: String,
     },
   }
 </script>
 
 <template>
   <v-card class="card">
-    <div class="item">
-      <p class="item__name">{{ imageTitle }}</p>
-    </div>
+    <img class="item" :src="image">
+    <p class="item__name">{{ imageTitle }}</p>
   </v-card>
 </template>
 
@@ -18,9 +18,6 @@
 .item {
   position: relative;
   width: 100%;
-  background-image: url('../../images/56e156ae7a9fb41309794613e883bfc0_L.jpg');
-  background-color: rgb(var(--v-theme-white));
-  background-size: cover;
   text-align: left;
   height: 275px;
 }

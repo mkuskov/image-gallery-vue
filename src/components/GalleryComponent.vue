@@ -10,7 +10,7 @@ export default {
 
 <template>
   <div id="image-gallery">
-    <ImageComponent v-for="images in $store.state.GALLERY_DATA" :imageTitle="images.name"/>
+    <ImageComponent v-for="images in $store.state.GALLERY_DATA" :imageTitle="images.name" :image="images.img"/>
   </div>
 </template>
 

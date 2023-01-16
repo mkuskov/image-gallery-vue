@@ -38,7 +38,6 @@ export default {
 <style>
 * {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
   box-sizing: border-box;
 }
 
@@ -51,7 +50,6 @@ export default {
 }
 
 .content__header {
-  line-height: 1.5;
   margin-bottom: 44px;
 }
 
