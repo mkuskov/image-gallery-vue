@@ -15,6 +15,10 @@
 </template>
 
 <style>
+.card {
+  line-height: 0.75;
+}
+
 .item {
   position: relative;
   width: 100%;
@@ -27,9 +31,9 @@
   width: 100%;
   position: absolute;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.603);
   color: black;
-  padding: 5px;
+  padding: 10px;
   padding-left: 15px;
 }
 </style>
