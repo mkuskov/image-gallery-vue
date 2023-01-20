@@ -7,13 +7,16 @@ interface InputRadioEvent extends Event {
 export default {
     data() {
         return {
-            dropdownValue: '',
         }
     },
     methods: {
-        onChange(event: InputRadioEvent) {
+        handleAuthor(event: InputRadioEvent) {
             const data = event.target.title;
-            return this.dropdownValue = data;
+            return this.$store.dispatch('addAuthor', data);
+        },
+        handlePlace(event: InputRadioEvent) {
+            const data = event.target.title;
+            return this.$store.dispatch('addPlace', data);
         }
     },
 
@@ -37,15 +40,30 @@ export default {
 <template>
     <details class="dropdown" id="dropdown">
         <summary class="dropdown__radios">
-            <input type="radio" class="dropdown__input" :name="dropdownTitle" id="default" @change="onChange($event as InputRadioEvent)"
-                :title="dropdownTitle" checked>
-            <input v-for="items in $store.state.GALLERY_DATA" type="radio" class="dropdown__input" :name="dropdownTitle"
-                :id="items.id + dropdownTitle" @change="onChange($event as InputRadioEvent)"
-                :title="dropdownTitle === 'Автор' ? items.author : items.place">
+            <input
+                type="radio"
+                class="dropdown__input"
+                :name="dropdownTitle"
+                :title="dropdownTitle"
+                id="default"
+                @change="dropdownTitle === 'Автор' ? handleAuthor($event as InputRadioEvent) : handlePlace($event as InputRadioEvent)"
+                checked
+                disabled
+            >
+            <input
+                v-for="items in $store.state.GALLERY_DATA"
+                type="radio"
+                class="dropdown__input"
+                :name="dropdownTitle"
+                :id="items.id + dropdownTitle"
+                @change="dropdownTitle === 'Автор' ? handleAuthor($event as InputRadioEvent) : handlePlace($event as InputRadioEvent)"
+                :title="dropdownTitle === 'Автор' ? items.author : items.place"
+            >
         </summary>
         <ul class="dropdown__list">
             <li v-for="items in $store.state.GALLERY_DATA" class="dropdown__list-item">
-                <label :for="items.id + dropdownTitle" class="dropdown__label">{{ dropdownTitle === 'Автор' ? items.author : items.place }}</label>
+                <label :for="items.id + dropdownTitle" class="dropdown__label">{{ dropdownTitle === 'Автор' ?
+                items.author : items.place }}</label>
             </li>
         </ul>
     </details>
@@ -66,14 +84,14 @@ details[open] {
     border-radius: 10px;
     padding: 1rem;
     cursor: pointer;
-    border: 1px solid rgb(var(--v-theme-border-color));
+    border: 1px solid rgb(var(--v-theme-primary-300));
     list-style: none;
 }
 
 .dropdown[open] .dropdown__radios {
     border-radius: 10px 10px 0 0;
     border: 1px solid;
-    border-bottom: 1px solid rgb(var(--v-theme-border-color));
+    border-bottom: 1px solid rgb(var(--v-theme-primary-300));
 }
 
 .dropdown__radios::-webkit-details-marker {
@@ -111,7 +129,7 @@ details[open] {
 }
 
 .dropdown__list {
-    background: rgb(var(--v-theme-white));
+    background: rgb(var(--v-theme-primary-25));
     border-radius: 0 0 10px 10px;
     list-style: none;
     width: 100%;

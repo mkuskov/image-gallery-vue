@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <div class="content">
+  <div class="container">
     <HeaderComponent />
     <FiltersComponent />
   </div>

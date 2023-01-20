@@ -9,8 +9,8 @@
 
 <template>
   <v-card class="card">
-    <img class="item" :src="image">
-    <p class="item__name">{{ imageTitle }}</p>
+    <img class="card__item" :src="image">
+    <p class="card__item-name">{{ imageTitle }}</p>
   </v-card>
 </template>
 
@@ -19,14 +19,14 @@
   line-height: 0.75;
 }
 
-.item {
+.card__item {
   position: relative;
   width: 100%;
   text-align: left;
   height: 275px;
 }
 
-.item__name {
+.card__item-name{
   font-weight: 600;
   width: 100%;
   position: absolute;

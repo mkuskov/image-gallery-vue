@@ -19,12 +19,19 @@ export default {
 
 <template>
   <v-app>
-    <div id="app" class="app">
-      <div class="content__wrapper">
-        <header class="content__header">
+    <div class="filters-data">
+      <p class="filters-data__item">title: {{ $store.state.filterByTitle }}</p>
+      <p class="filters-data__item">author: {{ $store.state.filterByAuthor }}</p>
+      <p class="filters-data__item">place: {{ $store.state.filterByPlace }}</p>
+      <p class="filters-data__item">date: {{ $store.getters.filterByDate }}</p>
+      <p class="filters-data__item">page: {{ $store.state.pages }}</p>
+    </div>
+    <div id="app" class="content">
+      <div class="wrapper">
+        <div class="content__header">
           <HeaderGallery />
-        </header>
-        <div class="content">
+        </div>
+        <div class="content__gallery">
           <GalleryComponent />
         </div>
         <div class="content__pagination">
@@ -41,7 +48,16 @@ export default {
   box-sizing: border-box;
 }
 
-.app {
+.filters-data {
+  display: flex;
+  font-size: 10px;
+}
+
+.filters-data__item {
+  margin: 8px;
+}
+
+.content {
   width: 1280px;
   display: block;
   margin-left: auto;
@@ -58,7 +74,7 @@ export default {
     display: flex;
   }
 
-  .content__header .content__wrapper {
+  .content__header .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;

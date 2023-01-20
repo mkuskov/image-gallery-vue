@@ -2,6 +2,7 @@
 import { useTheme } from 'vuetify'
 import FilterInput from './UI/FilterInput.vue';
 import FilterDropdown from './UI/FilterDropdown.vue';
+import FilterDate from './UI/FilterDate.vue';
 
 export default {
     setup() {
@@ -14,21 +15,17 @@ export default {
     components: {
         FilterInput,
         FilterDropdown,
+        FilterDate,
     }
 }
 </script>
 
 <template>
     <div class="filters">
-        <FilterInput class="filters__input" />
-        <FilterDropdown dropdownTitle="Автор" class="filters__dropdown" />
-        <FilterDropdown dropdownTitle="Место" class="filters__dropdown" />
-        <select name="" id="" class="filters__date">
-            <option value="" class="filters__date-options" disabled selected hidden>Дата создания</option>
-            <option value="" class="filters__date-options">Дата 1</option>
-            <option value="" class="filters__date-options">Дата 2</option>
-            <option value="" class="filters__date-options">Дата 3</option>
-        </select>
+        <FilterInput />
+        <FilterDropdown dropdownTitle="Автор" />
+        <FilterDropdown dropdownTitle="Место" />
+        <FilterDate />
     </div>
 </template>
 
@@ -46,12 +43,12 @@ export default {
     padding: 15px 150px 15px 15px;
     text-align: left;
     box-sizing: border-box;
-    border: 1px solid rgb(var(--v-theme-border-color));
+    border: 1px solid rgb(var(--v-theme-primary-300));
     border-radius: 8px;
 }
 
 .filters__date-options {
-    background-color: rgb(var(--v-theme-white));
+    background-color: rgb(var(--v-theme-primary-25));
 }
 
 @media (min-width: 1024px) {

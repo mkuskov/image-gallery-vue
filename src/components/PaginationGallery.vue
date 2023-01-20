@@ -1,4 +1,6 @@
 <script lang="ts">
+import GALLERY_DATA from '@/mocks/gallery-data';
+
 export default {
   data() {
     return {
@@ -10,7 +12,7 @@ export default {
 
 <template>
   <div class="pagination">
-    <v-pagination v-model="page" :length="3" class="pagination__item"></v-pagination>
+    <v-pagination v-model="page" length="3" class="pagination__item" @click="$store.dispatch('changePage', page)"/>
   </div>
 </template>
 
@@ -22,8 +24,8 @@ export default {
 }
 
 .v-pagination__item--is-active {
-  background: rgb(var(--v-theme-black));
-  color: rgb(var(--v-theme-white));
+  background: rgb(var(--v-theme-primary-900));
+  color: rgb(var(--v-theme-primary-25));
 }
 
 .v-pagination__list {
@@ -32,14 +34,14 @@ export default {
 }
 
 .v-btn:hover {
-  background: rgb(var(--v-theme-black));
-  color: rgb(var(--v-theme-white));
+  background: rgb(var(--v-theme-primary-900));
+  color: rgb(var(--v-theme-primary-25));
 }
 
 .v-pagination__item--is-active .v-btn__overlay {
   opacity: 0;
-  background: rgb(var(--v-theme-black));
-  color: rgb(var(--v-theme-white));
+  background: rgb(var(--v-theme-primary-900));
+  color: rgb(var(--v-theme-primary-25));
 }
 
 .v-pagination__item,
