@@ -7,36 +7,36 @@ export default {
   components: {
     GalleryComponent,
     HeaderGallery,
-    PaginationGallery
+    PaginationGallery,
   },
   data() {
-    return {
-
-    }
+    return {};
   },
-}
+};
 </script>
 
 <template>
   <v-app>
     <div class="filters-data">
       <p class="filters-data__item">title: {{ $store.state.filterByTitle }}</p>
-      <p class="filters-data__item">author: {{ $store.state.filterByAuthor }}</p>
+      <p class="filters-data__item">
+        author: {{ $store.state.filterByAuthor }}
+      </p>
       <p class="filters-data__item">place: {{ $store.state.filterByPlace }}</p>
       <p class="filters-data__item">date: {{ $store.getters.filterByDate }}</p>
       <p class="filters-data__item">page: {{ $store.state.pages }}</p>
     </div>
-    <div id="app" class="content">
-      <div class="wrapper">
-        <div class="content__header">
-          <HeaderGallery />
-        </div>
-        <div class="content__gallery">
-          <GalleryComponent />
-        </div>
-        <div class="content__pagination">
-          <PaginationGallery />
-        </div>
+
+    <div id="app"
+class="content">
+      <div class="content__header">
+        <HeaderGallery />
+      </div>
+      <div class="content__gallery">
+        <GalleryComponent />
+      </div>
+      <div class="content__pagination">
+        <PaginationGallery />
       </div>
     </div>
   </v-app>
@@ -44,7 +44,8 @@ export default {
 
 <style>
 * {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   box-sizing: border-box;
 }
 
@@ -67,17 +68,5 @@ export default {
 
 .content__header {
   margin-bottom: 44px;
-}
-
-@media (min-width: 1024px) {
-  .content__header {
-    display: flex;
-  }
-
-  .content__header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
 }
 </style>

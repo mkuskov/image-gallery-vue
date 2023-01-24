@@ -1,16 +1,19 @@
 <script lang="ts">
-  export default {
-    props: {
-        imageTitle: String,
-        image: String,
-    },
-  }
+export default {
+  props: {
+    imageTitle: String,
+    image: String,
+  },
+};
 </script>
 
 <template>
   <v-card class="card">
-    <img class="card__item" :src="image">
-    <p class="card__item-name">{{ imageTitle }}</p>
+    <img class="card__item"
+:src="image" />
+    <p class="card__item-name">
+      {{ imageTitle }}
+    </p>
   </v-card>
 </template>
 
@@ -26,7 +29,7 @@
   height: 275px;
 }
 
-.card__item-name{
+.card__item-name {
   font-weight: 600;
   width: 100%;
   position: absolute;

@@ -1,24 +1,32 @@
 <script lang="ts">
-import { useTheme } from 'vuetify'
+import { useTheme } from "vuetify";
 
 export default {
   setup() {
-    const theme = useTheme()
+    const theme = useTheme();
     return {
       theme,
-      toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'lightTheme' : 'darkTheme'
-    }
+      toggleTheme: () =>
+        (theme.global.name.value = theme.global.current.value.dark
+          ? "lightTheme"
+          : "darkTheme"),
+    };
   },
-}
+};
 </script>
 
 <template>
-    <div class="header__heading">
-      <h1 class="header__info">Image Gallery</h1>
-      <v-btn color="transparent" icon="mdi-white-balance-sunny" size="x-small" class="header__icon"
-        @click="toggleTheme">
-      </v-btn>
-    </div>
+  <div class="header__heading">
+    <h1 class="header__info">Image Gallery</h1>
+    <v-btn
+      color="transparent"
+      icon="mdi-white-balance-sunny"
+      size="x-small"
+      class="header__icon"
+      @click="toggleTheme"
+    >
+    </v-btn>
+  </div>
 </template>
 
 <style>

@@ -1,16 +1,26 @@
 <script lang="ts">
 import ImageComponent from "./UI/ImageComponent.vue";
+import { mapState } from "vuex";
 
 export default {
-    components: {
-      ImageComponent,
-    },
-}
+  components: {
+    ImageComponent,
+  },
+  mounted() {
+    this.$store.dispatch("loadItems");
+  },
+  computed: mapState(["items"]),
+};
 </script>
 
 <template>
   <div id="image-gallery">
-    <ImageComponent v-for="images in $store.state.GALLERY_DATA" :imageTitle="images.name" :image="images.img"/>
+    <ImageComponent
+      v-for="images in $store.state.galleryData"
+      :imageTitle="images.name"
+      :image="images.img"
+      :key="images.id"
+    />
   </div>
 </template>
 

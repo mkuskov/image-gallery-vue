@@ -1,18 +1,27 @@
 <script lang="ts">
-import GALLERY_DATA from '@/mocks/gallery-data';
+import { mapState } from "vuex";
 
 export default {
   data() {
     return {
       page: 1,
-    }
+    };
   },
-}
+  computed: mapState(["items"]),
+};
 </script>
 
 <template>
   <div class="pagination">
-    <v-pagination v-model="page" length="3" class="pagination__item" @click="$store.dispatch('changePage', page)"/>
+    <v-pagination
+      v-model="page"
+      :length="3"
+      class="pagination__item"
+      @click="
+        $store.dispatch('changePage', page);
+        $store.dispatch('loadItems');
+      "
+    />
   </div>
 </template>
 
@@ -20,7 +29,7 @@ export default {
 .pagination {
   width: 30%;
   margin-top: 20px;
-  float: right
+  float: right;
 }
 
 .v-pagination__item--is-active {
