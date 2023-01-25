@@ -18,13 +18,21 @@ export default {
 <template>
   <v-app>
     <div class="filters-data">
-      <p class="filters-data__item">title: {{ $store.state.filterByTitle }}</p>
+      <p class="filters-data__item">
+        title: {{ $store.state.filterByTitle }}
+      </p>
       <p class="filters-data__item">
         author: {{ $store.state.filterByAuthor }}
       </p>
-      <p class="filters-data__item">place: {{ $store.state.filterByPlace }}</p>
-      <p class="filters-data__item">date: {{ $store.getters.filterByDate }}</p>
-      <p class="filters-data__item">page: {{ $store.state.pages }}</p>
+      <p class="filters-data__item">
+        place: {{ $store.state.filterByPlace }}
+      </p>
+      <p class="filters-data__item">
+        date: {{ $store.getters.filterByDate }}
+      </p>
+      <p class="filters-data__item">
+        page: {{ $store.state.pages }}
+      </p>
     </div>
 
     <div id="app"

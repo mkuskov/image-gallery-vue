@@ -2,8 +2,8 @@
 export default {
   data() {
     return {
-      startDate: "01.01.0001",
-      endDate: "01.01.2023",
+      startDate: "2015-08-04",
+      endDate: "2015-08-12",
       dateToSearch: "",
     };
   },
@@ -12,7 +12,7 @@ export default {
 
 <template>
   <details class="dropdown-date"
-id="dropdown-date">
+    id="dropdown-date">
     <summary class="dropdown-date__radio">
       <input
         type="radio"
@@ -20,7 +20,7 @@ id="dropdown-date">
         name="dateField"
         id="default"
         :title="
-          $store.state.startDate === '' ? 'Дата' : $store.getters.filterByDate
+          $store.state.startDate === '' ? 'Дата' : `${startDate} — ${endDate}`
         "
         checked
       />
@@ -29,16 +29,18 @@ id="dropdown-date">
       <li class="dropdown-date__list-item">
         <input
           for="date"
+          type="date"
           class="dropdown-date__list-input"
           v-model="startDate"
-          @change="$store.dispatch('addStartDate', startDate)"
+          @change="$store.dispatch('addStartDate', new Date(startDate).getTime())"
         />
         —
         <input
           for="date"
+          type="date"
           class="dropdown-date__list-input"
           v-model="endDate"
-          @change="$store.dispatch('addEndDate', endDate)"
+          @change="$store.dispatch('addEndDate', new Date(endDate).getTime())"
         />
       </li>
     </ul>
@@ -124,18 +126,10 @@ id="dropdown-date">
 
 .dropdown-date__list-input {
   margin-top: 5%;
-  width: 90px;
+  width: 101px;
   padding: 6px;
   border-radius: 5px;
   background-color: rgb(var(--v-theme-primary-100));
-}
-
-.dropdown-date__list-input:first-child {
-  margin-right: 10px;
-}
-
-.dropdown-date__list-input:last-child {
-  margin-left: 10px;
 }
 
 .dropdown-date__list-item:first-child {

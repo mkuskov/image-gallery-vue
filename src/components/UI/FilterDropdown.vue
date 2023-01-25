@@ -31,7 +31,7 @@ export default {
 
 <template>
   <details class="dropdown"
-id="dropdown">
+    id="dropdown">
     <summary class="dropdown__radios">
       <input
         type="radio"
@@ -69,7 +69,7 @@ id="dropdown">
         :key="items.id"
       >
         <label :for="items.id + dropdownTitle"
-class="dropdown__label">
+        class="dropdown__label">
           {{ dropdownTitle === "Автор" ? items.author : items.place }}
         </label>
       </li>
