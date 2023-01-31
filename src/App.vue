@@ -12,7 +12,8 @@ export default {
     ModalComponent,
   },
   data() {
-    return {};
+    return {
+    };
   },
 };
 </script>
