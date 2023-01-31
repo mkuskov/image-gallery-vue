@@ -1,0 +1,100 @@
+{
+    "gallery-data": [
+        {
+            "name": "Постоянство памяти",
+            "img": "https://uploads6.wikiart.org/images/salvador-dali/the-persistence-of-memory-1931.jpg!Large.jpg",
+            "author": "Сальвадор Дали",
+            "date": "1438387200000",
+            "place": "Частная коллекция",
+            "id": "1"
+        },
+        {
+            "name": "Метаморфозы нарцисса",
+            "img": "https://paintingplanet.ru/pictures/image716_1.jpg",
+            "author": "Сальвадор Дали",
+            "date": "1439164800000",
+            "place": "Музей Каподимонте",
+            "id": "2"
+        },
+        {
+            "name": "Бал в Мулен де ла Галетт",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pierre-Auguste_Renoir%2C_Le_Moulin_de_la_Galette.jpg/1200px-Pierre-Auguste_Renoir%2C_Le_Moulin_de_la_Galette.jpg",
+            "author": "Пьер Огюст Ренуар",
+            "date": "1431388800000",
+            "place": "Музей Орсе",
+            "id": "3"
+        },
+        {
+            "name": "Влюблённые",
+            "img": "https://radiovan.fm/uploads/article/42055de46cf698216_5de46cf694d6c.jpg",
+            "author": "Рене Магритта",
+            "date": "1438387200000",
+            "place": "Частная коллекция",
+            "id": "4"
+        },
+        {
+            "name": "Утро в сосновом лесу",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg/1200px-Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg",
+            "author": "Иван Шишкин",
+            "date": "1439164800000",
+            "place": "Частная коллекция",
+            "id": "5"
+        },
+        {
+            "name": "Танцующие феи",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/4/46/August_Malmstr%C3%B6m_-_Dancing_Fairies_-_Google_Art_Project.jpg",
+            "author": "Август Мальмстрём",
+            "date": "1438387200000",
+            "place": "Государственная Третьяковская галерея",
+            "id": "6"
+        },
+        {
+            "name": "Радуга",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/b/b2/The_Rainbow_in_the_Berkshire_Hills_by_George_Inness%2C_1869.jpg",
+            "author": "Джордж Иннесс",
+            "date": "1439164800000",
+            "place": "Лувр",
+            "id": "7"
+        },
+        {
+            "name": "Собаки играют в покер",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Hisstationand4aces-coolidge.jpg",
+            "author": "Кассиус Маркеллус Кулидж",
+            "date": "1431388800000",
+            "place": "Уффици",
+            "id": "8"
+        },
+        {
+            "name": "Рассвет",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/4/47/Daybreak_by_Parrish_%281922%29.jpg",
+            "author": "Максфилд Пэрриш",
+            "date": "1438387200000",
+            "place": "Государственная Третьяковская галерея",
+            "id": "9"
+        },
+        {
+            "name": "Авраам и ангелы",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Gaspare_Diziani_da_Belluno_-_Abraham_and_the_Angels_-_MNK_XII-A-92_-_National_Museum_Krak%C3%B3w.jpg/1260px-Gaspare_Diziani_da_Belluno_-_Abraham_and_the_Angels_-_MNK_XII-A-92_-_National_Museum_Krak%C3%B3w.jpg",
+            "author": "Дициани Гаспаро",
+            "date": "1438387200000",
+            "place": "Государственный Эрмитаж",
+            "id": "10"
+        },
+        {
+            "name": "Внутренний двор старой резиденции",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Adolf_Hitler_Der_Alte_Hof.jpg/1200px-Adolf_Hitler_Der_Alte_Hof.jpg",
+            "author": "Адольф Гитлер",
+            "date": "1438387200000",
+            "place": "Музеи Ватикана",
+            "id": "11"
+        },
+        {
+            "name": "Люди прогресса",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Christian_Schussele_-_Men_of_Progress_-_Google_Art_Project.jpg/1200px-Christian_Schussele_-_Men_of_Progress_-_Google_Art_Project.jpg",
+            "author": "Шусселе Кристиан",
+            "date": "1431388800000",
+            "place": "Государственный Эрмитаж",
+            "id": "12"
+        }
+    ]
+}

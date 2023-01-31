@@ -1,43 +1,55 @@
-<script setup lang="ts">
-import { RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
-import Pagination from "./components/Pagination.vue";
+<script lang="ts">
+import GalleryComponent from "./components/GalleryComponent.vue";
+import HeaderGallery from "./components/HeaderGallery.vue";
+import PaginationGallery from "./components/PaginationGallery.vue";
+import ModalComponent from "./components/UI/ModalComponent.vue";
+
+export default {
+  components: {
+    GalleryComponent,
+    HeaderGallery,
+    PaginationGallery,
+    ModalComponent,
+  },
+  data() {
+    return {};
+  },
+};
 </script>
 
 <template>
-  <div id="app">
-    <header>
-      <div class="wrapper">
-        <HelloWorld msg="Image Gallery" />
+  <v-app>
+    <ModalComponent />
+    <div id="app" class="content">
+      <div class="content__header">
+        <HeaderGallery />
       </div>
-    </header>
-
-    <RouterView />
-    <Pagination />
-  </div>
+      <div class="content__gallery">
+        <GalleryComponent />
+      </div>
+      <div class="content__pagination">
+        <PaginationGallery />
+      </div>
+    </div>
+  </v-app>
 </template>
 
-<style scoped>
-#app {
+<style>
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+}
+
+.content {
+  width: 1280px;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
   padding: 44px;
 }
 
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+.content__header {
   margin-bottom: 44px;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
 }
 </style>
