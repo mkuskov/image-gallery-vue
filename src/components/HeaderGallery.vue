@@ -1,18 +1,21 @@
 <script lang="ts">
 import FiltersComponent from "./FiltersComponent.vue";
-import HeaderComponent from "./UI/HeadingComponent.vue";
+import HeadingComponent from "./UI/HeadingComponent.vue";
+import ModalOpenButton from "./UI/ModalOpenButton.vue";
 
 export default {
   components: {
     FiltersComponent,
-    HeaderComponent,
+    HeadingComponent,
+    ModalOpenButton,
   },
 };
 </script>
 
 <template>
   <div class="container">
-    <HeaderComponent />
+    <HeadingComponent />
+    <ModalOpenButton />
     <FiltersComponent />
   </div>
 </template>

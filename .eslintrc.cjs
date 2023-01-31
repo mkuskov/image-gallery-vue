@@ -17,11 +17,31 @@ module.exports = {
       "error",
       {
         singleline: {
-          max: 1,
+          max: 2,
         },
         multiline: {
-          max: 1,
+          max: 10,
         },
+      },
+    ],
+    "vue/no-unused-vars": [
+      "error",
+      {
+        ignorePattern: "^_",
+      },
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+        printWidth: 80,
+        trailingComma: "es5",
+        semi: true,
+        doubleQuote: true,
+        jsxSingleQuote: true,
+        singleQuote: false,
+        useTabs: false,
+        tabWidth: 2,
       },
     ],
   },

@@ -7,6 +7,7 @@ const URL = "http://localhost:3000/gallery-data";
 export default createStore({
   state: {
     galleryData: [],
+    showModal: false,
     dataForFilters: [],
     filterByTitle: "",
     filterByAuthor: "",
@@ -35,13 +36,18 @@ export default createStore({
           };
         }
       );
+
       const noSameValues = _.uniqBy(newArr, function (item: any) {
         return item.author, item.place;
       });
+
       return noSameValues;
     },
   },
   mutations: {
+    SET_MODAL(state, payload) {
+      state.showModal = payload;
+    },
     SET_ITEMS(state, items) {
       state.galleryData = items;
     },
@@ -83,6 +89,11 @@ export default createStore({
         .then((galleryData) => {
           commit("SET_ITEMS", galleryData);
         });
+    },
+    changeModalStatus(context, payload) {
+      let modal = context.state.showModal;
+      modal = payload;
+      context.commit("SET_MODAL", modal);
     },
     loadItemsForFilters({ commit }) {
       axios

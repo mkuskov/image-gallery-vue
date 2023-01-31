@@ -12,13 +12,19 @@ export default {
   },
   methods: {
     handleAuthor(event: InputRadioEvent) {
+      // получение из @change добавленного title
       const data = event.target.title;
+      // вызов addPlace с data
       this.$store.dispatch("addAuthor", data);
+      // обновление массива картин
       return this.$store.dispatch("loadItems");
     },
     handlePlace(event: InputRadioEvent) {
+      // получение из @change добавленного title
       const data = event.target.title;
+      // вызов addPlace с data
       this.$store.dispatch("addPlace", data);
+      // обновление массива картин
       return this.$store.dispatch("loadItems");
     },
   },
@@ -30,8 +36,7 @@ export default {
 </script>
 
 <template>
-  <details class="dropdown"
-    id="dropdown">
+  <details class="dropdown" id="dropdown">
     <summary class="dropdown__radios">
       <input
         type="radio"
@@ -68,8 +73,7 @@ export default {
         class="dropdown__list-item"
         :key="items.id"
       >
-        <label :for="items.id + dropdownTitle"
-        class="dropdown__label">
+        <label :for="items.id + dropdownTitle" class="dropdown__label">
           {{ dropdownTitle === "Автор" ? items.author : items.place }}
         </label>
       </li>

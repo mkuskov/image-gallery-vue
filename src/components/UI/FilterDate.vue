@@ -11,8 +11,7 @@ export default {
 </script>
 
 <template>
-  <details class="dropdown-date"
-    id="dropdown-date">
+  <details class="dropdown-date" id="dropdown-date">
     <summary class="dropdown-date__radio">
       <input
         type="radio"
@@ -32,7 +31,9 @@ export default {
           type="date"
           class="dropdown-date__list-input"
           v-model="startDate"
-          @change="$store.dispatch('addStartDate', new Date(startDate).getTime())"
+          @change="
+            $store.dispatch('addStartDate', new Date(startDate).getTime())
+          "
         />
         —
         <input

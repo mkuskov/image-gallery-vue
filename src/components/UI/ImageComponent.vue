@@ -9,8 +9,7 @@ export default {
 
 <template>
   <v-card class="card">
-    <img class="card__item"
-:src="image" />
+    <img class="card__item" :src="image" />
     <p class="card__item-name">
       {{ imageTitle }}
     </p>

@@ -5,7 +5,7 @@
             "img": "https://uploads6.wikiart.org/images/salvador-dali/the-persistence-of-memory-1931.jpg!Large.jpg",
             "author": "Сальвадор Дали",
             "date": "1438387200000",
-            "place": "Испания",
+            "place": "Частная коллекция",
             "id": "1"
         },
         {
@@ -13,7 +13,7 @@
             "img": "https://paintingplanet.ru/pictures/image716_1.jpg",
             "author": "Сальвадор Дали",
             "date": "1439164800000",
-            "place": "Испания",
+            "place": "Музей Каподимонте",
             "id": "2"
         },
         {
@@ -21,7 +21,7 @@
             "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pierre-Auguste_Renoir%2C_Le_Moulin_de_la_Galette.jpg/1200px-Pierre-Auguste_Renoir%2C_Le_Moulin_de_la_Galette.jpg",
             "author": "Пьер Огюст Ренуар",
             "date": "1431388800000",
-            "place": "Германия",
+            "place": "Музей Орсе",
             "id": "3"
         },
         {
@@ -29,7 +29,7 @@
             "img": "https://radiovan.fm/uploads/article/42055de46cf698216_5de46cf694d6c.jpg",
             "author": "Рене Магритта",
             "date": "1438387200000",
-            "place": "Франция",
+            "place": "Частная коллекция",
             "id": "4"
         },
         {
@@ -37,7 +37,7 @@
             "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg/1200px-Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg",
             "author": "Иван Шишкин",
             "date": "1439164800000",
-            "place": "Россия",
+            "place": "Частная коллекция",
             "id": "5"
         },
         {
@@ -45,7 +45,7 @@
             "img": "https://upload.wikimedia.org/wikipedia/commons/4/46/August_Malmstr%C3%B6m_-_Dancing_Fairies_-_Google_Art_Project.jpg",
             "author": "Август Мальмстрём",
             "date": "1438387200000",
-            "place": "Италия",
+            "place": "Государственная Третьяковская галерея",
             "id": "6"
         },
         {
@@ -53,7 +53,7 @@
             "img": "https://upload.wikimedia.org/wikipedia/commons/b/b2/The_Rainbow_in_the_Berkshire_Hills_by_George_Inness%2C_1869.jpg",
             "author": "Джордж Иннесс",
             "date": "1439164800000",
-            "place": "Китай",
+            "place": "Лувр",
             "id": "7"
         },
         {
@@ -61,7 +61,7 @@
             "img": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Hisstationand4aces-coolidge.jpg",
             "author": "Кассиус Маркеллус Кулидж",
             "date": "1431388800000",
-            "place": "Япония",
+            "place": "Уффици",
             "id": "8"
         },
         {
@@ -69,7 +69,7 @@
             "img": "https://upload.wikimedia.org/wikipedia/commons/4/47/Daybreak_by_Parrish_%281922%29.jpg",
             "author": "Максфилд Пэрриш",
             "date": "1438387200000",
-            "place": "Египет",
+            "place": "Государственная Третьяковская галерея",
             "id": "9"
         },
         {
@@ -77,7 +77,7 @@
             "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Gaspare_Diziani_da_Belluno_-_Abraham_and_the_Angels_-_MNK_XII-A-92_-_National_Museum_Krak%C3%B3w.jpg/1260px-Gaspare_Diziani_da_Belluno_-_Abraham_and_the_Angels_-_MNK_XII-A-92_-_National_Museum_Krak%C3%B3w.jpg",
             "author": "Дициани Гаспаро",
             "date": "1438387200000",
-            "place": "Кахастан",
+            "place": "Государственный Эрмитаж",
             "id": "10"
         },
         {
@@ -85,7 +85,7 @@
             "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Adolf_Hitler_Der_Alte_Hof.jpg/1200px-Adolf_Hitler_Der_Alte_Hof.jpg",
             "author": "Адольф Гитлер",
             "date": "1438387200000",
-            "place": "Мексика",
+            "place": "Музеи Ватикана",
             "id": "11"
         },
         {
@@ -93,7 +93,7 @@
             "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Christian_Schussele_-_Men_of_Progress_-_Google_Art_Project.jpg/1200px-Christian_Schussele_-_Men_of_Progress_-_Google_Art_Project.jpg",
             "author": "Шусселе Кристиан",
             "date": "1431388800000",
-            "place": "Панама",
+            "place": "Государственный Эрмитаж",
             "id": "12"
         }
     ]
