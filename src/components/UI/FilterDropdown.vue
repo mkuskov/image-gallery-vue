@@ -14,7 +14,7 @@ export default {
     handleAuthor(event: InputRadioEvent) {
       // получение из @change добавленного title
       const data = event.target.title;
-      // вызов addPlace с data
+      // вызов addPlace и передачата в него data
       this.$store.dispatch("addAuthor", data);
       // обновление массива картин
       return this.$store.dispatch("loadItems");
@@ -22,7 +22,7 @@ export default {
     handlePlace(event: InputRadioEvent) {
       // получение из @change добавленного title
       const data = event.target.title;
-      // вызов addPlace с data
+      // вызов addPlace и передачата в него data
       this.$store.dispatch("addPlace", data);
       // обновление массива картин
       return this.$store.dispatch("loadItems");
@@ -53,12 +53,12 @@ export default {
         disabled
       />
       <input
-        :key="items.id"
         v-for="items in $store.getters.removeSameValues"
         type="radio"
         class="dropdown__input"
         :name="dropdownTitle"
         :id="items.id + dropdownTitle"
+        :key="items.id"
         @change="
           dropdownTitle === 'Автор'
             ? handleAuthor($event as InputRadioEvent)
@@ -101,7 +101,7 @@ details[open] {
 }
 
 .dropdown[open] .dropdown__radios {
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 1px 1px;
   border: 1px solid;
   border-bottom: 1px solid rgb(var(--v-theme-primary-300));
 }
@@ -113,7 +113,6 @@ details[open] {
 .dropdown[open] .dropdown__radios:before {
   content: "";
   display: block;
-  background: transparent;
   position: fixed;
   top: 0;
   left: 0;
@@ -125,8 +124,8 @@ details[open] {
   margin-top: 5px;
   width: 0.5rem;
   height: 0.5rem;
-  border-bottom: 1px solid currentColor;
-  border-left: 1px solid currentColor;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
   transform: rotate(45deg) translate(50%, 0%);
   transform-origin: center center;
   transition: transform ease-in-out 100ms;
@@ -153,13 +152,12 @@ details[open] {
   border: 1px solid;
   max-height: 200px;
   overflow-y: auto;
-  border-top: 1px solid transparent;
+  border-top: none;
 }
 
 .dropdown__list-item {
   margin: 0;
   padding: 5px;
-  border-bottom: 1px solid transparent;
 }
 
 .dropdown__list-item:first-child {
@@ -198,7 +196,6 @@ details[open] {
 }
 
 .dropdown__list.list {
-  border-top: transparent;
   counter-reset: labels;
 }
 

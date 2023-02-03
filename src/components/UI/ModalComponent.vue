@@ -3,6 +3,14 @@ export default {
   components: {},
   data() {
     return {
+      newImage: {
+          name: '',
+          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg/1200px-Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg',
+          author: '',
+          date: '',
+          place: '',
+          id: '',
+      },
       valid: true,
       inputRules: [
         (value) => !!value || "Name is required",
@@ -10,12 +18,53 @@ export default {
         (value) => (value || "").length < 5 && "Min 5 characters",
       ],
       selectRules: [(value) => !!value || "This field is required"],
-      items: ["Foo", "Bar", "Fizz", "Buzz"],
+      authors: [
+        "Иван Айвазовский",
+        "Карл Брюллов",
+        "Эдгар Дега",
+        "Александр Иванов",
+        "Павел Федотов",
+        "Эдуард Мане",
+        "Поль Сезанн",
+        "Орест Кипренский",
+        "Виктор Васнецов",
+        "Исаак Левитан",
+        "Иван Крамской"
+      ],
+      places: [
+        "Лувр",
+        "Британский музей",
+        "Лондонская национальная галерея",
+        "Метрополитен-музей",
+        "Музеи Ватикана",
+        "Современная галерея Тейт",
+        "Музей императорского дворца",
+        "Национальная галерея искусства",
+        "Национальный музей Кореи",
+        "Музей Орсе",
+        "Государственный музей современного искусства",
+        "Национальный фольклорный музей Кореи",
+      ],
+      dates: [
+        "12.03.1897",
+        "16.12.1546",
+        "12.04.1477",
+        "13.07.1887",
+        "02.01.1076",
+        "26.10.1896",
+        "16.03.1957",
+        "07.06.1674",
+      ]
     };
   },
   methods: {
     validate() {
-      this.$refs.form.validate();
+      this.$store.dispatch("newItem", this.newImage);
+      this.$store.dispatch("addItems");
+      this.$store.dispatch("loadItemsForFilters");
+      setTimeout(() => {
+        return this.$store.dispatch("loadItems");
+      }, 350);
     },
   },
 };
@@ -38,28 +87,32 @@ export default {
           required
           label="Название картины *"
           :rules="inputRules"
+          v-model="newImage.name"
           class="modal__input"
         ></v-text-field>
         <v-select
           required
-          :items="items"
+          :items="authors"
           :rules="selectRules"
+          v-model="newImage.author"
           filled
           label="Автор *"
           class="modal__select"
         ></v-select>
         <v-select
           required
-          :items="items"
+          :items="places"
           :rules="selectRules"
+          v-model="newImage.place"
           filled
           label="Место *"
           class="modal__select"
         ></v-select>
         <v-select
           required
-          :items="items"
+          :items="dates"
           :rules="selectRules"
+          v-model="newImage.date"
           filled
           label="Дата *"
           class="modal__select"
@@ -70,7 +123,7 @@ export default {
         :disabled="!valid"
         @click="validate"
       >
-      Добавить
+        Добавить
       </v-btn>
     </v-card>
   </portal>

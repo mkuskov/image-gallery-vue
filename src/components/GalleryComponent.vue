@@ -6,30 +6,51 @@ export default {
   components: {
     ImageComponent,
   },
+  methods: {
+    openImage() {
+      setTimeout(() => {
+        const currentImage = this.$store.state.galleryData.filter((item) => item.id == this.$route.params.id);
+        return this.$store.dispatch("currentImage", currentImage);
+      }, 50);
+    }
+  },
   mounted() {
     this.$store.dispatch("loadItems");
   },
-  computed: mapState(["items"]),
+  computed:
+    mapState(["items"]),
 };
 </script>
 
 <template>
-  <div id="image-gallery">
-    <ImageComponent
-      v-for="images in $store.state.galleryData"
-      :imageTitle="images.name"
-      :image="images.img"
-      :key="images.id"
-    />
+  <div class="image-gallery">
+    <router-link :to="`/pictures/${images.id}`" v-for="images in $store.state.galleryData" @click="openImage">
+      <ImageComponent
+        :imageTitle="images.name"
+        :image="images.img"
+        :key="images.id"
+        class="image-gallery__item"
+      />
+    </router-link>
   </div>
 </template>
 
 <style>
-#image-gallery {
+.image-gallery {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: stretch;
   gap: 20px;
+}
+
+.image-gallery__item {
+  transition: .1s;
+  cursor: pointer;
+}
+
+.image-gallery__item:hover {
+  transition: .25s;
+  transform: scale(1.02);
 }
 
 @media (max-width: 1280px) {

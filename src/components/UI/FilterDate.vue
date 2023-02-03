@@ -70,7 +70,7 @@ export default {
 .dropdown-date[open] .dropdown-date__radio {
   border-radius: 10px 10px 0 0;
   border: 1px solid;
-  border-bottom: 1px solid transparent;
+  border-bottom: none;
 }
 
 .dropdown-date__radio::-webkit-details-marker {
@@ -116,13 +116,13 @@ export default {
   position: absolute;
   left: 0;
   border: 1px solid;
-  border-top: 1px solid transparent;
+  border-top: none;
 }
 
 .dropdown-date__list-item {
   margin-left: 6px;
   display: inline;
-  border-bottom: 1px solid transparent;
+  border-bottom: none;
 }
 
 .dropdown-date__list-input {
