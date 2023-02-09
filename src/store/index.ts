@@ -1,12 +1,14 @@
 import { createStore } from "vuex";
-import galleryActions from "./modules/actions/actions";
-import galleryMutations from "./modules/mutations/mutations";
-import galleryGetters from "./modules/getters/getters";
-import galleryState from "./modules/state";
+import galleryModule from './modules/galleryModule';
+import filtersModule from './modules/filtersModule';
+import authorsModule from './modules/authorsModule';
+import placesModule from './modules/placesModule';
 
 export default createStore({
-  state: galleryState,
-  getters: galleryGetters,
-  mutations: galleryMutations,
-  actions: galleryActions,
+	modules: {
+		gallery: galleryModule,
+		filters: filtersModule,
+		authors: authorsModule,
+		places: placesModule,
+	},
 });

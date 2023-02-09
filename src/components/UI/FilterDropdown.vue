@@ -53,7 +53,7 @@ export default {
         disabled
       />
       <input
-        v-for="items in $store.getters.removeSameValues"
+        v-for="items in data"
         type="radio"
         class="dropdown__input"
         :name="dropdownTitle"
@@ -69,7 +69,7 @@ export default {
     </summary>
     <ul class="dropdown__list">
       <li
-        v-for="items in $store.getters.removeSameValues"
+        v-for="items in data"
         class="dropdown__list-item"
         :key="items.id"
       >

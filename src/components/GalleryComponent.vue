@@ -9,7 +9,7 @@ export default {
   methods: {
     openImage() {
       setTimeout(() => {
-        const currentImage = this.$store.state.galleryData.filter((item) => item.id == this.$route.params.id);
+        const currentImage = this.$store.state.gallery.galleryData.filter((item) => item.id == this.$route.params.id);
         return this.$store.dispatch("currentImage", currentImage);
       }, 50);
     }
@@ -24,7 +24,11 @@ export default {
 
 <template>
   <div class="image-gallery">
-    <router-link :to="`/pictures/${images.id}`" v-for="images in $store.state.galleryData" @click="openImage">
+    <router-link
+      :to="`/pictures/${images.id}`"
+      v-for="images in $store.state.gallery.galleryData"
+      @click="openImage"
+    >
       <ImageComponent
         :imageTitle="images.name"
         :image="images.img"

@@ -13,11 +13,11 @@ export default {
       },
       valid: true,
       inputRules: [
-        (value) => !!value || "Name is required",
-        (value) => (value || "").length > 100 && "Max 100 characters",
-        (value) => (value || "").length < 5 && "Min 5 characters",
+        (value: string) => !!value || "Name is required",
+        (value: string) => (value || "").length > 100 && "Max 100 characters",
+        (value: string) => (value || "").length < 5 && "Min 5 characters",
       ],
-      selectRules: [(value) => !!value || "This field is required"],
+      selectRules: [(value: string) => !!value || "This field is required"],
       authors: [
         "Иван Айвазовский",
         "Карл Брюллов",
@@ -61,71 +61,76 @@ export default {
     validate() {
       this.$store.dispatch("newItem", this.newImage);
       this.$store.dispatch("addItems");
-      this.$store.dispatch("loadItemsForFilters");
+      this.$store.dispatch('changeModalStatus', false);
       setTimeout(() => {
+        this.$store.dispatch("loadAuthorsList");
+        this.$store.dispatch("loadPlacesList");
         return this.$store.dispatch("loadItems");
-      }, 350);
+      }, 300);
     },
   },
 };
 </script>
 
 <template>
-  <portal to="destination" :disabled="$store.state.showModal">
-    <div class="modal"></div>
-    <v-card class="modal__content">
-      <v-form ref="form">
+  <portal to="destination" :disabled="$store.state.gallery.showModal">
+    <div class="modal">
+      <v-card class="modal__content">
+        <v-form ref="form">
+          <v-btn
+            class="modal__hide"
+            icon="mdi-eye-off"
+            size="small"
+            @click="
+              $store.dispatch('changeModalStatus', false);
+            "
+          ></v-btn>
+          <h2 class="modal__heading">Добавление картины в галерею</h2>
+          <br />
+          <v-text-field
+            required
+            label="Название картины *"
+            :rules="inputRules"
+            v-model="newImage.name"
+            class="modal__input"
+          ></v-text-field>
+          <v-select
+            required
+            :items="authors"
+            :rules="selectRules"
+            v-model="newImage.author"
+            filled
+            label="Автор *"
+            class="modal__select"
+          ></v-select>
+          <v-select
+            required
+            :items="places"
+            :rules="selectRules"
+            v-model="newImage.place"
+            filled
+            label="Место *"
+            class="modal__select"
+          ></v-select>
+          <v-select
+            required
+            :items="dates"
+            :rules="selectRules"
+            v-model="newImage.date"
+            filled
+            label="Дата *"
+            class="modal__select"
+          ></v-select>
+        </v-form>
         <v-btn
-          class="modal__hide"
-          icon="mdi-eye-off"
-          size="small"
-          @click="$store.dispatch('changeModalStatus', false)"
-        ></v-btn>
-        <h2 class="modal__heading">Добавление картины в галерею</h2>
-        <br />
-        <v-text-field
-          required
-          label="Название картины *"
-          :rules="inputRules"
-          v-model="newImage.name"
-          class="modal__input"
-        ></v-text-field>
-        <v-select
-          required
-          :items="authors"
-          :rules="selectRules"
-          v-model="newImage.author"
-          filled
-          label="Автор *"
-          class="modal__select"
-        ></v-select>
-        <v-select
-          required
-          :items="places"
-          :rules="selectRules"
-          v-model="newImage.place"
-          filled
-          label="Место *"
-          class="modal__select"
-        ></v-select>
-        <v-select
-          required
-          :items="dates"
-          :rules="selectRules"
-          v-model="newImage.date"
-          filled
-          label="Дата *"
-          class="modal__select"
-        ></v-select>
-      </v-form>
-      <v-btn
-        class="modal__done"
-        :disabled="!valid"
-        @click="validate"
-      >
-        Добавить
-      </v-btn>
-    </v-card>
+          class="modal__done"
+          :disabled="!valid"
+          @click="validate"
+        >
+          Добавить
+        </v-btn>
+      </v-card>
+    </div>
   </portal>
 </template>
 

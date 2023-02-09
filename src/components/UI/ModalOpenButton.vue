@@ -9,7 +9,9 @@ export default {
 <template>
   <v-btn
     class="modal-button"
-    @click="$store.dispatch('changeModalStatus', true)"
+    @click="
+      $store.dispatch('changeModalStatus', true);
+    "
   >
     Добавить картину
   </v-btn>

@@ -3,6 +3,7 @@ import GalleryComponent from "./GalleryComponent.vue";
 import HeaderGallery from "./HeaderGallery.vue";
 import PaginationGallery from "./PaginationGallery.vue";
 import ModalComponent from "./UI/ModalComponent.vue";
+import TheSpinnerLoading from "./UI/TheSpinnerLoading.vue";
 
 export default {
   components: {
@@ -10,6 +11,7 @@ export default {
     HeaderGallery,
     PaginationGallery,
     ModalComponent,
+    TheSpinnerLoading,
   },
   data() {
     return {};
@@ -19,6 +21,7 @@ export default {
 
 <template>
   <v-app>
+    <TheSpinnerLoading />
     <ModalComponent />
     <div id="app" class="content">
       <div class="content__header">

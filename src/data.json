@@ -83,7 +83,7 @@
     {
       "name": "Внутренний двор старой резиденции",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Adolf_Hitler_Der_Alte_Hof.jpg/1200px-Adolf_Hitler_Der_Alte_Hof.jpg",
-      "author": "Адольф Гитлер",
+      "author": "Неизвестный автор",
       "date": "1438387200000",
       "place": "Музеи Ватикана",
       "id": "11"
@@ -99,10 +99,18 @@
     {
       "name": "Тестовая картина",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg/1200px-Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg",
-      "author": "Карл Брюллов",
-      "date": "02.01.1076",
+      "author": "Эдгар Дега",
+      "date": "16.03.1957",
       "place": "Музеи Ватикана",
-      "id": "qzg8cRK"
+      "id": "8tMcbSG"
+    },
+    {
+      "name": "Картина",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg/1200px-Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg",
+      "author": "Карл Брюллов",
+      "date": "16.03.1957",
+      "place": "Современная галерея Тейт",
+      "id": "0Tjvg2S"
     }
   ]
 }

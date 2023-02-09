@@ -19,7 +19,7 @@ export default {
         name="dateField"
         id="default"
         :title="
-          $store.state.startDate === '' ? 'Дата' : `${startDate} — ${endDate}`
+          $store.state.filters.startDate === '' ? 'Дата' : `${startDate} — ${endDate}`
         "
         checked
       />
