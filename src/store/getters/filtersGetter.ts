@@ -1,5 +1,3 @@
-import _ from "lodash";
-
 const filtersGetters = {
   // removeSameValues: function(state) {
   //   const newArr = JSON.parse(JSON.stringify(state.authorsList)).map(

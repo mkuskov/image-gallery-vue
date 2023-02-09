@@ -10,8 +10,16 @@ export default {
 </script>
 
 <template>
-    <div class="current-image" v-for="data in $store.state.gallery.currentImage">
-        <img class="current-image__image" :src="data.img" alt="b">
+    <div
+        class="current-image"
+        v-for="data in $store.state.gallery.currentImage"
+        :key="data.id"
+    >
+        <img
+            class="current-image__image"
+            :src="data.img"
+            alt="b"
+        >
         <div class="current-image__info">
             <h1>
                 {{data.name}}

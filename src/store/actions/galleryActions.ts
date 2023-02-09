@@ -39,29 +39,19 @@ const galleryActions = {
       }
     },
     newItem(context, payload) {
-      let newItem = context.state.showModal;
-      newItem = payload;
-      context.commit("ADD_NEW_IMAGE", newItem);
+      context.commit("ADD_NEW_IMAGE", payload);
     },
     changeModalStatus(context, payload) {
-      let modal = context.state.showModal;
-      modal = payload;
-      context.commit("SET_MODAL", modal);
+      context.commit("SET_MODAL", payload);
     },
     loadingStatus(context, payload) {
-      let loading = context.state.addNewImage;
-      loading = payload;
-      context.commit("SET_LOADING", loading);
+      context.commit("SET_LOADING", payload);
     },
     currentImage(context, payload) {
-      let image = context.state.filterByTitle;
-      image = payload;
-      context.commit("CURRENT_IMAGE", image);
+      context.commit("CURRENT_IMAGE", payload);
     },
     addNewImage(context, payload) {
-      let add = context.state.addNewImage;
-      add = payload;
-      context.commit("ADD_NEW_IMAGE", add);
+      context.commit("ADD_NEW_IMAGE", payload);
     },
 }
 

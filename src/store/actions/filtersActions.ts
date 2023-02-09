@@ -20,24 +20,16 @@ const filtersActions = {
         });
     },
     addImageTitle(context, payload) {
-      let title = context.state.filterByTitle;
-      title = payload;
-      context.commit("UPDATE_IMAGE_TITLE", title);
+      context.commit("UPDATE_IMAGE_TITLE", payload);
     },
     addStartDate(context, payload) {
-      let date = context.state.startDate;
-      date = payload;
-      context.commit("UPDATE_START_DATE", date);
+      context.commit("UPDATE_START_DATE", payload);
     },
     addEndDate(context, payload) {
-    let date = context.state.endDate;
-      date = payload;
-      context.commit("UPDATE_END_DATE", date);
+      context.commit("UPDATE_END_DATE", payload);
     },
     changePage(context, payload) {
-      let page = context.state.pages;
-      page = payload;
-      context.commit("UPDATE_PAGE", page);
+      context.commit("UPDATE_PAGE", payload);
     },
 }
 

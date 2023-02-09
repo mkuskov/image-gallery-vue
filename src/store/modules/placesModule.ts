@@ -9,9 +9,7 @@ const placesModule = {
 	},
   actions: {
 		addPlace(context, payload) {
-            let place = context.state.filterByPlace;
-            place = payload;
-            context.commit("UPDATE_PLACE", place);
+            context.commit("UPDATE_PLACE", payload);
         },
 	},
 }

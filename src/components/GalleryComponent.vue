@@ -27,6 +27,7 @@ export default {
     <router-link
       :to="`/pictures/${images.id}`"
       v-for="images in $store.state.gallery.galleryData"
+      :key="images.id"
       @click="openImage"
     >
       <ImageComponent
