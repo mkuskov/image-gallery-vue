@@ -32,8 +32,8 @@ export default {
 <template>
   <div class="filters">
     <FilterInput />
-    <FilterDropdown dropdownTitle="Автор" :data="$store.state.gallery.authorsList" />
-    <FilterDropdown dropdownTitle="Место" :data="$store.state.gallery.placesList" />
+    <FilterDropdown dropdownTitle="Автор" :data="$store.state.filters.authorsList" />
+    <FilterDropdown dropdownTitle="Место" :data="$store.state.filters.placesList" />
     <FilterDate />
   </div>
 </template>

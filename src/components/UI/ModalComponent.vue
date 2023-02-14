@@ -1,11 +1,12 @@
 <script lang="ts">
+import type { AuthorsList, PlacesList } from '../interfaces/store';
+
 export default {
-  components: {},
   data() {
     return {
       newImage: {
           name: '',
-          img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg/1200px-Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg',
+          img: 'https://rare-gallery.com/mocahbig/437164-Thomas-Cole-painting-artwork-classic-art.jpg',
           author: '',
           date: '',
           place: '',
@@ -18,33 +19,6 @@ export default {
         (value: string) => (value || "").length < 5 && "Min 5 characters",
       ],
       selectRules: [(value: string) => !!value || "This field is required"],
-      authors: [
-        "Иван Айвазовский",
-        "Карл Брюллов",
-        "Эдгар Дега",
-        "Александр Иванов",
-        "Павел Федотов",
-        "Эдуард Мане",
-        "Поль Сезанн",
-        "Орест Кипренский",
-        "Виктор Васнецов",
-        "Исаак Левитан",
-        "Иван Крамской"
-      ],
-      places: [
-        "Лувр",
-        "Британский музей",
-        "Лондонская национальная галерея",
-        "Метрополитен-музей",
-        "Музеи Ватикана",
-        "Современная галерея Тейт",
-        "Музей императорского дворца",
-        "Национальная галерея искусства",
-        "Национальный музей Кореи",
-        "Музей Орсе",
-        "Государственный музей современного искусства",
-        "Национальный фольклорный музей Кореи",
-      ],
       dates: [
         "12.03.1897",
         "16.12.1546",
@@ -96,16 +70,20 @@ export default {
           ></v-text-field>
           <v-select
             required
-            :items="authors"
+            :items="$store.state.filters.authorsList.map((item: AuthorsList) => item.author)"
             :rules="selectRules"
             v-model="newImage.author"
             filled
             label="Автор *"
             class="modal__select"
-          ></v-select>
+          >
+            <template v-slot:author="{ author }">
+              {{ author }}
+            </template>
+          </v-select>
           <v-select
             required
-            :items="places"
+            :items="$store.state.filters.placesList.map((item: PlacesList) => item.place)"
             :rules="selectRules"
             v-model="newImage.place"
             filled

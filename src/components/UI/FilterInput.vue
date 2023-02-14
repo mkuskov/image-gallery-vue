@@ -23,7 +23,7 @@ export default {
 
 <style>
 .filters__input {
-  cursor: pointer;
+  cursor: text;
   display: flex;
   padding: 15px 150px 15px 15px;
   text-align: left;
@@ -31,5 +31,10 @@ export default {
   border: 1px solid rgb(var(--v-theme-primary-300));
   border-radius: 8px;
   border-radius: 8px;
+}
+
+.filters__input:focus {
+    outline: none;
+    border: 1px solid rgb(var(--v-theme-primary-900));
 }
 </style>

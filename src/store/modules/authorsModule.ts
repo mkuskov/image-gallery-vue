@@ -1,14 +1,16 @@
-import state from "../state";
+import type { Authors, Context } from "../../components/interfaces/store";
 
 const authorsModule = {
-    state: state,
+    state: {
+        author: ''
+    },
     mutations: {
-        UPDATE_AUTHOR(state, payload) {
-            state.filterByAuthor = payload;
+        UPDATE_AUTHOR(state: Authors, payload: string) {
+            state.author = payload;
         }
 	},
     actions: {
-        addAuthor(context, payload) {
+        addAuthor(context: Context, payload: Authors) {
             context.commit("UPDATE_AUTHOR", payload);
         },
     },

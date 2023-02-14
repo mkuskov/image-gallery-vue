@@ -95,22 +95,6 @@
       "date": "1431388800000",
       "place": "Государственный Эрмитаж",
       "id": "12"
-    },
-    {
-      "name": "Тестовая картина",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg/1200px-Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg",
-      "author": "Эдгар Дега",
-      "date": "16.03.1957",
-      "place": "Музеи Ватикана",
-      "id": "8tMcbSG"
-    },
-    {
-      "name": "Картина",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg/1200px-Shishkin%2C_Ivan_-_Morning_in_a_Pine_Forest.jpg",
-      "author": "Карл Брюллов",
-      "date": "16.03.1957",
-      "place": "Современная галерея Тейт",
-      "id": "0Tjvg2S"
     }
   ]
 }

@@ -29,7 +29,7 @@ export default {
     },
   },
   props: {
-    data: Array,
+    data: Object,
     dropdownTitle: String,
   },
 };
@@ -126,7 +126,7 @@ details[open] {
   height: 0.5rem;
   border-bottom: 1px solid;
   border-left: 1px solid;
-  transform: rotate(45deg) translate(50%, 0%);
+  transform: rotate(-45deg) translate(0%, 0%);
   transform-origin: center center;
   transition: transform ease-in-out 100ms;
 }
@@ -136,7 +136,7 @@ details[open] {
 }
 
 .dropdown[open] .dropdown__radios:after {
-  transform: rotate(-45deg) translate(0%, 0%);
+  transform: rotate(45deg) translate(50%, 0%);
 }
 
 .dropdown__list {

@@ -1,9 +1,14 @@
 import galleryActions from "../actions/galleryActions";
 import galleryMutations from "../mutations/galleryMutations";
-import state from "../state";
 
 const galleryModule = {
-    state: state,
+    state: {
+        galleryData: [],
+        addNewImage: {},
+        currentImage: {},
+        showModal: false,
+        spinner: false,
+    },
     mutations: galleryMutations,
     actions: galleryActions,
 }

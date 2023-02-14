@@ -1,26 +1,29 @@
+import type { AddNewImage, GalleryState, Context, RootState } from "@/components/interfaces/store";
 import axios from "axios";
 const URL = "http://localhost:3000/gallery-data";
 
+import type { Commit } from 'vuex';
+
 const galleryActions = {
-    async loadItems({ commit, state }) {
+    async loadItems({ commit, state, rootState }: { commit: Commit, state: GalleryState, rootState: RootState }) {
       state.spinner = true;
 
         try {
           const titleFilter =
-            state.filterByTitle !== "" ? `name=${state.filterByTitle}&` : "";
+            rootState.filters.filterByTitle ? `name=${rootState.filters.filterByTitle}&` : "";
           const authorFilter =
-            state.filterByAuthor !== "" ? `author=${state.filterByAuthor}&` : "";
+            rootState.authors.author ? `author=${rootState.authors.author}&` : "";
           const placeFilter =
-            state.filterByPlace !== "" ? `place=${state.filterByPlace}&` : "";
+            rootState.places.place ? `place=${rootState.places.place}&` : "";
 
-          const limitElements = '5';
+          const pageLimit = '5';
           const gallery = await axios
             .get(
-              `${URL}?${titleFilter}${authorFilter}${placeFilter}_page=${state.pages}&_limit=${limitElements}`
+              `${URL}?${titleFilter}${authorFilter}${placeFilter}_page=${rootState.filters.pages}&_limit=${pageLimit}`
             );
         setTimeout(() => {
           commit("SET_ITEMS", gallery.data);
-          state.pages = 1;
+          rootState.filters.pages = 1;
           state.spinner = false;
         }, 500);
         }
@@ -28,29 +31,27 @@ const galleryActions = {
           throw error;
         }
     },
-    async addItems({ commit, state }) {
+    async addItems({ state }: {state: GalleryState}) {
       try {
-        const addImage = await axios
-        .post(URL, state.addNewImage);
-        commit("SET_ITEMS", addImage);
+        await axios.post(URL, state.addNewImage);
       }
       catch (error) {
         throw error;
       }
     },
-    newItem(context, payload) {
+    newItem(context: Context, payload: AddNewImage) {
       context.commit("ADD_NEW_IMAGE", payload);
     },
-    changeModalStatus(context, payload) {
+    changeModalStatus(context: Context, payload: boolean) {
       context.commit("SET_MODAL", payload);
     },
-    loadingStatus(context, payload) {
+    loadingStatus(context: Context, payload: boolean) {
       context.commit("SET_LOADING", payload);
     },
-    currentImage(context, payload) {
+    currentImage(context: Context, payload: string) {
       context.commit("CURRENT_IMAGE", payload);
     },
-    addNewImage(context, payload) {
+    addNewImage(context: Context, payload: AddNewImage) {
       context.commit("ADD_NEW_IMAGE", payload);
     },
 }

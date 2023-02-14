@@ -1,14 +1,16 @@
-import state from "../state";
+import type { Places, Context } from "@/components/interfaces/store";
 
 const placesModule = {
-	state: state,
+	state: {
+        place: ''
+    },
 	mutations: {
-		UPDATE_PLACE(state, payload) {
-			state.filterByPlace = payload;
+		UPDATE_PLACE(state: Places, payload: string) {
+			state.place = payload;
 		},
 	},
   actions: {
-		addPlace(context, payload) {
+		addPlace(context: Context, payload: Places) {
             context.commit("UPDATE_PLACE", payload);
         },
 	},

@@ -9,7 +9,7 @@ export default {
   methods: {
     openImage() {
       setTimeout(() => {
-        const currentImage = this.$store.state.gallery.galleryData.filter((item) => item.id == this.$route.params.id);
+        const currentImage = this.$store.state.gallery.galleryData.filter((item: string) => item.id == this.$route.params.id);
         return this.$store.dispatch("currentImage", currentImage);
       }, 50);
     }
@@ -42,6 +42,7 @@ export default {
 
 <style>
 .image-gallery {
+  min-height: 570px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: stretch;
