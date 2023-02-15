@@ -1,4 +1,4 @@
-import type { Authors, Context } from "../../components/interfaces/store";
+import type { Authors, Context } from "../../interfaces/store";
 
 const authorsModule = {
     state: {

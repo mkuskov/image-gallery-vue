@@ -1,6 +1,7 @@
-import type { AddNewImage, GalleryState, Context, RootState } from "@/components/interfaces/store";
+import { URL_GALLERY } from "@/constants/links";
+import type { AddNewImage, GalleryState, Context, RootState } from "@/interfaces/store";
+import { makeFuncWithDelay } from "@/utils/makeFuncWithDelay";
 import axios from "axios";
-const URL = "http://localhost:3000/gallery-data";
 
 import type { Commit } from 'vuex';
 
@@ -19,13 +20,13 @@ const galleryActions = {
           const pageLimit = '5';
           const gallery = await axios
             .get(
-              `${URL}?${titleFilter}${authorFilter}${placeFilter}_page=${rootState.filters.pages}&_limit=${pageLimit}`
+              `${URL_GALLERY}?${titleFilter}${authorFilter}${placeFilter}_page=${rootState.filters.pages}&_limit=${pageLimit}`
             );
-        setTimeout(() => {
+        makeFuncWithDelay(() => {
           commit("SET_ITEMS", gallery.data);
           rootState.filters.pages = 1;
           state.spinner = false;
-        }, 500);
+        }, 1000)
         }
         catch (error) {
           throw error;
@@ -33,7 +34,7 @@ const galleryActions = {
     },
     async addItems({ state }: {state: GalleryState}) {
       try {
-        await axios.post(URL, state.addNewImage);
+        await axios.post(URL_GALLERY, state.addNewImage);
       }
       catch (error) {
         throw error;

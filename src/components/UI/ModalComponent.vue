@@ -1,12 +1,14 @@
 <script lang="ts">
-import type { AuthorsList, PlacesList } from '../interfaces/store';
+import { makeFuncWithDelay } from '@/utils/makeFuncWithDelay';
+import type { AuthorsList, PlacesList } from '../../interfaces/store';
+import { URL_DEFAULT_PICTURE } from '@/constants/links';
 
 export default {
   data() {
     return {
       newImage: {
           name: '',
-          img: 'https://rare-gallery.com/mocahbig/437164-Thomas-Cole-painting-artwork-classic-art.jpg',
+          img: URL_DEFAULT_PICTURE,
           author: '',
           date: '',
           place: '',
@@ -36,11 +38,11 @@ export default {
       this.$store.dispatch("newItem", this.newImage);
       this.$store.dispatch("addItems");
       this.$store.dispatch('changeModalStatus', false);
-      setTimeout(() => {
+      makeFuncWithDelay(() => {
         this.$store.dispatch("loadAuthorsList");
         this.$store.dispatch("loadPlacesList");
         return this.$store.dispatch("loadItems");
-      }, 300);
+      }, 300)
     },
   },
 };

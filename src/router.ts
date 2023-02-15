@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import ImageReview from "./components/ImageReview.vue"
 import TheMainComponent from "./components/TheMainComponent.vue"
+import { URL_PICTURES_ROUTE } from "./constants/links";
 
 const routes = [
     {
@@ -8,7 +9,7 @@ const routes = [
         component: TheMainComponent,
     },
     {
-        path: '/pictures/:id',
+        path: URL_PICTURES_ROUTE,
         component: ImageReview,
     },
 ]

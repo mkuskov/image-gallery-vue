@@ -1,10 +1,8 @@
 import axios from "axios";
 
 import type { Commit } from 'vuex';
-import type { Context } from "@/components/interfaces/store";
-
-const URL_AUTHORS = "http://localhost:4000/authors-data";
-const URL_PLACES = "http://localhost:5000/places-data";
+import type { Context } from "@/interfaces/store";
+import { URL_AUTHORS, URL_PLACES } from "@/constants/links";
 
 const filtersActions = {
     loadAuthorsList({ commit }: { commit: Commit }) {

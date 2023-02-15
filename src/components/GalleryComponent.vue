@@ -1,6 +1,9 @@
 <script lang="ts">
 import ImageComponent from "./UI/ImageComponent.vue";
 import { mapState } from "vuex";
+import { RouterLink } from "vue-router";
+import type { CurrentImage } from "../interfaces/store";
+import { makeFuncWithDelay } from "@/utils/makeFuncWithDelay";
 
 export default {
   components: {
@@ -8,10 +11,10 @@ export default {
   },
   methods: {
     openImage() {
-      setTimeout(() => {
-        const currentImage = this.$store.state.gallery.galleryData.filter((item: string) => item.id == this.$route.params.id);
+      makeFuncWithDelay(() => {
+        const currentImage = this.$store.state.gallery.galleryData.filter((item: CurrentImage) => item.id === this.$route.params.id);
         return this.$store.dispatch("currentImage", currentImage);
-      }, 50);
+      }, 10)
     }
   },
   mounted() {

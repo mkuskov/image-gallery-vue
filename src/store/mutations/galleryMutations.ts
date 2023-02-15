@@ -1,4 +1,4 @@
-import type { AddNewImage, GalleryData, GalleryState } from "@/components/interfaces/store";
+import type { AddNewImage, GalleryData, GalleryState } from "@/interfaces/store";
 
 const galleryMutations = {
     SET_MODAL(state: GalleryState, payload: boolean) {
