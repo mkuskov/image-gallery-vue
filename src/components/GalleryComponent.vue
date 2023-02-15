@@ -4,12 +4,12 @@ import { mapState } from "vuex";
 import { RouterLink } from "vue-router";
 import type { CurrentImage } from "../interfaces/store";
 import { makeFuncWithDelay } from "@/utils/makeFuncWithDelay";
-import { URL_PICTURES } from "../constants/links";
+import { URL_PICTURES_ROUTE } from "../constants/links";
 
 export default {
   data() {
   return {
-      URL_PICTURES: URL_PICTURES
+      URL_PICTURES_ROUTE: URL_PICTURES_ROUTE
     }
   },
   components: {
@@ -21,7 +21,7 @@ export default {
         const currentImage = this.$store.state.gallery.galleryData.filter((item: CurrentImage) => item.id === this.$route.params.id);
         return this.$store.dispatch("currentImage", currentImage);
       }, 10)
-    }
+    },
   },
   mounted() {
     this.$store.dispatch("loadItems");
@@ -34,7 +34,7 @@ export default {
 <template>
   <div class="image-gallery">
     <router-link
-      :to="`${URL_PICTURES}${images.id}`"
+      :to="URL_PICTURES_ROUTE.replace(':id', images.id)"
       v-for="images in $store.state.gallery.galleryData"
       :key="images.id"
       @click="openImage"
