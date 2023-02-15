@@ -4,8 +4,14 @@ import { mapState } from "vuex";
 import { RouterLink } from "vue-router";
 import type { CurrentImage } from "../interfaces/store";
 import { makeFuncWithDelay } from "@/utils/makeFuncWithDelay";
+import { URL_PICTURES } from "../constants/links";
 
 export default {
+  data() {
+  return {
+      URL_PICTURES: URL_PICTURES
+    }
+  },
   components: {
     ImageComponent,
   },
@@ -28,7 +34,7 @@ export default {
 <template>
   <div class="image-gallery">
     <router-link
-      :to="`/pictures/${images.id}`"
+      :to="`${URL_PICTURES}${images.id}`"
       v-for="images in $store.state.gallery.galleryData"
       :key="images.id"
       @click="openImage"
