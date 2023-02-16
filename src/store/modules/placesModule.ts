@@ -2,7 +2,7 @@ import type { Places, Context } from "@/interfaces/store";
 
 const placesModule = {
 	state: {
-        place: ''
+        place: null
     },
 	mutations: {
 		UPDATE_PLACE(state: Places, payload: string) {

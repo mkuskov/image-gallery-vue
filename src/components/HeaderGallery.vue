@@ -9,15 +9,22 @@ export default {
     HeadingComponent,
     ModalOpenButton,
   },
+  props: {
+    className: String
+  }
 };
 </script>
 
 <template>
-  <div class="container">
+  <div :class="className">
     <HeadingComponent />
     <ModalOpenButton />
     <FiltersComponent />
   </div>
 </template>
 
-<style></style>
+<style>
+.content__header {
+  margin-bottom: 44px;
+}
+</style>

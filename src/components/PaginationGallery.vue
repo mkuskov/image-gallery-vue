@@ -2,6 +2,9 @@
 import { mapState } from "vuex";
 
 export default {
+  props: {
+    className: String,
+  },
   data() {
     return {
       page: 1,
@@ -12,7 +15,7 @@ export default {
 </script>
 
 <template>
-  <div class="pagination">
+  <div :class="className">
     <v-pagination
       v-model="page"
       :length="3"
@@ -26,7 +29,7 @@ export default {
 </template>
 
 <style>
-.pagination {
+.content__pagination {
   width: 30%;
   margin-top: 20px;
   float: right;

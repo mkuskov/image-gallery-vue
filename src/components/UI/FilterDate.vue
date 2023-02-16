@@ -112,7 +112,7 @@ export default {
   background: rgb(var(--v-theme-primary-25));
   border-radius: 0 0 10px 10px;
   list-style: none;
-  width: 99%;
+  width: 100%;
   position: absolute;
   left: 0;
   border: 1px solid;
@@ -120,14 +120,14 @@ export default {
 }
 
 .dropdown-date__list-item {
-  margin-left: 6px;
+  margin-left: 5px;
   display: inline;
   border-bottom: none;
 }
 
 .dropdown-date__list-input {
   margin-top: 5%;
-  width: 101px;
+  width: 113px;
   padding: 6px;
   border-radius: 5px;
   background-color: rgb(var(--v-theme-primary-100));

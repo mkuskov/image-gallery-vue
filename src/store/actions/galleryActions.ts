@@ -1,35 +1,31 @@
 import { URL_GALLERY } from "@/constants/links";
-import type { AddNewImage, GalleryState, Context, RootState } from "@/interfaces/store";
+import type { AddNewImage, GalleryState, Context, LoadItemsInterface, Params } from "@/interfaces/store";
 import { makeFuncWithDelay } from "@/utils/makeFuncWithDelay";
 import axios from "axios";
 
-import type { Commit } from 'vuex';
-
 const galleryActions = {
-    async loadItems({ commit, state, rootState }: { commit: Commit, state: GalleryState, rootState: RootState }) {
+    async loadItems({ commit, state, rootState }: LoadItemsInterface) {
       state.spinner = true;
 
         try {
-          const titleFilter =
-            rootState.filters.filterByTitle ? `name=${rootState.filters.filterByTitle}&` : "";
-          const authorFilter =
-            rootState.authors.author ? `author=${rootState.authors.author}&` : "";
-          const placeFilter =
-            rootState.places.place ? `place=${rootState.places.place}&` : "";
+          const params: Params = {
+            _limit: '5',
+            _page: rootState.filters.pages,
+            name: rootState.filters.filterByTitle,
+            author: rootState.authors.author,
+            place: rootState.places.place,
+          }
 
-          const pageLimit = '5';
-          const gallery = await axios
-            .get(
-              `${URL_GALLERY}?${titleFilter}${authorFilter}${placeFilter}_page=${rootState.filters.pages}&_limit=${pageLimit}`
-            );
-        makeFuncWithDelay(() => {
-          commit("SET_ITEMS", gallery.data);
-          rootState.filters.pages = 1;
-          state.spinner = false;
-        }, 1000)
+          const gallery = await axios.get( URL_GALLERY, { params } );
+
+          makeFuncWithDelay(() => {
+            commit("SET_ITEMS", gallery.data);
+            rootState.filters.pages = 1;
+            state.spinner = false;
+          }, 1000)
         }
-        catch (error) {
-          throw error;
+        catch (error: any) {
+          console.log(error.message);
         }
     },
     async addItems({ state }: {state: GalleryState}) {

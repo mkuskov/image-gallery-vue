@@ -2,7 +2,7 @@ import type { Authors, Context } from "../../interfaces/store";
 
 const authorsModule = {
     state: {
-        author: ''
+        author: null
     },
     mutations: {
         UPDATE_AUTHOR(state: Authors, payload: string) {

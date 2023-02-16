@@ -1,6 +1,24 @@
 import type { Commit } from "vuex";
 import type { Dispatch } from "vuex";
 
+export interface CommitInterface {
+    commit: Commit;
+}
+
+export interface Params {
+    _limit: string,
+    _page: number,
+    name: string,
+    author: string,
+    place: string,
+}
+
+export interface LoadItemsInterface {
+    commit: Commit;
+    state: GalleryState;
+    rootState: RootState;
+}
+
 export interface Context {
     commit: Commit;
     dispatch: Dispatch;

@@ -4,18 +4,26 @@ import { mapState } from "vuex";
 import { RouterLink } from "vue-router";
 import type { CurrentImage } from "../interfaces/store";
 import { makeFuncWithDelay } from "@/utils/makeFuncWithDelay";
+import { URL_PICTURES_ROUTE } from "../constants/links";
 
 export default {
+  props: {
+    className: String,
+  },
+  data() {
+  return {
+      URL_PICTURES_ROUTE,
+    }
+  },
   components: {
     ImageComponent,
   },
   methods: {
-    openImage() {
-      makeFuncWithDelay(() => {
-        const currentImage = this.$store.state.gallery.galleryData.filter((item: CurrentImage) => item.id === this.$route.params.id);
-        return this.$store.dispatch("currentImage", currentImage);
-      }, 10)
-    }
+    openImage(currentId: string | number) {
+      const currentImage = this.$store.state.gallery.galleryData.filter((item: CurrentImage) => item.id === currentId);
+
+      return this.$store.dispatch("currentImage", currentImage);
+    },
   },
   mounted() {
     this.$store.dispatch("loadItems");
@@ -26,12 +34,12 @@ export default {
 </script>
 
 <template>
-  <div class="image-gallery">
+  <div :class="className">
     <router-link
-      :to="`/pictures/${images.id}`"
+      :to="URL_PICTURES_ROUTE.replace(':id', images.id)"
       v-for="images in $store.state.gallery.galleryData"
       :key="images.id"
-      @click="openImage"
+      @click="openImage(images.id)"
     >
       <ImageComponent
         :imageTitle="images.name"
@@ -44,7 +52,7 @@ export default {
 </template>
 
 <style>
-.image-gallery {
+.content__gallery {
   min-height: 570px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -52,7 +60,7 @@ export default {
   gap: 20px;
 }
 
-.image-gallery__item {
+.content__gallery__item {
   transition: .1s;
   cursor: pointer;
 }

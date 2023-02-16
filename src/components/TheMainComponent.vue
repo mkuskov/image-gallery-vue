@@ -24,15 +24,9 @@ export default {
     <TheSpinnerLoading />
     <ModalComponent />
     <div id="app" class="content">
-      <div class="content__header">
-        <HeaderGallery />
-      </div>
-      <div class="content__gallery">
-        <GalleryComponent />
-      </div>
-      <div class="content__pagination">
-        <PaginationGallery />
-      </div>
+      <HeaderGallery className="content__header"/>
+      <GalleryComponent className="content__gallery"/>
+      <PaginationGallery className="content__pagination"/>
     </div>
   </v-app>
 </template>
@@ -50,9 +44,5 @@ export default {
   margin-left: auto;
   margin-right: auto;
   padding: 44px;
-}
-
-.content__header {
-  margin-bottom: 44px;
 }
 </style>

@@ -99,18 +99,10 @@
     {
       "name": "Тестовая картина",
       "img": "https://rare-gallery.com/mocahbig/437164-Thomas-Cole-painting-artwork-classic-art.jpg",
-      "author": "Рене Магритта",
-      "date": "26.10.1896",
-      "place": "Музеи Ватикана",
-      "id": "MWb-tOM"
-    },
-    {
-      "name": "",
-      "img": "https://rare-gallery.com/mocahbig/437164-Thomas-Cole-painting-artwork-classic-art.jpg",
-      "author": "",
-      "date": "",
-      "place": "",
-      "id": "PT1U-37"
+      "author": "Пьер Огюст Ренуар",
+      "date": "13.07.1887",
+      "place": "Государственный Эрмитаж",
+      "id": "sg-KZ91"
     }
   ]
 }

@@ -1,11 +1,10 @@
 import axios from "axios";
-
-import type { Commit } from 'vuex';
-import type { Context } from "@/interfaces/store";
+;
+import type { Context, CommitInterface } from "@/interfaces/store";
 import { URL_AUTHORS, URL_PLACES } from "@/constants/links";
 
 const filtersActions = {
-    loadAuthorsList({ commit }: { commit: Commit }) {
+    loadAuthorsList({ commit }: CommitInterface) {
       axios
         .get(URL_AUTHORS)
         .then((response) => response.data)
@@ -13,7 +12,7 @@ const filtersActions = {
           commit("SET_AUTHORS_LIST", dataForFilters);
         });
     },
-    loadPlacesList({ commit }: { commit: Commit }) {
+    loadPlacesList({ commit }: CommitInterface) {
       axios
         .get(URL_PLACES)
         .then((response) => response.data)
@@ -31,7 +30,6 @@ const filtersActions = {
       context.commit("UPDATE_END_DATE", payload);
     },
     changePage(context: Context, payload: string) {
-      console.log(context);
       context.commit("UPDATE_PAGE", payload);
     },
 }

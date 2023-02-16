@@ -10,11 +10,11 @@ export default {
 <template>
     <div class="spinner" v-if="$store.state.gallery.spinner">
         <v-progress-circular
-        :size="50"
-        indeterminate
-        color="white"
-        class="spinner__progress"
-        ></v-progress-circular>
+            :size="50"
+            indeterminate
+            color="white"
+            class="spinner__progress"
+        />
     </div>
 </template>
 

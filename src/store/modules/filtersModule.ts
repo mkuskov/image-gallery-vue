@@ -6,10 +6,10 @@ const filtersModule = {
     state: {
         authorsList: [],
         placesList: [],
-        filterByTitle: '',
+        filterByTitle: null,
         startDate: "",
         endDate: "",
-        filterByDate: "",
+        filterByDate: null,
         pages: "1",
     },
     getters: filtersGetters,
