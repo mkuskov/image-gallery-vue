@@ -2,8 +2,7 @@
 import ImageComponent from "./UI/ImageComponent.vue";
 import { mapState } from "vuex";
 import { RouterLink } from "vue-router";
-import type { CurrentImage } from "../interfaces/store";
-import { makeFuncWithDelay } from "@/utils/makeFuncWithDelay";
+import type { Image } from "../interfaces/store";
 import { URL_PICTURES_ROUTE } from "../constants/links";
 
 export default {
@@ -19,22 +18,26 @@ export default {
     ImageComponent,
   },
   methods: {
-    openImage(currentId: string | number) {
-      const currentImage = this.$store.state.gallery.galleryData.filter((item: CurrentImage) => item.id === currentId);
+    openImage(imageId: string | number) {
+      const image = this.$store.state.gallery.galleryData.filter((item: Image) => item.id === imageId);
 
-      return this.$store.dispatch("currentImage", currentImage);
+      return this.$store.dispatch("image", image);
     },
   },
   mounted() {
     this.$store.dispatch("loadItems");
   },
-  computed:
-    mapState(["items"]),
 };
 </script>
 
 <template>
-  <div :class="className">
+  <div v-if="$store.state.gallery.spinner" :class="className">
+    <ImageComponent
+      v-for="loadingItem in $store.state.gallery.galleryData"
+      class="image-gallery__loading-item"
+    />
+  </div>
+  <div v-if="!$store.state.gallery.spinner" :class="className">
     <router-link
       :to="URL_PICTURES_ROUTE.replace(':id', images.id)"
       v-for="images in $store.state.gallery.galleryData"

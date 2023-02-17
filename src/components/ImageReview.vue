@@ -12,7 +12,7 @@ export default {
 <template>
     <div
         class="current-image"
-        v-for="data in $store.state.gallery.currentImage"
+        v-for="data in $store.state.gallery.image"
         :key="data.id"
     >
         <img

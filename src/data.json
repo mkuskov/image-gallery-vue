@@ -99,10 +99,18 @@
     {
       "name": "Тестовая картина",
       "img": "https://rare-gallery.com/mocahbig/437164-Thomas-Cole-painting-artwork-classic-art.jpg",
+      "author": "Сальвадор Дали",
+      "date": "16.03.1957",
+      "place": "Частная коллекция",
+      "id": "41qW3UV"
+    },
+    {
+      "name": "One more image",
+      "img": "https://rare-gallery.com/mocahbig/437164-Thomas-Cole-painting-artwork-classic-art.jpg",
       "author": "Пьер Огюст Ренуар",
-      "date": "13.07.1887",
-      "place": "Государственный Эрмитаж",
-      "id": "sg-KZ91"
+      "date": "02.01.1076",
+      "place": "Музеи Ватикана",
+      "id": "F__ncdo"
     }
   ]
 }

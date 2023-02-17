@@ -16,6 +16,7 @@ export default {
       const data = event.target.title;
       // вызов addPlace и передачата в него data
       this.$store.dispatch("addAuthor", data);
+      this.$store.dispatch('changePage', 1);
       // обновление массива картин
       return this.$store.dispatch("loadItems");
     },
@@ -24,6 +25,7 @@ export default {
       const data = event.target.title;
       // вызов addPlace и передачата в него data
       this.$store.dispatch("addPlace", data);
+      this.$store.dispatch('changePage', 1);
       // обновление массива картин
       return this.$store.dispatch("loadItems");
     },

@@ -1,11 +1,11 @@
-import axios from "axios";
-;
+import { instance } from "@/utils/postman";
+import { URL_PLACES, URL_AUTHORS } from "@/constants/links";
+
 import type { Context, CommitInterface } from "@/interfaces/store";
-import { URL_AUTHORS, URL_PLACES } from "@/constants/links";
 
 const filtersActions = {
     loadAuthorsList({ commit }: CommitInterface) {
-      axios
+      instance
         .get(URL_AUTHORS)
         .then((response) => response.data)
         .then((dataForFilters) => {
@@ -13,7 +13,7 @@ const filtersActions = {
         });
     },
     loadPlacesList({ commit }: CommitInterface) {
-      axios
+      instance
         .get(URL_PLACES)
         .then((response) => response.data)
         .then((dataForFilters) => {

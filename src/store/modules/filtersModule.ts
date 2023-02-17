@@ -10,7 +10,7 @@ const filtersModule = {
         startDate: "",
         endDate: "",
         filterByDate: null,
-        pages: "1",
+        page: 1,
     },
     getters: filtersGetters,
     mutations: filtersMutations,

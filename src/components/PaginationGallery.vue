@@ -1,29 +1,29 @@
 <script lang="ts">
-import { mapState } from "vuex";
+import type { Target } from "@/interfaces/store";
 
 export default {
+  data() {
+    return { 
+    }
+  },
   props: {
     className: String,
   },
-  data() {
-    return {
-      page: 1,
-    };
+  methods: {
+    changePage() {
+      return this.$store.dispatch('loadItems');
+    }
   },
-  computed: mapState(["items"]),
 };
 </script>
 
 <template>
   <div :class="className">
     <v-pagination
-      v-model="page"
+      v-model="$store.state.filters.page"
       :length="3"
       class="pagination__item"
-      @click="
-        $store.dispatch('changePage', page);
-        $store.dispatch('loadItems');
-      "
+      @click="changePage"
     />
   </div>
 </template>

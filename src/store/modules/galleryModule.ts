@@ -5,7 +5,7 @@ const galleryModule = {
     state: {
         galleryData: [],
         addNewImage: {},
-        currentImage: {},
+        image: {},
         showModal: false,
         spinner: false,
     },

@@ -34,14 +34,15 @@ export default {
     };
   },
   methods: {
-    validate() {
+    addPicture() {
       this.$store.dispatch("newItem", this.newImage);
       this.$store.dispatch("addItems");
+      this.$store.dispatch('changePage', 3);
       this.$store.dispatch('changeModalStatus', false);
+      (this.$refs.form as any).reset();
+
       makeFuncWithDelay(() => {
-        this.$store.dispatch("loadAuthorsList");
-        this.$store.dispatch("loadPlacesList");
-        return this.$store.dispatch("loadItems");
+        return this.$store.dispatch("loadItems")
       }, 300)
     },
   },
@@ -49,7 +50,7 @@ export default {
 </script>
 
 <template>
-  <portal to="destination" :disabled="$store.state.gallery.showModal">
+  <portal :disabled="$store.state.gallery.showModal">
     <div class="modal">
       <v-card class="modal__content">
         <v-form ref="form">
@@ -59,6 +60,7 @@ export default {
             size="small"
             @click="
               $store.dispatch('changeModalStatus', false);
+              ($refs.form as any).reset();
             "
           ></v-btn>
           <h2 class="modal__heading">Добавление картины в галерею</h2>
@@ -104,8 +106,13 @@ export default {
         </v-form>
         <v-btn
           class="modal__done"
-          :disabled="!valid"
-          @click="validate"
+          :disabled="
+            !newImage.name ||
+            !newImage.author ||
+            !newImage.place ||
+            !newImage.date
+          "
+          @click="addPicture"
         >
           Добавить
         </v-btn>
@@ -116,7 +123,9 @@ export default {
 
 <style>
 .modal {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);

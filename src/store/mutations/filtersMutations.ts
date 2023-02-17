@@ -17,7 +17,7 @@ const filtersMutations = {
     state.endDate = payload;
   },
   UPDATE_PAGE(state: FiltersState, payload: number) {
-    state.pages = payload;
+    state.page = payload;
   },
 };
 

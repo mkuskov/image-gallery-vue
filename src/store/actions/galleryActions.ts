@@ -1,5 +1,6 @@
 import { URL_GALLERY } from "@/constants/links";
-import type { AddNewImage, GalleryState, Context, LoadItemsInterface, Params } from "@/interfaces/store";
+import type { AddNewImage, GalleryState, Context, LoadItemsInterface, Params, RootState } from "@/interfaces/store";
+import { instance } from "@/utils/postman";
 import { makeFuncWithDelay } from "@/utils/makeFuncWithDelay";
 import axios from "axios";
 
@@ -10,17 +11,16 @@ const galleryActions = {
         try {
           const params: Params = {
             _limit: '5',
-            _page: rootState.filters.pages,
-            name: rootState.filters.filterByTitle,
-            author: rootState.authors.author,
-            place: rootState.places.place,
+            _page: rootState.filters.page,
+            name: rootState.filters.filterByTitle === "" ? null : rootState.filters.filterByTitle,
+            author: rootState.authors.author === "Все" ? null : rootState.authors.author,
+            place: rootState.places.place === "Все" ? null : rootState.places.place,
           }
 
-          const gallery = await axios.get( URL_GALLERY, { params } );
-
+          const gallery = await instance.get( URL_GALLERY, { params } );
+          commit("SET_ITEMS", gallery.data);
+          
           makeFuncWithDelay(() => {
-            commit("SET_ITEMS", gallery.data);
-            rootState.filters.pages = 1;
             state.spinner = false;
           }, 1000)
         }
@@ -28,9 +28,10 @@ const galleryActions = {
           console.log(error.message);
         }
     },
-    async addItems({ state }: {state: GalleryState}) {
+    async addItems({ state, rootState }: { state: GalleryState, rootState: RootState }) {
       try {
         await axios.post(URL_GALLERY, state.addNewImage);
+        rootState.filters.page = 3;
       }
       catch (error) {
         throw error;
@@ -45,8 +46,8 @@ const galleryActions = {
     loadingStatus(context: Context, payload: boolean) {
       context.commit("SET_LOADING", payload);
     },
-    currentImage(context: Context, payload: string) {
-      context.commit("CURRENT_IMAGE", payload);
+    image(context: Context, payload: string) {
+      context.commit("SET_IMAGE", payload);
     },
     addNewImage(context: Context, payload: AddNewImage) {
       context.commit("ADD_NEW_IMAGE", payload);

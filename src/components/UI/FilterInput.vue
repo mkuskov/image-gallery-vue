@@ -5,6 +5,14 @@ export default {
       imageTitle: "",
     };
   },
+  methods: {
+    filterTitle() {
+      this.$store.dispatch('addImageTitle', this.imageTitle);
+      this.$store.dispatch('changePage', 1);
+
+      return this.$store.dispatch('loadItems');
+    }
+  }
 };
 </script>
 
@@ -14,10 +22,7 @@ export default {
     type="text"
     class="filters__input"
     v-model="imageTitle"
-    @change="
-      $store.dispatch('addImageTitle', imageTitle);
-      $store.dispatch('loadItems');
-    "
+    @change="filterTitle"
   />
 </template>
 

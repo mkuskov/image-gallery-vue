@@ -13,8 +13,8 @@ const galleryMutations = {
     ADD_NEW_IMAGE(state: GalleryState, payload: AddNewImage) {
       state.addNewImage = payload;
     },
-    CURRENT_IMAGE(state: GalleryState, payload: string) {
-      state.currentImage = payload;
+    SET_IMAGE(state: GalleryState, payload: string) {
+      state.image = payload;
     },
   };
   

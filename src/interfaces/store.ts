@@ -1,6 +1,14 @@
 import type { Commit } from "vuex";
 import type { Dispatch } from "vuex";
 
+export interface TextElement extends Element {
+    innerText: string;
+}
+
+export interface Target {
+    target: TextElement;
+}
+
 export interface CommitInterface {
     commit: Commit;
 }
@@ -8,9 +16,9 @@ export interface CommitInterface {
 export interface Params {
     _limit: string,
     _page: number,
-    name: string,
-    author: string,
-    place: string,
+    name: string | null,
+    author: string | null,
+    place: string | null,
 }
 
 export interface LoadItemsInterface {
@@ -47,7 +55,7 @@ export interface State {
     startDate: string;
     endDate: string;
     filterByDate: string;
-    pages: number;
+    page: number;
 }
 
 export interface RootGetters {
@@ -74,12 +82,12 @@ export interface AddNewImage {
 export interface GalleryState {
     galleryData: GalleryData;
     addNewImage: AddNewImage;
-    currentImage: string;
+    image: string;
     showModal: boolean;
     spinner: boolean;
 }
 
-export interface CurrentImage {
+export interface Image {
     id: string;
 }
 
@@ -90,7 +98,7 @@ export interface FiltersState {
     startDate: number;
     endDate: number;
     filterByDate: string;
-    pages: number;
+    page: number;
 }
 
 export interface Authors {
