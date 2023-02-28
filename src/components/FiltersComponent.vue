@@ -11,9 +11,9 @@ export default {
     return {
       theme,
       toggleTheme: () =>
-        (theme.global.name.value = theme.global.current.value.dark
-          ? "lightTheme"
-          : "darkTheme"),
+      (theme.global.name.value = theme.global.current.value.dark
+        ? "lightTheme"
+        : "darkTheme"),
     };
   },
   mounted() {
@@ -31,12 +31,18 @@ export default {
 
 <template>
   <div class="filters">
-      <FilterInput :state="$store.state.settings.isTitleFilterActive"/>
-      <FilterDropdown dropdownTitle="Автор" :data="$store.state.filters.authorsList"
-:state="$store.state.settings.isAuthorFilterActive"/>
-      <FilterDropdown dropdownTitle="Место" :data="$store.state.filters.placesList"
-:state="$store.state.settings.isPlaceFilterActive"/>
-    <FilterDate :state="$store.state.settings.isDateFilterActive"/>
+    <FilterInput :disabled="!$store.state.settings.isTitleFilterActive" />
+    <FilterDropdown
+      dropdownTitle="Автор"
+      :data="$store.state.filters.authorsList"
+      :disabled="!$store.state.settings.isAuthorFilterActive"
+    />
+    <FilterDropdown
+      dropdownTitle="Место"
+      :data="$store.state.filters.placesList"
+      :disabled="!$store.state.settings.isPlaceFilterActive"
+    />
+    <FilterDate :disabled="!$store.state.settings.isDateFilterActive" />
   </div>
 </template>
 

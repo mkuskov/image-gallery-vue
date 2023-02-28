@@ -42,20 +42,20 @@ export default {
   },
   computed: {
     isDisabled() {
-      return !this.state
-      ? 'dropdown__radios--disabled'
-      : 'dropdown__radios';
+      return !this.disabled
+      ? 'dropdown__radios'
+      : 'dropdown__radios--disabled';
     },
     disabledTitle() {
       return {
-        color: this.state
+        color: !this.disabled
         ? 'rgb(var(--v-theme-primary-900))'
         : 'rgb(var(--v-theme-primary-100))'
       }
     }
   },
   props: {
-    state: Boolean,
+    disabled: Boolean,
     data: Object,
     dropdownTitle: String,
   },
@@ -76,7 +76,7 @@ export default {
         :style="disabledTitle"
         type="radio"
         :name="dropdownTitle"
-        :title="state ? dropdownTitle : 'Выключено'"
+        :title="!disabled ? dropdownTitle : 'Выключено'"
         id="default"
         @change="
           dropdownTitle === 'Автор'

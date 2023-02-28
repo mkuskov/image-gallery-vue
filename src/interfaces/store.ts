@@ -62,9 +62,10 @@ export interface RootGetters {
 }
 
 export interface GalleryData {
-    length: number;
+    length?: number;
     name: string;
     img: string;
+    description: string,
     author: string;
     date: string;
     place: string;

@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-  <div :class="className" v-if="$store.state.filters.paginationLength > 1">
+  <div :class="className" v-if="$store.state.filters.paginationLength > 1 && $store.state.gallery.galleryData.length">
     <v-pagination
       v-model="$store.state.filters.page"
       :length="$store.state.filters.paginationLength"
@@ -33,7 +33,7 @@ export default {
 
 <style>
 .content__pagination {
-  width: 30%;
+  display: flex;
   margin-top: 35px;
   float: right;
 }

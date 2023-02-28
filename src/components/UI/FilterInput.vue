@@ -7,7 +7,7 @@ export default {
   },
   computed: {
     isDisabled() {
-      return this.state ? 'filters__input' : 'filters__input--disabled'
+      return !this.disabled ? 'filters__input' : 'filters__input--disabled'
     }
   },
   methods: {
@@ -18,7 +18,7 @@ export default {
     }
   },
   props: {
-    state: Boolean,
+    disabled: Boolean,
   }
 };
 </script>
@@ -32,7 +32,7 @@ export default {
       id="title"
       v-model="$store.state.filters.filterByTitle"
       @change="filterTitle"
-      :disabled="!state"
+      :disabled="disabled"
     />
 </template>
 
@@ -48,7 +48,7 @@ export default {
 }
 
 ::placeholder {
-  color: rgb(var(--v-theme-primary-900));
+  color: rgb(var(--v-theme-primary-300));
 }
 
 .filters__input--disabled {

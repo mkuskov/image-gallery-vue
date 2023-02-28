@@ -1,20 +1,14 @@
 <script lang="ts">
-import type { Image } from '@/interfaces/store';
-import { makeFuncWithDelay } from '@/utils/makeFuncWithDelay';
+import type { GalleryData } from '@/interfaces/store';
 
 export default {
     data() {
         return {
+            image: [] as Array<GalleryData>
         }
     },
     mounted() {
-        this.$store.dispatch("galleryJSON");
-
-        makeFuncWithDelay(() => {
-            const image = this.$store.state.gallery.galleryJSON.filter((item: Image) => item.id === this.$route.params.id);
-
-            return this.$store.dispatch("image", image);
-        }, 250)
+        this.image = JSON.parse(localStorage.getItem('image') as string);
     }
 };
 
@@ -24,7 +18,7 @@ export default {
 <template>
     <div
         class="current-image"
-        v-for="data in $store.state.gallery.image"
+        v-for="data in image"
         :key="data.id"
     >
         <img

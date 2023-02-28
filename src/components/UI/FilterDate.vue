@@ -9,14 +9,17 @@ export default {
   },
   computed: {
     isDisabled() {
-      return this.$store.state.settings.isDateFilterActive ? 'dropdown-date__radio' : 'dropdown-date__radio--disabled';
+      return !this.disabled ? 'dropdown-date__radio' : 'dropdown-date__radio--disabled';
     },
     disabledTitle() {
       return {
-        color: this.$store.state.settings.isDateFilterActive ? 'rgb(var(--v-theme-primary-900))' : 'rgb(var(--v-theme-primary-100))'
+        color: !this.disabled ? 'rgb(var(--v-theme-primary-900))' : 'rgb(var(--v-theme-primary-100))'
       }
     }
   },
+  props: {
+    disabled: Boolean
+  }
 };
 </script>
 

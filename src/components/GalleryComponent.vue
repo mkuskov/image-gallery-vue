@@ -11,6 +11,7 @@ export default {
   data() {
   return {
       URL_PICTURES_ROUTE,
+      imageId: '',
     }
   },
   components: {
@@ -18,20 +19,23 @@ export default {
     EmptyPage
   },
   methods: {
-    openImage(imageId: string | number) {
-      const image = this.$store.state.gallery.galleryData.filter((item: Image) => item.id === imageId);
+    openImage(imageId: string) {
+      const getImage = this.$store.state.gallery.galleryData.filter((item: Image) => item.id === imageId);
 
-      return this.$store.dispatch("image", image);
+      localStorage.setItem("image", JSON.stringify(getImage));
+  
+      return this.$store.dispatch("image", getImage);
     },
   },
   mounted() {
     this.$store.dispatch("loadItems");
-  },
+  }
 };
 </script>
 
 <template>
   <EmptyPage :displayСondition="!$store.state.gallery.galleryData.length"/>
+
   <div v-if="$store.state.gallery.spinner" :class="className">
     <ImageComponent
       :key="loadingItem.id"
@@ -39,6 +43,7 @@ export default {
       class="image-gallery__loading-item"
     />
   </div>
+
   <div v-if="!$store.state.gallery.spinner" :class="className">
     <router-link
       :to="URL_PICTURES_ROUTE.replace(':id', images.id)"
