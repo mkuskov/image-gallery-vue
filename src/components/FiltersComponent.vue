@@ -31,10 +31,12 @@ export default {
 
 <template>
   <div class="filters">
-    <FilterInput />
-    <FilterDropdown dropdownTitle="Автор" :data="$store.state.filters.authorsList" />
-    <FilterDropdown dropdownTitle="Место" :data="$store.state.filters.placesList" />
-    <FilterDate />
+      <FilterInput :state="$store.state.settings.isTitleFilterActive"/>
+      <FilterDropdown dropdownTitle="Автор" :data="$store.state.filters.authorsList"
+:state="$store.state.settings.isAuthorFilterActive"/>
+      <FilterDropdown dropdownTitle="Место" :data="$store.state.filters.placesList"
+:state="$store.state.settings.isPlaceFilterActive"/>
+    <FilterDate :state="$store.state.settings.isDateFilterActive"/>
   </div>
 </template>
 
@@ -43,6 +45,35 @@ export default {
   width: 1192px;
   display: flex;
   justify-content: space-between;
+}
+
+.filters__input-disabled {
+  border-radius: 9px;
+  z-index: 1;
+  display: flex;
+  width: 320px;
+  height: 58px;
+  position: absolute;
+}
+
+.filters__authors-disabled {
+  border-radius: 9px;
+  background-color: rgba(255, 255, 255, 0.65);
+  z-index: 1;
+  display: flex;
+  width: 300px;
+  height: 58px;
+  position: absolute;
+}
+
+.filters__places-disabled {
+  border-radius: 9px;
+  background-color: rgba(255, 255, 255, 0.65);
+  z-index: 1;
+  display: flex;
+  width: 300px;
+  height: 58px;
+  position: absolute;
 }
 
 .filters__date {

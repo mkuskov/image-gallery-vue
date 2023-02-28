@@ -19,6 +19,9 @@ const filtersMutations = {
   UPDATE_PAGE(state: FiltersState, payload: number) {
     state.page = payload;
   },
+  UPDATE_LENGTH(state: FiltersState, payload: number) {
+    state.paginationLength = payload;
+  },
 };
 
 export default filtersMutations;

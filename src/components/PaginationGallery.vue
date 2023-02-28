@@ -1,5 +1,4 @@
 <script lang="ts">
-import type { Target } from "@/interfaces/store";
 
 export default {
   data() {
@@ -11,17 +10,21 @@ export default {
   },
   methods: {
     changePage() {
-      return this.$store.dispatch('loadItems');
-    }
+      this.$store.dispatch('loadItems');
+    },
+  },
+  mounted() {
+    this.$store.dispatch("galleryJSON");
   },
 };
 </script>
 
 <template>
-  <div :class="className">
+  <div :class="className" v-if="$store.state.filters.paginationLength > 1">
     <v-pagination
       v-model="$store.state.filters.page"
-      :length="3"
+      :length="$store.state.filters.paginationLength"
+      total-visible="4"
       class="pagination__item"
       @click="changePage"
     />
@@ -31,7 +34,7 @@ export default {
 <style>
 .content__pagination {
   width: 30%;
-  margin-top: 20px;
+  margin-top: 35px;
   float: right;
 }
 

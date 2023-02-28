@@ -7,12 +7,22 @@ export default {
       dateToSearch: "",
     };
   },
+  computed: {
+    isDisabled() {
+      return this.$store.state.settings.isDateFilterActive ? 'dropdown-date__radio' : 'dropdown-date__radio--disabled';
+    },
+    disabledTitle() {
+      return {
+        color: this.$store.state.settings.isDateFilterActive ? 'rgb(var(--v-theme-primary-900))' : 'rgb(var(--v-theme-primary-100))'
+      }
+    }
+  },
 };
 </script>
 
 <template>
   <details class="dropdown-date" id="dropdown-date">
-    <summary class="dropdown-date__radio">
+    <summary class="dropdown-date__radio" :class="isDisabled">
       <input
         type="radio"
         class="dropdown-date__input"
@@ -21,6 +31,7 @@ export default {
         :title="
           $store.state.filters.startDate === '' ? 'Дата' : `${startDate} — ${endDate}`
         "
+        :style="disabledTitle"
         checked
       />
     </summary>
@@ -60,11 +71,18 @@ export default {
 }
 
 .dropdown-date__radio {
+  cursor: pointer;
   border-radius: 10px;
   padding: 1rem;
-  cursor: pointer;
   border: 1px solid rgb(var(--v-theme-primary-300));
   list-style: none;
+}
+
+.dropdown-date__radio--disabled {
+  border: 1px solid rgb(var(--v-theme-primary-100));
+  color: rgb(var(--v-theme-primary-100));
+  cursor: default;
+  pointer-events: none;
 }
 
 .dropdown-date[open] .dropdown-date__radio {
@@ -92,8 +110,8 @@ export default {
   margin-top: 5px;
   width: 0.5rem;
   height: 0.5rem;
-  border-bottom: 1px solid currentColor;
-  border-left: 1px solid currentColor;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
   transform: rotate(-45deg) translate(0%, 0%);
   transform-origin: center center;
   transition: transform ease-in-out 100ms;
@@ -127,7 +145,7 @@ export default {
 
 .dropdown-date__list-input {
   margin-top: 5%;
-  width: 113px;
+  width: 114px;
   padding: 6px;
   border-radius: 5px;
   background-color: rgb(var(--v-theme-primary-100));

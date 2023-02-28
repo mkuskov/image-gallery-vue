@@ -7,30 +7,55 @@ interface InputRadioEvent extends Event {
 export default {
   data() {
     return {
-      renderedGalleryDate: [],
     };
   },
   methods: {
     handleAuthor(event: InputRadioEvent) {
-      // получение из @change добавленного title
       const data = event.target.title;
-      // вызов addPlace и передачата в него data
+
       this.$store.dispatch("addAuthor", data);
       this.$store.dispatch('changePage', 1);
-      // обновление массива картин
+  
       return this.$store.dispatch("loadItems");
     },
     handlePlace(event: InputRadioEvent) {
-      // получение из @change добавленного title
       const data = event.target.title;
-      // вызов addPlace и передачата в него data
+
       this.$store.dispatch("addPlace", data);
       this.$store.dispatch('changePage', 1);
-      // обновление массива картин
+
       return this.$store.dispatch("loadItems");
+    }
+  },
+  mounted() {
+    const dropdownAuthor = document.getElementById('Автор') as HTMLDetailsElement;
+    const dropdownPlace = document.getElementById('Место') as HTMLDetailsElement;
+
+    document.onclick = () => {
+        dropdownAuthor.open = false;
+        dropdownPlace.open = false;
+    };
+
+    dropdownAuthor.onclick = () => {
+      dropdownAuthor.open = false || true;
+    };
+  },
+  computed: {
+    isDisabled() {
+      return !this.state
+      ? 'dropdown__radios--disabled'
+      : 'dropdown__radios';
     },
+    disabledTitle() {
+      return {
+        color: this.state
+        ? 'rgb(var(--v-theme-primary-900))'
+        : 'rgb(var(--v-theme-primary-100))'
+      }
+    }
   },
   props: {
+    state: Boolean,
     data: Object,
     dropdownTitle: String,
   },
@@ -38,13 +63,20 @@ export default {
 </script>
 
 <template>
-  <details class="dropdown" id="dropdown">
-    <summary class="dropdown__radios">
+  <details 
+    class="dropdown" 
+    :id="dropdownTitle"
+  >
+    <summary
+      class="dropdown__radios"
+      :class="isDisabled"
+    >
       <input
-        type="radio"
         class="dropdown__input"
+        :style="disabledTitle"
+        type="radio"
         :name="dropdownTitle"
-        :title="dropdownTitle"
+        :title="state ? dropdownTitle : 'Выключено'"
         id="default"
         @change="
           dropdownTitle === 'Автор'
@@ -52,12 +84,12 @@ export default {
             : handlePlace($event as InputRadioEvent)
         "
         checked
-        disabled
       />
       <input
+        class="dropdown__input"
+        :style="disabledTitle"
         v-for="items in data"
         type="radio"
-        class="dropdown__input"
         :name="dropdownTitle"
         :id="items.id + dropdownTitle"
         :key="items.id"
@@ -90,16 +122,27 @@ export default {
   width: 300px;
 }
 
-details[open] {
+.dropdown[open] {
   z-index: 1;
 }
 
 .dropdown__radios {
+  cursor: pointer;
   border-radius: 10px;
   padding: 1rem;
-  cursor: pointer;
   border: 1px solid rgb(var(--v-theme-primary-300));
   list-style: none;
+}
+
+.dropdown__radios--disabled {
+  border: 1px solid rgb(var(--v-theme-primary-100));
+  color: rgb(var(--v-theme-primary-100));
+  cursor: default;
+  pointer-events: none;
+}
+
+.dropdown__label {
+  cursor: pointer;
 }
 
 .dropdown[open] .dropdown__radios {
@@ -199,13 +242,6 @@ details[open] {
 
 .dropdown__list.list {
   counter-reset: labels;
-}
-
-.dropdown__label {
-  width: 100%;
-  display: flex;
-  cursor: pointer;
-  justify-content: space-between;
 }
 
 .dropdown__list::-webkit-scrollbar {

@@ -4,9 +4,12 @@ import galleryMutations from "../mutations/galleryMutations";
 const galleryModule = {
     state: {
         galleryData: [],
+        galleryJSON: [],
+        settings: [],
         addNewImage: {},
         image: {},
-        showModal: false,
+        showAddImageModal: false,
+        showSettingsModal: false,
         spinner: false,
     },
     mutations: galleryMutations,

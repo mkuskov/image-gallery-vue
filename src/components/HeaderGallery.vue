@@ -1,7 +1,7 @@
 <script lang="ts">
 import FiltersComponent from "./FiltersComponent.vue";
 import HeadingComponent from "./UI/HeadingComponent.vue";
-import ModalOpenButton from "./UI/ModalOpenButton.vue";
+import ModalOpenButton from "./UI/modal/buttons/ModalOpenButton.vue";
 
 export default {
   components: {
@@ -18,7 +18,7 @@ export default {
 <template>
   <div :class="className">
     <HeadingComponent />
-    <ModalOpenButton />
+    <ModalOpenButton title="Добавить картину"/>
     <FiltersComponent />
   </div>
 </template>

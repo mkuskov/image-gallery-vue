@@ -1,5 +1,6 @@
 <script lang="ts">
 import { useTheme } from "vuetify";
+import ModalSettingsButton from "./modal/buttons/ModalSettingsButton.vue";
 
 export default {
   setup() {
@@ -12,20 +13,26 @@ export default {
           : "darkTheme"),
     };
   },
+  components: {
+    ModalSettingsButton,
+  }
 };
 </script>
 
 <template>
   <div class="header__heading">
     <h1 class="header__info">Image Gallery</h1>
-    <v-btn
-      color="transparent"
-      icon="mdi-white-balance-sunny"
-      size="x-small"
-      class="header__icon"
-      @click="toggleTheme"
-    >
-    </v-btn>
+    <div class="">
+      <v-btn
+        color="transparent"
+        icon="mdi-white-balance-sunny"
+        size="small"
+        class="header__theme-icon"
+        @click="toggleTheme"
+      >
+      </v-btn>
+      <ModalSettingsButton />
+    </div>
   </div>
 </template>
 
@@ -42,7 +49,11 @@ export default {
   font-size: 2.6rem;
 }
 
-.header__icon {
+.header__settings-icon {
+  margin-left: 10px;
+}
+
+.header__theme-icon, .header__settings-icon {
   margin-top: 20px;
 }
 

@@ -14,7 +14,7 @@ export interface CommitInterface {
 }
 
 export interface Params {
-    _limit: string,
+    _limit: number,
     _page: number,
     name: string | null,
     author: string | null,
@@ -62,6 +62,7 @@ export interface RootGetters {
 }
 
 export interface GalleryData {
+    length: number;
     name: string;
     img: string;
     author: string;
@@ -72,6 +73,7 @@ export interface GalleryData {
 
 export interface AddNewImage {
     name: string,
+    description: string,
     img: string,
     author: string,
     date: string,
@@ -80,10 +82,18 @@ export interface AddNewImage {
 }
 
 export interface GalleryState {
+    isDateFilterActive: boolean,
+    isTitleFilterActive: boolean;
+    isAuthorFilterActive: boolean;
+    isPlaceFilterActive: boolean;
+    limitElements: number;
+    showSettingsModal: boolean,
+    galleryJSON: GalleryData,
+    state: GalleryState;
     galleryData: GalleryData;
     addNewImage: AddNewImage;
     image: string;
-    showModal: boolean;
+    showAddImageModal: boolean;
     spinner: boolean;
 }
 
@@ -92,6 +102,7 @@ export interface Image {
 }
 
 export interface FiltersState {
+    paginationLength: number;
     authorsList: AuthorsList;
     placesList: PlacesList;
     filterByTitle: string;
@@ -110,6 +121,7 @@ export interface Places {
 }
 
 export interface RootState {
+    settings: any;
     gallery: GalleryState;
     filters: FiltersState;
     authors: Authors;

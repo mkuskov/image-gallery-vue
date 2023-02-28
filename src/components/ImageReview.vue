@@ -1,13 +1,25 @@
 <script lang="ts">
+import type { Image } from '@/interfaces/store';
+import { makeFuncWithDelay } from '@/utils/makeFuncWithDelay';
 
 export default {
     data() {
         return {
         }
     },
+    mounted() {
+        this.$store.dispatch("galleryJSON");
+
+        makeFuncWithDelay(() => {
+            const image = this.$store.state.gallery.galleryJSON.filter((item: Image) => item.id === this.$route.params.id);
+
+            return this.$store.dispatch("image", image);
+        }, 250)
+    }
 };
 
 </script>
+
 
 <template>
     <div
@@ -28,7 +40,7 @@ export default {
                <span class="current-image__info-by">by</span>&nbsp;{{ data.author }}
             </h4>
             <p class="current-image__description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcolaboris   nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatatnon  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                {{ data.description }}
             </p>
             <router-link to="/">
                 <v-btn class="current-image__button-back">

@@ -1,9 +1,8 @@
 <script lang="ts">
 import ImageComponent from "./UI/ImageComponent.vue";
-import { mapState } from "vuex";
-import { RouterLink } from "vue-router";
 import type { Image } from "../interfaces/store";
 import { URL_PICTURES_ROUTE } from "../constants/links";
+import EmptyPage from './UI/EmptyPage.vue'
 
 export default {
   props: {
@@ -16,6 +15,7 @@ export default {
   },
   components: {
     ImageComponent,
+    EmptyPage
   },
   methods: {
     openImage(imageId: string | number) {
@@ -31,8 +31,10 @@ export default {
 </script>
 
 <template>
+  <EmptyPage :displayСondition="!$store.state.gallery.galleryData.length"/>
   <div v-if="$store.state.gallery.spinner" :class="className">
     <ImageComponent
+      :key="loadingItem.id"
       v-for="loadingItem in $store.state.gallery.galleryData"
       class="image-gallery__loading-item"
     />
@@ -63,13 +65,21 @@ export default {
   gap: 20px;
 }
 
-.content__gallery__item {
-  transition: .1s;
+.image-gallery__not-found {
+  display: flex;
+}
+
+.image-gallery__not-found-icon {
+  margin-right: 5px;
+}
+
+.image-gallery__item {
+  transition: .2s;
   cursor: pointer;
 }
 
 .image-gallery__item:hover {
-  transition: .25s;
+  transition: .4s;
   transform: scale(1.02);
 }
 

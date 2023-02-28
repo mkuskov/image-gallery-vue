@@ -16,7 +16,7 @@ export default {
       color="black"
       class="card__loading"
     />
-    <div v-else="!$store.state.gallery.spinner" class="">
+    <div v-else class="">
       <img class="card__item" :src="image" />
       <p class="card__item-name">
         {{ imageTitle }}
