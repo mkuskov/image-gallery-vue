@@ -37,8 +37,11 @@ export default {
                 {{ data.description }}
             </p>
             <router-link to="/">
-                <v-btn class="current-image__button-back">
-                    Вернуться
+                <v-btn
+                    class="current-image__button-back"
+                    prepend-icon="mdi-arrow-left-circle"
+                >
+                    Назад
                 </v-btn>
             </router-link>
         </div>
@@ -46,8 +49,9 @@ export default {
 </template>
 
 <style>
+
 .current-image {
-    margin: 2.5%;
+    margin: 2.5% 0 2.5% 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,13 +65,17 @@ export default {
 .current-image__image {
     border-radius: 8px;
     width: 50%;
+    @media (max-width: 1280px) & {
+        width: 75%;
+    }
 }
 
 .current-image__info {
     margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
     width: 50%;
+    @media (max-width: 1280px) & {
+        width: 75%;
+    }
 }
 
 .current-image__description {
@@ -81,5 +89,11 @@ a {
 
 .current-image__button-back {
     color: rgb(var(--v-theme-primary-900));
+}
+
+@media (max-width: 1280px) {
+    .current-image__image, .current-image__info {
+        width: 75%;
+    }
 }
 </style>

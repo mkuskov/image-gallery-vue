@@ -9,12 +9,10 @@ export default {
   },
   computed: {
     isDisabled() {
-      return !this.disabled ? 'dropdown-date__radio' : 'dropdown-date__radio--disabled';
+      return !this.disabled ? 'dropdown-date__radio' : 'dropdown-date__radio_disabled';
     },
     disabledTitle() {
-      return {
-        color: !this.disabled ? 'rgb(var(--v-theme-primary-900))' : 'rgb(var(--v-theme-primary-100))'
-      }
+      return !this.disabled ? 'dropdown-date__input' : 'dropdown-date__input_disabled'
     }
   },
   props: {
@@ -29,12 +27,12 @@ export default {
       <input
         type="radio"
         class="dropdown-date__input"
+        :class="disabledTitle"
         name="dateField"
         id="default"
         :title="
           $store.state.filters.startDate === '' ? 'Дата' : `${startDate} — ${endDate}`
         "
-        :style="disabledTitle"
         checked
       />
     </summary>
@@ -81,7 +79,7 @@ export default {
   list-style: none;
 }
 
-.dropdown-date__radio--disabled {
+.dropdown-date__radio_disabled {
   border: 1px solid rgb(var(--v-theme-primary-100));
   color: rgb(var(--v-theme-primary-100));
   cursor: default;
@@ -186,6 +184,10 @@ export default {
 .dropdown-date__input[type="radio"]:after {
   content: attr(title);
   display: inline;
+}
+
+.dropdown-date__input_disabled {
+  color: rgb(var(--v-theme-primary-100));
 }
 
 .dropdown-date__list.list {

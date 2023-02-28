@@ -7,7 +7,7 @@ export default {
   },
   computed: {
     isDisabled() {
-      return !this.disabled ? 'filters__input' : 'filters__input--disabled'
+      return !this.disabled ? 'filters__input' : 'filters__input_disabled'
     }
   },
   methods: {
@@ -51,7 +51,7 @@ export default {
   color: rgb(var(--v-theme-primary-300));
 }
 
-.filters__input--disabled {
+.filters__input_disabled {
   border: 1px solid rgb(var(--v-theme-primary-100));
   color: rgb(var(--v-theme-primary-100));
   cursor: default;

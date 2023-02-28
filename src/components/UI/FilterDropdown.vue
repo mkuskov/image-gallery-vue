@@ -44,14 +44,12 @@ export default {
     isDisabled() {
       return !this.disabled
       ? 'dropdown__radios'
-      : 'dropdown__radios--disabled';
+      : 'dropdown__radios_disabled';
     },
     disabledTitle() {
-      return {
-        color: !this.disabled
-        ? 'rgb(var(--v-theme-primary-900))'
-        : 'rgb(var(--v-theme-primary-100))'
-      }
+        return !this.disabled
+        ? 'dropdown__input'
+        : 'dropdown__input_disabled'
     }
   },
   props: {
@@ -73,7 +71,7 @@ export default {
     >
       <input
         class="dropdown__input"
-        :style="disabledTitle"
+        :class="disabledTitle"
         type="radio"
         :name="dropdownTitle"
         :title="!disabled ? dropdownTitle : 'Выключено'"
@@ -87,7 +85,7 @@ export default {
       />
       <input
         class="dropdown__input"
-        :style="disabledTitle"
+        :class="disabledTitle"
         v-for="items in data"
         type="radio"
         :name="dropdownTitle"
@@ -134,7 +132,7 @@ export default {
   list-style: none;
 }
 
-.dropdown__radios--disabled {
+.dropdown__radios_disabled {
   border: 1px solid rgb(var(--v-theme-primary-100));
   color: rgb(var(--v-theme-primary-100));
   cursor: default;
@@ -238,6 +236,10 @@ export default {
 .dropdown__input[type="radio"]:after {
   content: attr(title);
   display: inline;
+}
+
+.dropdown__input_disabled {
+  color: rgb(var(--v-theme-primary-100));
 }
 
 .dropdown__list.list {
