@@ -1,34 +1,40 @@
 <script lang="ts">
-import { mapState } from "vuex";
 
 export default {
   data() {
-    return {
-      page: 1,
-    };
+    return { 
+    }
   },
-  computed: mapState(["items"]),
+  props: {
+    className: String,
+  },
+  methods: {
+    changePage() {
+      this.$store.dispatch('loadItems');
+    },
+  },
+  mounted() {
+    this.$store.dispatch("galleryJSON");
+  },
 };
 </script>
 
 <template>
-  <div class="pagination">
+  <div :class="className" v-if="$store.state.filters.paginationLength > 1 && $store.state.gallery.galleryData.length">
     <v-pagination
-      v-model="page"
-      :length="3"
+      v-model="$store.state.filters.page"
+      :length="$store.state.filters.paginationLength"
+      total-visible="4"
       class="pagination__item"
-      @click="
-        $store.dispatch('changePage', page);
-        $store.dispatch('loadItems');
-      "
+      @click="changePage"
     />
   </div>
 </template>
 
 <style>
-.pagination {
-  width: 30%;
-  margin-top: 20px;
+.content__pagination {
+  display: flex;
+  margin-top: 35px;
   float: right;
 }
 

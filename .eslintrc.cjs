@@ -7,7 +7,6 @@ module.exports = {
     "plugin:vue/vue3-essential",
     "eslint:recommended",
     "@vue/eslint-config-typescript",
-    "@vue/eslint-config-prettier",
   ],
   parserOptions: {
     ecmaVersion: "latest",
@@ -28,20 +27,6 @@ module.exports = {
       "error",
       {
         ignorePattern: "^_",
-      },
-    ],
-    "prettier/prettier": [
-      "error",
-      {
-        endOfLine: "auto",
-        printWidth: 80,
-        trailingComma: "es5",
-        semi: true,
-        doubleQuote: true,
-        jsxSingleQuote: true,
-        singleQuote: false,
-        useTabs: false,
-        tabWidth: 2,
       },
     ],
   },

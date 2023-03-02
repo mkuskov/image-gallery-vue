@@ -1,35 +1,64 @@
 <script lang="ts">
+
 export default {
   data() {
     return {
-      imageTitle: "",
     };
   },
+  computed: {
+    isDisabled() {
+      return !this.disabled ? 'filters__input' : 'filters__input_disabled'
+    }
+  },
+  methods: {
+    filterTitle() {
+      this.$store.dispatch('changePage', 1);
+
+      return this.$store.dispatch('loadItems');
+    }
+  },
+  props: {
+    disabled: Boolean,
+  }
 };
 </script>
 
 <template>
-  <input
-    placeholder="Наименование"
-    type="text"
-    class="filters__input"
-    v-model="imageTitle"
-    @change="
-      $store.dispatch('addImageTitle', imageTitle);
-      $store.dispatch('loadItems');
-    "
-  />
+    <input
+      class="filters__input"
+      :class="isDisabled"
+      placeholder="Наименование"
+      type="text"
+      id="title"
+      v-model="$store.state.filters.filterByTitle"
+      @change="filterTitle"
+      :disabled="disabled"
+    />
 </template>
 
 <style>
 .filters__input {
-  cursor: pointer;
+  cursor: text;
   display: flex;
-  padding: 15px 150px 15px 15px;
+  padding: 16px 150px 16px 15px;
   text-align: left;
   box-sizing: border-box;
   border: 1px solid rgb(var(--v-theme-primary-300));
-  border-radius: 8px;
-  border-radius: 8px;
+  border-radius: 10px;
+}
+
+::placeholder {
+  color: rgb(var(--v-theme-primary-300));
+}
+
+.filters__input_disabled {
+  border: 1px solid rgb(var(--v-theme-primary-100));
+  color: rgb(var(--v-theme-primary-100));
+  cursor: default;
+}
+
+.filters__input:focus {
+    outline: none;
+    border: 1px solid rgb(var(--v-theme-primary-900));
 }
 </style>

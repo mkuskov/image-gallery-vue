@@ -11,13 +11,14 @@ export default {
     return {
       theme,
       toggleTheme: () =>
-        (theme.global.name.value = theme.global.current.value.dark
-          ? "lightTheme"
-          : "darkTheme"),
+      (theme.global.name.value = theme.global.current.value.dark
+        ? "lightTheme"
+        : "darkTheme"),
     };
   },
   mounted() {
-    this.$store.dispatch("loadItemsForFilters");
+    this.$store.dispatch("loadAuthorsList");
+    this.$store.dispatch("loadPlacesList");
   },
   computed: mapState(["items"]),
   components: {
@@ -30,10 +31,18 @@ export default {
 
 <template>
   <div class="filters">
-    <FilterInput />
-    <FilterDropdown dropdownTitle="Автор" :data="$store.state.dataForFilters" />
-    <FilterDropdown dropdownTitle="Место" :data="$store.state.dataForFilters" />
-    <FilterDate />
+    <FilterInput :disabled="!$store.state.settings.isTitleFilterActive" />
+    <FilterDropdown
+      dropdownTitle="Автор"
+      :data="$store.state.filters.authorsList"
+      :disabled="!$store.state.settings.isAuthorFilterActive"
+    />
+    <FilterDropdown
+      dropdownTitle="Место"
+      :data="$store.state.filters.placesList"
+      :disabled="!$store.state.settings.isPlaceFilterActive"
+    />
+    <FilterDate :disabled="!$store.state.settings.isDateFilterActive" />
   </div>
 </template>
 
@@ -42,6 +51,35 @@ export default {
   width: 1192px;
   display: flex;
   justify-content: space-between;
+}
+
+.filters__input-disabled {
+  border-radius: 9px;
+  z-index: 1;
+  display: flex;
+  width: 320px;
+  height: 58px;
+  position: absolute;
+}
+
+.filters__authors-disabled {
+  border-radius: 9px;
+  background-color: rgba(255, 255, 255, 0.65);
+  z-index: 1;
+  display: flex;
+  width: 300px;
+  height: 58px;
+  position: absolute;
+}
+
+.filters__places-disabled {
+  border-radius: 9px;
+  background-color: rgba(255, 255, 255, 0.65);
+  z-index: 1;
+  display: flex;
+  width: 300px;
+  height: 58px;
+  position: absolute;
 }
 
 .filters__date {

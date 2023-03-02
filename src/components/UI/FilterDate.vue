@@ -7,19 +7,31 @@ export default {
       dateToSearch: "",
     };
   },
+  computed: {
+    isDisabled() {
+      return !this.disabled ? 'dropdown-date__radio' : 'dropdown-date__radio_disabled';
+    },
+    disabledTitle() {
+      return !this.disabled ? 'dropdown-date__input' : 'dropdown-date__input_disabled'
+    }
+  },
+  props: {
+    disabled: Boolean
+  }
 };
 </script>
 
 <template>
   <details class="dropdown-date" id="dropdown-date">
-    <summary class="dropdown-date__radio">
+    <summary class="dropdown-date__radio" :class="isDisabled">
       <input
         type="radio"
         class="dropdown-date__input"
+        :class="disabledTitle"
         name="dateField"
         id="default"
         :title="
-          $store.state.startDate === '' ? 'Дата' : `${startDate} — ${endDate}`
+          $store.state.filters.startDate === '' ? 'Дата' : `${startDate} — ${endDate}`
         "
         checked
       />
@@ -60,17 +72,24 @@ export default {
 }
 
 .dropdown-date__radio {
+  cursor: pointer;
   border-radius: 10px;
   padding: 1rem;
-  cursor: pointer;
   border: 1px solid rgb(var(--v-theme-primary-300));
   list-style: none;
+}
+
+.dropdown-date__radio_disabled {
+  border: 1px solid rgb(var(--v-theme-primary-100));
+  color: rgb(var(--v-theme-primary-100));
+  cursor: default;
+  pointer-events: none;
 }
 
 .dropdown-date[open] .dropdown-date__radio {
   border-radius: 10px 10px 0 0;
   border: 1px solid;
-  border-bottom: 1px solid transparent;
+  border-bottom: none;
 }
 
 .dropdown-date__radio::-webkit-details-marker {
@@ -92,9 +111,9 @@ export default {
   margin-top: 5px;
   width: 0.5rem;
   height: 0.5rem;
-  border-bottom: 1px solid currentColor;
-  border-left: 1px solid currentColor;
-  transform: rotate(45deg) translate(50%, 0%);
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  transform: rotate(-45deg) translate(0%, 0%);
   transform-origin: center center;
   transition: transform ease-in-out 100ms;
 }
@@ -104,7 +123,7 @@ export default {
 }
 
 .dropdown-date[open] .dropdown-date__radio:after {
-  transform: rotate(-45deg) translate(0%, 0%);
+  transform: rotate(45deg) translate(50%, 0%);
 }
 
 .dropdown-date__list {
@@ -112,22 +131,22 @@ export default {
   background: rgb(var(--v-theme-primary-25));
   border-radius: 0 0 10px 10px;
   list-style: none;
-  width: 99%;
+  width: 100%;
   position: absolute;
   left: 0;
   border: 1px solid;
-  border-top: 1px solid transparent;
+  border-top: none;
 }
 
 .dropdown-date__list-item {
-  margin-left: 6px;
+  margin-left: 5px;
   display: inline;
-  border-bottom: 1px solid transparent;
+  border-bottom: none;
 }
 
 .dropdown-date__list-input {
   margin-top: 5%;
-  width: 101px;
+  width: 114px;
   padding: 6px;
   border-radius: 5px;
   background-color: rgb(var(--v-theme-primary-100));
@@ -165,6 +184,10 @@ export default {
 .dropdown-date__input[type="radio"]:after {
   content: attr(title);
   display: inline;
+}
+
+.dropdown-date__input_disabled {
+  color: rgb(var(--v-theme-primary-100));
 }
 
 .dropdown-date__list.list {

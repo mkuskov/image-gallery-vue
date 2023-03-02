@@ -7,42 +7,74 @@ interface InputRadioEvent extends Event {
 export default {
   data() {
     return {
-      renderedGalleryDate: [],
     };
   },
   methods: {
     handleAuthor(event: InputRadioEvent) {
-      // получение из @change добавленного title
       const data = event.target.title;
-      // вызов addPlace с data
+
       this.$store.dispatch("addAuthor", data);
-      // обновление массива картин
+      this.$store.dispatch('changePage', 1);
+  
       return this.$store.dispatch("loadItems");
     },
     handlePlace(event: InputRadioEvent) {
-      // получение из @change добавленного title
       const data = event.target.title;
-      // вызов addPlace с data
+
       this.$store.dispatch("addPlace", data);
-      // обновление массива картин
+      this.$store.dispatch('changePage', 1);
+
       return this.$store.dispatch("loadItems");
+    }
+  },
+  mounted() {
+    const dropdownAuthor = document.getElementById('Автор') as HTMLDetailsElement;
+    const dropdownPlace = document.getElementById('Место') as HTMLDetailsElement;
+
+    document.onclick = () => {
+        dropdownAuthor.open = false;
+        dropdownPlace.open = false;
+    };
+
+    dropdownAuthor.onclick = () => {
+      dropdownAuthor.open = false || true;
+    };
+  },
+  computed: {
+    isDisabled() {
+      return !this.disabled
+      ? 'dropdown__radios'
+      : 'dropdown__radios_disabled';
     },
+    disabledTitle() {
+        return !this.disabled
+        ? 'dropdown__input'
+        : 'dropdown__input_disabled'
+    }
   },
   props: {
-    data: Array,
+    disabled: Boolean,
+    data: Object,
     dropdownTitle: String,
   },
 };
 </script>
 
 <template>
-  <details class="dropdown" id="dropdown">
-    <summary class="dropdown__radios">
+  <details 
+    class="dropdown" 
+    :id="dropdownTitle"
+  >
+    <summary
+      class="dropdown__radios"
+      :class="isDisabled"
+    >
       <input
-        type="radio"
         class="dropdown__input"
+        :class="disabledTitle"
+        type="radio"
         :name="dropdownTitle"
-        :title="dropdownTitle"
+        :title="!disabled ? dropdownTitle : 'Выключено'"
         id="default"
         @change="
           dropdownTitle === 'Автор'
@@ -50,15 +82,15 @@ export default {
             : handlePlace($event as InputRadioEvent)
         "
         checked
-        disabled
       />
       <input
-        :key="items.id"
-        v-for="items in $store.getters.removeSameValues"
-        type="radio"
         class="dropdown__input"
+        :class="disabledTitle"
+        v-for="items in data"
+        type="radio"
         :name="dropdownTitle"
         :id="items.id + dropdownTitle"
+        :key="items.id"
         @change="
           dropdownTitle === 'Автор'
             ? handleAuthor($event as InputRadioEvent)
@@ -69,7 +101,7 @@ export default {
     </summary>
     <ul class="dropdown__list">
       <li
-        v-for="items in $store.getters.removeSameValues"
+        v-for="items in data"
         class="dropdown__list-item"
         :key="items.id"
       >
@@ -88,20 +120,31 @@ export default {
   width: 300px;
 }
 
-details[open] {
+.dropdown[open] {
   z-index: 1;
 }
 
 .dropdown__radios {
+  cursor: pointer;
   border-radius: 10px;
   padding: 1rem;
-  cursor: pointer;
   border: 1px solid rgb(var(--v-theme-primary-300));
   list-style: none;
 }
 
+.dropdown__radios_disabled {
+  border: 1px solid rgb(var(--v-theme-primary-100));
+  color: rgb(var(--v-theme-primary-100));
+  cursor: default;
+  pointer-events: none;
+}
+
+.dropdown__label {
+  cursor: pointer;
+}
+
 .dropdown[open] .dropdown__radios {
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 1px 1px;
   border: 1px solid;
   border-bottom: 1px solid rgb(var(--v-theme-primary-300));
 }
@@ -113,7 +156,6 @@ details[open] {
 .dropdown[open] .dropdown__radios:before {
   content: "";
   display: block;
-  background: transparent;
   position: fixed;
   top: 0;
   left: 0;
@@ -125,9 +167,9 @@ details[open] {
   margin-top: 5px;
   width: 0.5rem;
   height: 0.5rem;
-  border-bottom: 1px solid currentColor;
-  border-left: 1px solid currentColor;
-  transform: rotate(45deg) translate(50%, 0%);
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  transform: rotate(-45deg) translate(0%, 0%);
   transform-origin: center center;
   transition: transform ease-in-out 100ms;
 }
@@ -137,7 +179,7 @@ details[open] {
 }
 
 .dropdown[open] .dropdown__radios:after {
-  transform: rotate(-45deg) translate(0%, 0%);
+  transform: rotate(45deg) translate(50%, 0%);
 }
 
 .dropdown__list {
@@ -153,13 +195,12 @@ details[open] {
   border: 1px solid;
   max-height: 200px;
   overflow-y: auto;
-  border-top: 1px solid transparent;
+  border-top: none;
 }
 
 .dropdown__list-item {
   margin: 0;
   padding: 5px;
-  border-bottom: 1px solid transparent;
 }
 
 .dropdown__list-item:first-child {
@@ -197,16 +238,12 @@ details[open] {
   display: inline;
 }
 
-.dropdown__list.list {
-  border-top: transparent;
-  counter-reset: labels;
+.dropdown__input_disabled {
+  color: rgb(var(--v-theme-primary-100));
 }
 
-.dropdown__label {
-  width: 100%;
-  display: flex;
-  cursor: pointer;
-  justify-content: space-between;
+.dropdown__list.list {
+  counter-reset: labels;
 }
 
 .dropdown__list::-webkit-scrollbar {
