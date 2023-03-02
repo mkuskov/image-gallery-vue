@@ -1,12 +1,20 @@
 import type { Commit } from "vuex";
 import type { Dispatch } from "vuex";
 
-export interface TextElement extends Element {
-    innerText: string;
+export interface State {
+    gallery: GalleryState;
+    filters: FiltersState;
+    authors: Authors;
+    places: Places;
+    settings: SettingsState;
 }
 
-export interface Target {
-    target: TextElement;
+export interface SettingsState {
+    limitElements: number;
+    isDateFilterActive: boolean;
+    isPlaceFilterActive: boolean;
+    isAuthorFilterActive: boolean;
+    isTitleFilterActive: boolean;
 }
 
 export interface CommitInterface {
@@ -41,11 +49,13 @@ export interface Getters {
 export interface AuthorsList {
     author: string;
     id: string;
+    map(author: (item: AuthorsList) => string): Array<string>
 }
 
 export interface PlacesList {
     place: string;
     id: string;
+    map(place: (item: PlacesList) => string): Array<string>
 }
 
 export interface State {
@@ -62,14 +72,15 @@ export interface RootGetters {
 }
 
 export interface GalleryData {
-    length: number;
-    name: string;
-    img: string;
-    description: string,
-    author: string;
-    date: string;
-    place: string;
-    id: string;
+    length: any;         
+    name: string;           
+    img: string;            
+    description: string,            
+    author: string;         
+    date: string;           
+    place: string;          
+    id: string;         
+    filter(arg:(item: GalleryData) => boolean): GalleryData;
 }
 
 export interface AddNewImage {
@@ -108,8 +119,8 @@ export interface FiltersState {
     authorsList: AuthorsList;
     placesList: PlacesList;
     filterByTitle: string;
-    startDate: number;
-    endDate: number;
+    startDate: number | string;
+    endDate: number | string;
     filterByDate: string;
     page: number;
 }
@@ -123,7 +134,7 @@ export interface Places {
 }
 
 export interface RootState {
-    settings: any;
+    settings: SettingsState;
     gallery: GalleryState;
     filters: FiltersState;
     authors: Authors;

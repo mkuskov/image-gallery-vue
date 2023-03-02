@@ -25,7 +25,7 @@ export default {
   </v-app>
 </template>
 
-<style>
+<style lang="scss">
 * {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
   Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;

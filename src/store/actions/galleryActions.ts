@@ -1,11 +1,11 @@
-import type { AddNewImage, Context, LoadItemsInterface, Params } from "@/interfaces/store";
+import type { AddNewImage, Context, LoadItemsInterface, Params } from "@interfaces/store";
 
-import { URL_GALLERY } from "@/constants/links";
+import { URL_GALLERY } from "@constants/links";
 
-import { instance } from "@/utils/postman";
-import { makeFuncWithDelay } from "@/utils/makeFuncWithDelay";
-import { urlParamsDTO } from "@/utils/urlParamsDTO";
-import { calculatePaginationLength } from "@/utils/calculatePaginationLength";
+import { instance } from "@utils/postman";
+import { makeFuncWithDelay } from "@utils/makeFuncWithDelay";
+import { urlParamsDTO } from "@utils/urlParamsDTO";
+import { getPaginationLength } from "@utils/getPaginationLength";
 
 const galleryActions = {
     async loadItems({ commit, state, rootState }: LoadItemsInterface) {
@@ -25,8 +25,6 @@ const galleryActions = {
           commit("SET_ITEMS", gallery.data);
 
           makeFuncWithDelay(() => {
-            commit('UPDATE_LENGTH', calculatePaginationLength(rootState.gallery.galleryJSON.length, rootState.settings.limitElements));
-
             return state.spinner = false;
           }, 1000)
         }
@@ -35,7 +33,7 @@ const galleryActions = {
         }
     },
 
-    async galleryJSON({ commit}: LoadItemsInterface, payload = {} as AddNewImage) {
+    async galleryJSON({ commit, rootState }: LoadItemsInterface, payload = {} as AddNewImage) {
       const {
         callback,
       } = payload;
@@ -43,6 +41,7 @@ const galleryActions = {
       try {
         const galleryJSON = await instance.get(URL_GALLERY);
         commit("SET_ALL_GALLERY", galleryJSON.data);
+        commit('UPDATE_LENGTH', getPaginationLength(rootState.gallery.galleryJSON.length, rootState.settings.limitElements));
 
         if (callback) {
           callback();

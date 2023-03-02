@@ -35,7 +35,7 @@ export default {
     />
 </template>
 
-<style>
+<style lang="scss">
 .header__settings-icon {
   margin-left: 10px;
   margin-top: 20px;

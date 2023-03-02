@@ -1,5 +1,7 @@
 <script lang="ts">
 
+import { firstPage } from '@/constants/pagination';
+
 export default {
   data() {
     return {
@@ -12,9 +14,16 @@ export default {
   },
   methods: {
     filterTitle() {
-      this.$store.dispatch('changePage', 1);
+      this.$store.dispatch('changePage', firstPage);
+      this.$store.dispatch('updateLength', Math.floor(this.$store.state.gallery.galleryData.length / this.$store.state.settings.limitElements));
 
-      return this.$store.dispatch('loadItems');
+      if (this.$store.state.filters.filterByTitle !== "") {
+        this.$store.dispatch('updateLength', Math.floor(this.$store.state.gallery.galleryData.length / this.$store.state.settings.limitElements));
+        return this.$store.dispatch("loadItems");
+      }
+      this.$store.dispatch("galleryJSON");
+
+      return this.$store.dispatch("loadItems");
     }
   },
   props: {
@@ -36,7 +45,7 @@ export default {
     />
 </template>
 
-<style>
+<style lang="scss">
 .filters__input {
   cursor: text;
   display: flex;

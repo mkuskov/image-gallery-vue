@@ -1,5 +1,5 @@
 <script lang="ts">
-import { limitElements } from '@/constants/pagination';
+import { limitElements, firstPage } from '@constants/pagination';
 
 
 export default {
@@ -44,8 +44,10 @@ export default {
       this.dateFilterSettings();
       /// Доп. настройки
       this.$store.dispatch('changeSettingsModalStatus', false);
-      this.$store.dispatch('changePage', 1);
-      this.$store.dispatch('loadItems');
+      this.$store.dispatch('changePage', firstPage);
+      this.$store.dispatch('galleryJSON');
+
+      return this.$store.dispatch('loadItems');
     }
   }
 };
@@ -109,7 +111,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .settings__filters-heading, .settings__extra-heading {
   text-align: left;
   margin-bottom: 10px;

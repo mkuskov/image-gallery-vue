@@ -1,7 +1,7 @@
-import { instance } from "@/utils/postman";
-import { URL_PLACES, URL_AUTHORS } from "@/constants/links";
+import { instance } from "@utils/postman";
+import { URL_PLACES, URL_AUTHORS } from "@constants/links";
 
-import type { Context, CommitInterface } from "@/interfaces/store";
+import type { Context, CommitInterface } from "@interfaces/store";
 
 const filtersActions = {
     async loadAuthorsList({ commit }: CommitInterface) {

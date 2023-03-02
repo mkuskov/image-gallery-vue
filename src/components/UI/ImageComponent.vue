@@ -25,7 +25,7 @@ export default {
   </v-card>
 </template>
 
-<style>
+<style lang="scss">
 .card {
   line-height: 0.75;
   height: 275px;

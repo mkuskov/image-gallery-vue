@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-  <div :class="className" v-if="$store.state.filters.paginationLength && $store.state.gallery.galleryData.length">
+  <div :class="className" v-if="$store.state.filters.paginationLength > 1 && $store.state.gallery.galleryData.length">
     <v-pagination
       v-model="$store.state.filters.page"
       :length="$store.state.filters.paginationLength"
@@ -31,9 +31,23 @@ export default {
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .content__pagination {
-    display: flex;
+  display: flex;
+
+  @media screen and (min-width: 0px) {
+    justify-content: center;
+    margin: 2.5% 5% 2.5% 5%;
+  }
+
+  @media screen and (min-width: 660px) {
+      justify-content: flex-end;
+      margin: -2.5% 5% 2.5% 5%;
+  }
+
+  @media screen and (min-width: 1280px) {
+      margin: 2.5% 0 0 0;
+  }
 }
 
 .v-pagination__item--is-active {
@@ -62,25 +76,5 @@ export default {
 .v-pagination__next {
   border: 1px solid;
   border-radius: 5px;
-}
-
-@media screen and (min-width: 0px) {
-  .content__pagination {
-    justify-content: center;
-    margin: 2.5% 5% 2.5% 5%;
-  }
-}
-
-@media screen and (min-width: 660px) {
-  .content__pagination {
-    justify-content: flex-end;
-    margin: -2.5% 5% 2.5% 5%;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .content__pagination {
-    margin: 2.5% 0 0 0;
-  }
 }
 </style>

@@ -9,7 +9,7 @@ const settingsModule = {
       isDateFilterActive: false,
       limitElements: 6,
     },
-	  mutations: settingsMutations,
+    mutations: settingsMutations,
     actions: settingsActions,
 }
 

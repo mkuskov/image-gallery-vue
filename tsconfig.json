@@ -6,6 +6,20 @@
     "strict": true,
     // при использовании webpack 2+ или rollup, добавить поддержку tree-shaking:
     "module": "esnext",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": [
+          "./src/*"
+      ],
+      "@interfaces/*": [
+        "./src/interfaces/*"
+      ],
+      "@constants/*": [
+        "./src/constants/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+    },
   }
 }

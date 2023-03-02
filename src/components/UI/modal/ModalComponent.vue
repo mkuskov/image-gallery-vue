@@ -21,7 +21,7 @@ export default {
             size="small"
             @click="
               $store.dispatch(`${closeModalAction}`, false);
-              ($refs.form as any).reset();
+              ($refs.form as HTMLFormElement).reset();
             "
           />
           <slot />
@@ -29,7 +29,7 @@ export default {
     </div>
 </template>
 
-<style>
+<style lang="scss">
 .modal {
   position: fixed;
   top: 0;

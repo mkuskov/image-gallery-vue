@@ -23,25 +23,19 @@ export default {
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .content__header {
   margin-bottom: 44px;
-}
 
-@media screen and (min-width: 0) {
-  .content__header {
+  @media screen and (min-width: 0) {
     padding: 0 5% 0 5%;
   }
-}
 
-@media screen and (min-width: 660px) {
-  .content__header {
+  @media screen and (min-width: 660px) {
     padding: 0 5% 0 5%;
   }
-}
 
-@media screen and (min-width: 1280px) {
-  .content__header {
+  @media screen and (min-width: 1280px) {
     padding: 0;
   }
 }

@@ -1,19 +1,20 @@
-import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import vuetify from "vite-plugin-vuetify";
 
-const path = require('path')
+import * as path from 'path';
 
 export default defineConfig({
+  plugins: [vue(), vueJsx(), vuetify({ autoImport: true })],
   resolve: {
     alias: {
-      '@interfaces': path.resolve(__dirname, '.src/interfaces'),
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
-      'vue$': 'vue/dist/vue.esm.js',
+      '@': path.resolve(__dirname, "./src"),
+      "@interfaces": path.resolve(__dirname, "./src/interfaces"),
+      "@constants": path.resolve(__dirname, "./src/constants"),
+      "@utils": path.resolve(__dirname, "./src/utils"),
+      "vue$": "vue/dist/vue.esm.js",
     },
   },
-  plugins: [vue(), vueJsx(), vuetify({ autoImport: true })],
 });

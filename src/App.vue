@@ -13,5 +13,5 @@ export default {
   </v-app>
 </template>
 
-<style>
+<style lang="scss">
 </style>

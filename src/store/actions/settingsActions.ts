@@ -1,4 +1,4 @@
-import type { Context } from "@/interfaces/store";
+import type { Context } from "@interfaces/store";
 
 const settingsActions = {
   settingFilterTitle(context: Context, payload: boolean) {

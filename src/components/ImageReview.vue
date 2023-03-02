@@ -1,6 +1,6 @@
 <script lang="ts">
-import type { GalleryData } from '@/interfaces/store';
-import { URL_HOME } from '@/constants/links';
+import type { GalleryData } from '@interfaces/store';
+import { URL_HOME } from '@constants/links';
 
 export default {
   data() {
@@ -50,8 +50,7 @@ export default {
   </div>
 </template>
 
-<style>
-
+<style lang="scss">
 .current-image {
   margin: 2.5% 0 2.5% 0;
   display: flex;
@@ -65,16 +64,29 @@ export default {
 }
 
 .current-image__image {
-  border-radius: 8px;
-  width: 50%;
   -webkit-box-shadow: 0px 15px 20px -10px rgba(34, 60, 80, 0.5);
   -moz-box-shadow: 0px 15px 20px -10px rgba(34, 60, 80, 0.5);
   box-shadow: 0px 15px 20px -10px rgba(34, 60, 80, 0.5);
+
+  @media screen and (min-width: 0px) {
+    margin-top: 15px;
+    width: 75%;
+  }
+  @media screen and (min-width: 1280px) {
+    border-radius: 8px;
+    width: 50%;
+  }
 }
 
 .current-image__info {
-  margin-top: 15px;
-  width: 50%;
+  @media screen and (min-width: 0px) {
+    margin-top: 15px;
+    width: 75%;
+  }
+  @media screen and (min-width: 1280px) {
+    border-radius: 8px;
+    width: 50%;
+  }
 }
 
 .current-image__description {
@@ -88,19 +100,5 @@ a {
 
 .current-image__button-back {
   color: rgb(var(--v-theme-primary-900));
-}
-
-@media screen and (min-width: 0px) {
-  .current-image__image, .current-image__info {
-    margin-top: 15px;
-    width: 75%;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .current-image__image, .current-image__info {
-    border-radius: 8px;
-    width: 50%;
-  }
 }
 </style>

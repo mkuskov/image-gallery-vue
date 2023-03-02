@@ -23,7 +23,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style lang="scss">
 @media screen and (min-width: 0px) {
   .image-gallery__not-found {
     padding: 5%;

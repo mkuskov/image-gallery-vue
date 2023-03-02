@@ -1,8 +1,8 @@
 <script lang="ts">
 import { useTheme } from "vuetify";
-import FilterInput from "./UI/FilterInput.vue";
-import FilterDropdown from "./UI/FilterDropdown.vue";
-import FilterDate from "./UI/FilterDate.vue";
+import FilterInput from "./UI/fields/FilterInput.vue";
+import FilterDropdown from "./UI/fields/FilterDropdown.vue";
+import FilterDate from "./UI/fields/FilterDate.vue";
 import { mapState } from "vuex";
 
 export default {
@@ -46,27 +46,21 @@ export default {
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .filters {
   width: 100%;
   display: grid;
   gap: 1rem;
-}
 
-@media screen and (min-width: 0) {
-  .filters {
+  @media screen and (min-width: 0) {
     grid-template-columns: 1fr;
   }
-}
 
-@media screen and (min-width: 660px) {
-  .filters {
+  @media screen and (min-width: 660px) {
     grid-template-columns: 1fr 1fr;
   }
-}
 
-@media screen and (min-width: 960px) {
-  .filters {
+  @media screen and (min-width: 960px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

@@ -8,9 +8,11 @@ export default {
     return {
       theme,
       toggleTheme: () =>
-        (theme.global.name.value = theme.global.current.value.dark
+        (
+          theme.global.name.value = theme.global.current.value.dark
           ? "lightTheme"
-          : "darkTheme"),
+          : "darkTheme"
+        ),
     };
   },
   components: {
@@ -36,15 +38,38 @@ export default {
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .header__heading {
   display: flex;
   justify-content: space-between;
+
+  @media (min-width: 660px) {
+      margin-top: 2.5%;
+      justify-content: space-between;
+  }
+
+  @media (min-width: 1280px) {
+      margin-top: 0;
+      justify-content: space-between;
+  }
 }
 
 .header__info {
   font-weight: 500;
-  font-size: 2.6rem;
+
+  @media (min-width: 0px) {
+    margin-top: 14px;
+    font-size: 2rem;
+  }
+
+  @media (min-width: 660px) {
+    font-size: 2.2rem;
+  }
+
+  @media (min-width: 1280px) {
+    margin-top: 0;
+    font-size: 2.6rem;
+  }
 }
 
 .header__settings-icon {
@@ -53,32 +78,5 @@ export default {
 
 .header__theme-icon, .header__settings-icon {
   margin-top: 20px;
-}
-
-@media (min-width: 0px) {
-  .header__info {
-    margin-top: 14px;
-    font-size: 2rem;
-  }
-}
-
-@media (min-width: 660px) {
-  .header__heading {
-    margin-top: 2.5%;
-    justify-content: space-between;
-  }
-  .header__info {
-    font-size: 2.2rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .header__heading {
-    margin-top: 0;
-    justify-content: space-between;
-  }
-  .header__info {
-    margin-top: 0;
-  }
 }
 </style>

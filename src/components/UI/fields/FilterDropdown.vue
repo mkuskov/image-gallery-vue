@@ -1,4 +1,6 @@
 <script lang="ts">
+import { firstPage } from '@/constants/pagination';
+
 interface InputRadioEvent extends Event {
   target: HTMLInputElement;
   event: Event;
@@ -14,7 +16,13 @@ export default {
       const data = event.target.title;
 
       this.$store.dispatch("addAuthor", data);
-      this.$store.dispatch('changePage', 1);
+      this.$store.dispatch('changePage', firstPage);
+
+      if (data !== "Все") {
+        this.$store.dispatch('updateLength', Math.floor(this.$store.state.gallery.galleryData.length / this.$store.state.settings.limitElements));
+        return this.$store.dispatch("loadItems");
+      }
+      this.$store.dispatch("galleryJSON");
 
       return this.$store.dispatch("loadItems");
     },
@@ -22,7 +30,13 @@ export default {
       const data = event.target.title;
 
       this.$store.dispatch("addPlace", data);
-      this.$store.dispatch('changePage', 1);
+      this.$store.dispatch('changePage', firstPage);
+
+      if (data !== "Все") {
+        this.$store.dispatch('updateLength', Math.floor(this.$store.state.gallery.galleryData.length / this.$store.state.settings.limitElements));
+        return this.$store.dispatch("loadItems");
+      }
+      this.$store.dispatch("galleryJSON");
 
       return this.$store.dispatch("loadItems");
     }
@@ -113,7 +127,7 @@ export default {
   </details>
 </template>
 
-<style>
+<style lang="scss">
 .dropdown {
   position: relative;
 }

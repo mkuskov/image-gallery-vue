@@ -1,4 +1,4 @@
-import type { Places, Context } from "@/interfaces/store";
+import type { Places, Context } from "@interfaces/store";
 
 const placesModule = {
 	state: {

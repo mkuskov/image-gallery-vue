@@ -1,8 +1,7 @@
 <script lang="ts">
-import { makeFuncWithDelay } from '@/utils/makeFuncWithDelay';
-import type { AuthorsList, PlacesList } from '@/interfaces/store';
-import { URL_DEFAULT_PICTURE } from '@/constants/links';
-import { calculatePaginationLength } from '@/utils/calculatePaginationLength';
+import type { AuthorsList, PlacesList } from '@interfaces/store';
+import { URL_DEFAULT_PICTURE } from '@constants/links';
+import { getPaginationLength } from '@/utils/getPaginationLength';
 
 export default {
   data() {
@@ -42,7 +41,7 @@ export default {
         callback: () => {
           this.$store.dispatch("galleryJSON", {
             callback: () => {
-              this.$store.dispatch('changePage', calculatePaginationLength(this.$store.state.gallery.galleryJSON.length, this.$store.state.settings.limitElements));
+              this.$store.dispatch('changePage', getPaginationLength(this.$store.state.gallery.galleryJSON.length, this.$store.state.settings.limitElements));
               this.$store.dispatch("loadItems");
             }
           });
@@ -50,7 +49,7 @@ export default {
       });
 
       this.$store.dispatch('changeAddImageModalStatus', false);
-      (this.$refs.form as any).reset();
+      (this.$refs.form as HTMLFormElement).reset();
     },
   },
 };
@@ -110,7 +109,7 @@ export default {
     </v-btn>
 </template>
 
-<style>
+<style lang="scss">
 .form-add__select,
 .form-add__input {
   margin-bottom: 10px;

@@ -1,7 +1,7 @@
 <script lang="ts">
 import ImageComponent from "./UI/ImageComponent.vue";
-import type { Image } from "../interfaces/store";
-import { URL_PICTURES_ROUTE } from "../constants/links";
+import type { GalleryData, Image } from "@interfaces/store";
+import { URL_PICTURES_ROUTE } from "@constants/links";
 import EmptyPage from './UI/EmptyPage.vue'
 
 export default {
@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     openImage(imageId: string) {
-      const getImage = this.$store.state.gallery.galleryData.filter((item: Image) => item.id === imageId);
+      const getImage = this.$store.state.gallery.galleryData.filter((item: GalleryData) => item.id === imageId);
 
       localStorage.setItem("image", JSON.stringify(getImage));
   
@@ -61,11 +61,33 @@ export default {
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .content__gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   align-items: stretch;
+
+  @media screen and (min-width: 0px) {
+    margin: 5%;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 660px) {
+    grid-template-columns: 1fr 1fr;
+    min-height: 570px;
+  }
+
+  @media screen and (min-width: 1080px) {
+    margin: 5%;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin: 0%;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .image-gallery__not-found {
@@ -84,36 +106,5 @@ export default {
 .image-gallery__item:hover {
   transition: .4s;
   transform: scale(1.02);
-}
-
-@media screen and (min-width: 0px) {
-  .content__gallery {
-    margin: 5%;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-@media screen and (min-width: 660px) {
-  .content__gallery {
-    grid-template-columns: 1fr 1fr;
-    min-height: 570px;
-  }
-}
-
-@media screen and (min-width: 1080px) {
-  .content__gallery {
-    margin: 5%;
-    gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .content__gallery {
-    margin: 0%;
-    gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
 }
 </style>

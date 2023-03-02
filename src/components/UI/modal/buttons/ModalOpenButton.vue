@@ -36,7 +36,7 @@ export default {
   </v-btn>
 </template>
 
-<style>
+<style lang="scss">
 .modal-button {
   float: right;
   margin: 20px 0 30px 0;

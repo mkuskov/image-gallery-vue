@@ -52,14 +52,16 @@ export default {
           type="date"
           class="dropdown-date__list-input"
           v-model="endDate"
-          @change="$store.dispatch('addEndDate', new Date(endDate).getTime())"
+          @change="
+          $store.dispatch('addEndDate', new Date(endDate).getTime());
+          "
         />
       </li>
     </ul>
   </details>
 </template>
 
-<style>
+<style lang="scss">
 .dropdown-date {
   position: relative;
 }
@@ -132,6 +134,14 @@ export default {
   left: 0;
   border: 1px solid;
   border-top: none;
+
+  @media screen and (min-width: 0) {
+    height: 150px;
+  }
+
+  @media screen and (min-width: 660px) {
+    height: 115px;
+  }
 }
 
 .dropdown-date__list-item {
@@ -217,17 +227,5 @@ export default {
 
 .dropdown-date__list::-webkit-scrollbar-thumb:hover {
   background-color: #5f5f5f;
-}
-
-@media screen and (min-width: 0) {
-  .dropdown-date__list {
-    height: 150px;
-  }
-}
-
-@media screen and (min-width: 660px) {
-  .dropdown-date__list {
-    height: 115px;
-  }
 }
 </style>

@@ -1,3 +1,3 @@
-export function makeFuncWithDelay(func: any, delay: number) {
+export function makeFuncWithDelay(func: (value: number) => boolean, delay: number) {
   setTimeout(func, delay)
 }
