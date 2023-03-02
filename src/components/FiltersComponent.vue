@@ -48,58 +48,26 @@ export default {
 
 <style>
 .filters {
-  width: 1192px;
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
+  display: grid;
+  gap: 1rem;
 }
 
-.filters__input-disabled {
-  border-radius: 9px;
-  z-index: 1;
-  display: flex;
-  width: 320px;
-  height: 58px;
-  position: absolute;
+@media screen and (min-width: 0) {
+  .filters {
+    grid-template-columns: 1fr;
+  }
 }
 
-.filters__authors-disabled {
-  border-radius: 9px;
-  background-color: rgba(255, 255, 255, 0.65);
-  z-index: 1;
-  display: flex;
-  width: 300px;
-  height: 58px;
-  position: absolute;
+@media screen and (min-width: 660px) {
+  .filters {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.filters__places-disabled {
-  border-radius: 9px;
-  background-color: rgba(255, 255, 255, 0.65);
-  z-index: 1;
-  display: flex;
-  width: 300px;
-  height: 58px;
-  position: absolute;
-}
-
-.filters__date {
-  margin-left: 1rem;
-  cursor: pointer;
-  display: flex;
-  padding: 15px 150px 15px 15px;
-  text-align: left;
-  box-sizing: border-box;
-  border: 1px solid rgb(var(--v-theme-primary-300));
-  border-radius: 8px;
-}
-
-.filters__date-options {
-  background-color: rgb(var(--v-theme-primary-25));
-}
-
-@media (min-width: 1024px) {
-  .header__info {
-    text-align: left;
+@media screen and (min-width: 960px) {
+  .filters {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 </style>

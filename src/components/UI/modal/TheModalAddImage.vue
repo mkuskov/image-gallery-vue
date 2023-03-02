@@ -37,18 +37,20 @@ export default {
   },
   methods: {
     addPicture() {
-      this.$store.dispatch("addItems", this.newImage);
+      this.$store.dispatch("addItems", {
+        ...this.newImage,
+        callback: () => {
+          this.$store.dispatch("galleryJSON", {
+            callback: () => {
+              this.$store.dispatch('changePage', calculatePaginationLength(this.$store.state.gallery.galleryJSON.length, this.$store.state.settings.limitElements));
+              this.$store.dispatch("loadItems");
+            }
+          });
+        },
+      });
+
       this.$store.dispatch('changeAddImageModalStatus', false);
       (this.$refs.form as any).reset();
-
-      makeFuncWithDelay(() => {
-        this.$store.dispatch("galleryJSON");
-      }, 50)
-
-      makeFuncWithDelay(() => {
-        this.$store.dispatch('changePage', calculatePaginationLength(this.$store.state.gallery.galleryJSON.length, this.$store.state.settings.limitElements));
-        this.$store.dispatch("loadItems")
-      }, 100)
     },
   },
 };

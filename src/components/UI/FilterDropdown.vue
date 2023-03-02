@@ -15,7 +15,7 @@ export default {
 
       this.$store.dispatch("addAuthor", data);
       this.$store.dispatch('changePage', 1);
-  
+
       return this.$store.dispatch("loadItems");
     },
     handlePlace(event: InputRadioEvent) {
@@ -44,12 +44,12 @@ export default {
     isDisabled() {
       return !this.disabled
       ? 'dropdown__radios'
-      : 'dropdown__radios_disabled';
+      : 'dropdown__radios--disabled';
     },
     disabledTitle() {
         return !this.disabled
         ? 'dropdown__input'
-        : 'dropdown__input_disabled'
+        : 'dropdown__input--disabled'
     }
   },
   props: {
@@ -115,9 +115,7 @@ export default {
 
 <style>
 .dropdown {
-  margin-left: 1rem;
   position: relative;
-  width: 300px;
 }
 
 .dropdown[open] {
@@ -132,7 +130,7 @@ export default {
   list-style: none;
 }
 
-.dropdown__radios_disabled {
+.dropdown__radios--disabled {
   border: 1px solid rgb(var(--v-theme-primary-100));
   color: rgb(var(--v-theme-primary-100));
   cursor: default;
@@ -140,6 +138,7 @@ export default {
 }
 
 .dropdown__label {
+  padding: 8px 0 8px 0;
   cursor: pointer;
 }
 
@@ -167,6 +166,8 @@ export default {
   margin-top: 5px;
   width: 0.5rem;
   height: 0.5rem;
+  position: absolute;
+  right: 15px;
   border-bottom: 1px solid;
   border-left: 1px solid;
   transform: rotate(-45deg) translate(0%, 0%);
@@ -199,7 +200,6 @@ export default {
 }
 
 .dropdown__list-item {
-  margin: 0;
   padding: 5px;
 }
 
@@ -238,7 +238,7 @@ export default {
   display: inline;
 }
 
-.dropdown__input_disabled {
+.dropdown__input--disabled {
   color: rgb(var(--v-theme-primary-100));
 }
 

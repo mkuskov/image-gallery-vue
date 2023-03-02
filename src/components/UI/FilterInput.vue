@@ -7,7 +7,7 @@ export default {
   },
   computed: {
     isDisabled() {
-      return !this.disabled ? 'filters__input' : 'filters__input_disabled'
+      return !this.disabled ? 'filters__input' : 'filters__input--disabled'
     }
   },
   methods: {
@@ -40,9 +40,8 @@ export default {
 .filters__input {
   cursor: text;
   display: flex;
-  padding: 16px 150px 16px 15px;
+  padding: 15px;
   text-align: left;
-  box-sizing: border-box;
   border: 1px solid rgb(var(--v-theme-primary-300));
   border-radius: 10px;
 }
@@ -51,14 +50,14 @@ export default {
   color: rgb(var(--v-theme-primary-300));
 }
 
-.filters__input_disabled {
+.filters__input--disabled {
   border: 1px solid rgb(var(--v-theme-primary-100));
   color: rgb(var(--v-theme-primary-100));
   cursor: default;
 }
 
 .filters__input:focus {
-    outline: none;
-    border: 1px solid rgb(var(--v-theme-primary-900));
+  outline: none;
+  border: 1px solid rgb(var(--v-theme-primary-900));
 }
 </style>

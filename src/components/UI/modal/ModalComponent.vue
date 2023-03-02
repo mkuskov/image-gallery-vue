@@ -38,10 +38,9 @@ export default {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 99;
-}
+  }
 
 .modal__content {
-  width: 30%;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -58,5 +57,30 @@ export default {
   position: absolute;
   top: 0%;
   right: 0%;
+}
+
+
+@media screen and (min-width: 0px) {
+  .modal__content {
+    width: 95%;
+  }
+}
+
+@media screen and (min-width: 520px) {
+  .modal__content {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .modal__content {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .modal__content {
+    width: 30%;
+  }
 }
 </style>

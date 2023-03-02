@@ -1,4 +1,4 @@
-import type { GalleryState } from "@/interfaces/store";
+import type { GalleryState } from "@interfaces/store";
 
 const settingsMutations = {
     SET_FILTER_TITLE_SETTING(state: GalleryState, payload: boolean) {

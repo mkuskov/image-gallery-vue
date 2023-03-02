@@ -63,11 +63,9 @@ export default {
 
 <style>
 .content__gallery {
-  min-height: 570px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  justify-items: stretch;
-  gap: 20px;
+  align-items: stretch;
 }
 
 .image-gallery__not-found {
@@ -88,15 +86,34 @@ export default {
   transform: scale(1.02);
 }
 
-@media (max-width: 1280px) {
-  #image-gallery {
-    grid-template-columns: 1fr 1fr;
+@media screen and (min-width: 0px) {
+  .content__gallery {
+    margin: 5%;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
-@media (max-width: 660px) {
-  #image-gallery {
-    grid-template-columns: 1fr;
+@media screen and (min-width: 660px) {
+  .content__gallery {
+    grid-template-columns: 1fr 1fr;
+    min-height: 570px;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .content__gallery {
+    margin: 5%;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .content__gallery {
+    margin: 0%;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 </style>

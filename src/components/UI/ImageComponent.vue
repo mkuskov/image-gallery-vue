@@ -16,8 +16,8 @@ export default {
       color="black"
       class="card__loading"
     />
-    <div v-else class="">
-      <img class="card__item" :src="image" />
+    <div v-else class="card__item">
+      <img class="card__image" :src="image" />
       <p class="card__item-name">
         {{ imageTitle }}
       </p>
@@ -40,11 +40,12 @@ export default {
   transform: translate(-50%, -50%);
 }
 
-.card__item {
+.card__image {
+  object-fit: cover;
+  height: 275px;
   position: relative;
   width: 100%;
   text-align: left;
-  height: 275px;
 }
 
 .card__item-name {

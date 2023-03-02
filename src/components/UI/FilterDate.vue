@@ -9,10 +9,10 @@ export default {
   },
   computed: {
     isDisabled() {
-      return !this.disabled ? 'dropdown-date__radio' : 'dropdown-date__radio_disabled';
+      return !this.disabled ? 'dropdown-date__radio' : 'dropdown-date__radio--disabled';
     },
     disabledTitle() {
-      return !this.disabled ? 'dropdown-date__input' : 'dropdown-date__input_disabled'
+      return !this.disabled ? 'dropdown-date__input' : 'dropdown-date__input--disabled'
     }
   },
   props: {
@@ -47,7 +47,6 @@ export default {
             $store.dispatch('addStartDate', new Date(startDate).getTime())
           "
         />
-        —
         <input
           for="date"
           type="date"
@@ -62,9 +61,7 @@ export default {
 
 <style>
 .dropdown-date {
-  margin-left: 1rem;
   position: relative;
-  width: 300px;
 }
 
 .dropdown-date[open] {
@@ -79,7 +76,7 @@ export default {
   list-style: none;
 }
 
-.dropdown-date__radio_disabled {
+.dropdown-date__radio--disabled {
   border: 1px solid rgb(var(--v-theme-primary-100));
   color: rgb(var(--v-theme-primary-100));
   cursor: default;
@@ -127,7 +124,6 @@ export default {
 }
 
 .dropdown-date__list {
-  height: 60px;
   background: rgb(var(--v-theme-primary-25));
   border-radius: 0 0 10px 10px;
   list-style: none;
@@ -139,15 +135,14 @@ export default {
 }
 
 .dropdown-date__list-item {
-  margin-left: 5px;
   display: inline;
   border-bottom: none;
 }
 
 .dropdown-date__list-input {
-  margin-top: 5%;
-  width: 114px;
-  padding: 6px;
+  padding: 5px;
+  margin: 5% 0 0 5%;
+  width: 90%;
   border-radius: 5px;
   background-color: rgb(var(--v-theme-primary-100));
 }
@@ -186,7 +181,7 @@ export default {
   display: inline;
 }
 
-.dropdown-date__input_disabled {
+.dropdown-date__input--disabled {
   color: rgb(var(--v-theme-primary-100));
 }
 
@@ -222,5 +217,17 @@ export default {
 
 .dropdown-date__list::-webkit-scrollbar-thumb:hover {
   background-color: #5f5f5f;
+}
+
+@media screen and (min-width: 0) {
+  .dropdown-date__list {
+    height: 150px;
+  }
+}
+
+@media screen and (min-width: 660px) {
+  .dropdown-date__list {
+    height: 115px;
+  }
 }
 </style>

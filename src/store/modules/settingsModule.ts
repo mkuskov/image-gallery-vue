@@ -3,13 +3,13 @@ import settingsActions from "../actions/settingsActions";
 
 const settingsModule = {
 	state: {
-        isTitleFilterActive: true,
-        isAuthorFilterActive: true,
-        isPlaceFilterActive: true,
-        isDateFilterActive: false,
-        limitElements: 6,
+      isTitleFilterActive: true,
+      isAuthorFilterActive: true,
+      isPlaceFilterActive: true,
+      isDateFilterActive: false,
+      limitElements: 6,
     },
-	mutations: settingsMutations,
+	  mutations: settingsMutations,
     actions: settingsActions,
 }
 

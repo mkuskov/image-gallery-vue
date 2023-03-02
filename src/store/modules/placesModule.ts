@@ -11,8 +11,8 @@ const placesModule = {
 	},
   actions: {
 		addPlace(context: Context, payload: Places) {
-            context.commit("UPDATE_PLACE", payload);
-        },
+      context.commit("UPDATE_PLACE", payload);
+    },
 	},
 }
 

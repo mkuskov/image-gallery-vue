@@ -22,7 +22,7 @@ export default {
 <template>
   <div class="header__heading">
     <h1 class="header__info">Image Gallery</h1>
-    <div class="">
+    <div class="header__buttons">
       <v-btn
         color="transparent"
         icon="mdi-white-balance-sunny"
@@ -38,13 +38,11 @@ export default {
 
 <style>
 .header__heading {
-  width: 1192px;
   display: flex;
   justify-content: space-between;
 }
 
 .header__info {
-  text-align: center;
   font-weight: 500;
   font-size: 2.6rem;
 }
@@ -57,9 +55,30 @@ export default {
   margin-top: 20px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 0px) {
   .header__info {
-    text-align: left;
+    margin-top: 14px;
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 660px) {
+  .header__heading {
+    margin-top: 2.5%;
+    justify-content: space-between;
+  }
+  .header__info {
+    font-size: 2.2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header__heading {
+    margin-top: 0;
+    justify-content: space-between;
+  }
+  .header__info {
+    margin-top: 0;
   }
 }
 </style>

@@ -62,7 +62,7 @@ export interface RootGetters {
 }
 
 export interface GalleryData {
-    length?: number;
+    length: number;
     name: string;
     img: string;
     description: string,
@@ -80,6 +80,7 @@ export interface AddNewImage {
     date: string,
     place: string,
     id: string,
+    callback: () => void;
 }
 
 export interface GalleryState {

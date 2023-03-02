@@ -1,4 +1,4 @@
-import type { AuthorsList, FiltersState, PlacesList } from "../../interfaces/store";
+import type { AuthorsList, FiltersState, PlacesList } from "@/interfaces/store";
 
 const filtersMutations = {
   SET_AUTHORS_LIST(state: FiltersState, items: AuthorsList) {

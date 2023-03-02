@@ -32,12 +32,14 @@ export default {
   box-sizing: border-box;
 }
 
-.content {
-  width: 1280px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  padding: 44px;
+@media screen and (min-width: 1280px) {
+  .content {
+    width: 1280px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    padding: 2.5%;
+  }
 }
 </style>

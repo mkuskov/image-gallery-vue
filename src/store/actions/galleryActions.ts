@@ -35,10 +35,18 @@ const galleryActions = {
         }
     },
 
-    async galleryJSON({ commit}: LoadItemsInterface) {
+    async galleryJSON({ commit}: LoadItemsInterface, payload = {} as AddNewImage) {
+      const {
+        callback,
+      } = payload;
+
       try {
         const galleryJSON = await instance.get(URL_GALLERY);
         commit("SET_ALL_GALLERY", galleryJSON.data);
+
+        if (callback) {
+          callback();
+        }
       }
       catch (error: any) {
         console.log(error.message);
@@ -46,8 +54,15 @@ const galleryActions = {
     },
 
     async addItems({ commit }: LoadItemsInterface, payload: AddNewImage) {
+      const {
+          callback,
+          ...requestData
+      } = payload;
+
       try {
-        await instance.post(URL_GALLERY, payload);
+        await instance.post(URL_GALLERY, requestData);
+
+        callback();
       }
       catch (error) {
         throw error;
