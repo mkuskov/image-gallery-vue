@@ -34,19 +34,16 @@ export default {
 <style lang="scss">
 .content__pagination {
   display: flex;
-
-  @media screen and (min-width: 0px) {
-    justify-content: center;
-    margin: 2.5% 5% 2.5% 5%;
-  }
+  justify-content: center;
+  margin: 16px 34px 16px 34px;
 
   @media screen and (min-width: 660px) {
-      justify-content: flex-end;
-      margin: -2.5% 5% 2.5% 5%;
+    justify-content: flex-end;
+    margin: -16px 34px 16px 34px;
   }
 
   @media screen and (min-width: 1280px) {
-      margin: 2.5% 0 0 0;
+    margin: 16px 34px 0 0;
   }
 }
 

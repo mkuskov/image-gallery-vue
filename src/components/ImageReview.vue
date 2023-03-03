@@ -67,31 +67,43 @@ export default {
   -webkit-box-shadow: 0px 15px 20px -10px rgba(34, 60, 80, 0.5);
   -moz-box-shadow: 0px 15px 20px -10px rgba(34, 60, 80, 0.5);
   box-shadow: 0px 15px 20px -10px rgba(34, 60, 80, 0.5);
+  margin-top: 15px;
+  width: 75%;
+  border-radius: 8px;
 
-  @media screen and (min-width: 0px) {
+  @media screen and (min-width: 660px) {
     margin-top: 15px;
-    width: 75%;
+    width: 70%;
+  }
+  @media screen and (min-width: 840px) {
+    width: 60%;
   }
   @media screen and (min-width: 1280px) {
-    border-radius: 8px;
     width: 50%;
   }
 }
 
 .current-image__info {
-  @media screen and (min-width: 0px) {
-    margin-top: 15px;
-    width: 75%;
+  margin-top: 15px;
+  width: 75%;
+
+  @media screen and (min-width: 660px) {
+    width: 70%;
+  }
+  @media screen and (min-width: 840px) {
+    width: 60%;
   }
   @media screen and (min-width: 1280px) {
-    border-radius: 8px;
     width: 50%;
   }
 }
 
 .current-image__description {
   margin: 18px 0 20px 0;
-  font-size: 18px;
+  font-size: 16px;
+  @media screen and (min-width: 840px) {
+    font-size: 18px;
+  }
 }
 
 a {

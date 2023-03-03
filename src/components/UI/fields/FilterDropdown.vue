@@ -1,5 +1,6 @@
 <script lang="ts">
 import { firstPage } from '@/constants/pagination';
+import { getFilteredPaginationLenth } from '@/utils/getFilteredPaginationLenth';
 
 interface InputRadioEvent extends Event {
   target: HTMLInputElement;
@@ -19,7 +20,12 @@ export default {
       this.$store.dispatch('changePage', firstPage);
 
       if (data !== "Все") {
-        this.$store.dispatch('updateLength', Math.floor(this.$store.state.gallery.galleryData.length / this.$store.state.settings.limitElements));
+        this.$store.dispatch('updateLength',
+        getFilteredPaginationLenth(
+          this.$store.state.gallery.galleryData.length,
+          this.$store.state.settings.limitElements
+        ));
+
         return this.$store.dispatch("loadItems");
       }
       this.$store.dispatch("galleryJSON");
@@ -33,7 +39,12 @@ export default {
       this.$store.dispatch('changePage', firstPage);
 
       if (data !== "Все") {
-        this.$store.dispatch('updateLength', Math.floor(this.$store.state.gallery.galleryData.length / this.$store.state.settings.limitElements));
+        this.$store.dispatch('updateLength', 
+        getFilteredPaginationLenth(
+          this.$store.state.gallery.galleryData.length,
+          this.$store.state.settings.limitElements
+        ));
+
         return this.$store.dispatch("loadItems");
       }
       this.$store.dispatch("galleryJSON");
@@ -46,12 +57,8 @@ export default {
     const dropdownPlace = document.getElementById('Место') as HTMLDetailsElement;
 
     document.onclick = () => {
-        dropdownAuthor.open = false;
-        dropdownPlace.open = false;
-    };
-
-    dropdownAuthor.onclick = () => {
-      dropdownAuthor.open = false || true;
+      dropdownAuthor.open = false;
+      dropdownPlace.open = false;
     };
   },
   computed: {
@@ -61,9 +68,9 @@ export default {
       : 'dropdown__radios--disabled';
     },
     disabledTitle() {
-        return !this.disabled
-        ? 'dropdown__input'
-        : 'dropdown__input--disabled'
+      return !this.disabled
+      ? 'dropdown__input'
+      : 'dropdown__input--disabled'
     }
   },
   props: {
@@ -92,8 +99,8 @@ export default {
         id="default"
         @change="
           dropdownTitle === 'Автор'
-            ? handleAuthor($event as InputRadioEvent)
-            : handlePlace($event as InputRadioEvent)
+          ? handleAuthor($event as InputRadioEvent)
+          : handlePlace($event as InputRadioEvent)
         "
         checked
       />
@@ -107,8 +114,8 @@ export default {
         :key="items.id"
         @change="
           dropdownTitle === 'Автор'
-            ? handleAuthor($event as InputRadioEvent)
-            : handlePlace($event as InputRadioEvent)
+          ? handleAuthor($event as InputRadioEvent)
+          : handlePlace($event as InputRadioEvent)
         "
         :title="dropdownTitle === 'Автор' ? items.author : items.place"
       />

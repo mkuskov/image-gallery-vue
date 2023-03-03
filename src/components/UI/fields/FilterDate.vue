@@ -151,7 +151,7 @@ export default {
 
 .dropdown-date__list-input {
   padding: 5px;
-  margin: 5% 0 0 5%;
+  margin: 34px 0 0 34px;
   width: 90%;
   border-radius: 5px;
   background-color: rgb(var(--v-theme-primary-100));

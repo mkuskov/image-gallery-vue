@@ -65,12 +65,9 @@ export default {
 .content__gallery {
   display: grid;
   align-items: stretch;
-
-  @media screen and (min-width: 0px) {
-    margin: 5%;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+  margin: 34px;
+  grid-template-columns: 1fr;
+  gap: 20px;
 
   @media screen and (min-width: 660px) {
     grid-template-columns: 1fr 1fr;
@@ -78,13 +75,11 @@ export default {
   }
 
   @media screen and (min-width: 1080px) {
-    margin: 5%;
     gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
   }
 
   @media screen and (min-width: 1280px) {
-    margin: 0%;
     gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
   }

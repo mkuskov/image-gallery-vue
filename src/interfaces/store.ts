@@ -49,18 +49,16 @@ export interface Getters {
 export interface AuthorsList {
     author: string;
     id: string;
-    map(author: (item: AuthorsList) => string): Array<string>
 }
 
 export interface PlacesList {
     place: string;
     id: string;
-    map(place: (item: PlacesList) => string): Array<string>
 }
 
 export interface State {
-    authorsList: AuthorsList;
-    placesList: PlacesList;
+    authorsList: Array<AuthorsList>;
+    placesList: Array<PlacesList>;
     filterByTitle: string;
     startDate: string;
     endDate: string;
@@ -80,7 +78,6 @@ export interface GalleryData {
     date: string;           
     place: string;          
     id: string;         
-    filter(arg:(item: GalleryData) => boolean): GalleryData;
 }
 
 export interface AddNewImage {
@@ -103,7 +100,7 @@ export interface GalleryState {
     showSettingsModal: boolean,
     galleryJSON: GalleryData,
     state: GalleryState;
-    galleryData: GalleryData;
+    galleryData: Array<GalleryData>;
     addNewImage: AddNewImage;
     image: string;
     showAddImageModal: boolean;
@@ -116,8 +113,8 @@ export interface Image {
 
 export interface FiltersState {
     paginationLength: number;
-    authorsList: AuthorsList;
-    placesList: PlacesList;
+    authorsList: Array<AuthorsList>;
+    placesList: Array<PlacesList>;
     filterByTitle: string;
     startDate: number | string;
     endDate: number | string;

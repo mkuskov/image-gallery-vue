@@ -26,17 +26,12 @@ export default {
 <style lang="scss">
 .content__header {
   margin-bottom: 44px;
+  padding: 0 34px 0 34px;
+  display: flex;
+  flex-direction: column;
 
-  @media screen and (min-width: 0) {
-    padding: 0 5% 0 5%;
-  }
-
-  @media screen and (min-width: 660px) {
-    padding: 0 5% 0 5%;
-  }
-
-  @media screen and (min-width: 1280px) {
-    padding: 0;
+  @media (min-width: 380px) {
+    display: block;
   }
 }
 </style>

@@ -43,22 +43,17 @@ export default {
   display: flex;
   justify-content: space-between;
 
-  @media (min-width: 660px) {
-      margin-top: 2.5%;
-      justify-content: space-between;
-  }
-
   @media (min-width: 1280px) {
-      margin-top: 0;
       justify-content: space-between;
   }
 }
 
 .header__info {
+  margin-top: 16px;
   font-weight: 500;
+  font-size: 1.5rem;
 
-  @media (min-width: 0px) {
-    margin-top: 14px;
+  @media (min-width: 380px) {
     font-size: 2rem;
   }
 
@@ -67,16 +62,21 @@ export default {
   }
 
   @media (min-width: 1280px) {
+    margin-top: 8px;
+    font-size: 2.6rem;
+  }
+}
+
+.header__buttons {
+  margin-top: -2px;
+  
+  @media (min-width: 380px) {
     margin-top: 0;
     font-size: 2.6rem;
   }
 }
 
-.header__settings-icon {
-  margin-left: 10px;
-}
-
-.header__theme-icon, .header__settings-icon {
+.header__theme-icon {
   margin-top: 20px;
 }
 </style>

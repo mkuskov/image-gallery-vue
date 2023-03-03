@@ -1,10 +1,10 @@
 import type { AuthorsList, FiltersState, PlacesList } from "@interfaces/store";
 
 const filtersMutations = {
-  SET_AUTHORS_LIST(state: FiltersState, items: AuthorsList) {
+  SET_AUTHORS_LIST(state: FiltersState, items: Array<AuthorsList>) {
     state.authorsList = items;
   },
-  SET_PLACES_LIST(state: FiltersState, items: PlacesList) {
+  SET_PLACES_LIST(state: FiltersState, items: Array<PlacesList>) {
     state.placesList = items;
   },
   UPDATE_IMAGE_TITLE(state: FiltersState, payload: string) {

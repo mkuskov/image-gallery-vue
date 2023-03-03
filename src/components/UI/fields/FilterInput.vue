@@ -1,6 +1,7 @@
 <script lang="ts">
 
 import { firstPage } from '@/constants/pagination';
+import { getFilteredPaginationLenth } from '@/utils/getFilteredPaginationLenth';
 
 export default {
   data() {
@@ -15,10 +16,19 @@ export default {
   methods: {
     filterTitle() {
       this.$store.dispatch('changePage', firstPage);
-      this.$store.dispatch('updateLength', Math.floor(this.$store.state.gallery.galleryData.length / this.$store.state.settings.limitElements));
+      this.$store.dispatch('updateLength',
+        getFilteredPaginationLenth(
+          this.$store.state.gallery.galleryData.length,
+          this.$store.state.settings.limitElements
+        ));
 
       if (this.$store.state.filters.filterByTitle !== "") {
-        this.$store.dispatch('updateLength', Math.floor(this.$store.state.gallery.galleryData.length / this.$store.state.settings.limitElements));
+        this.$store.dispatch('updateLength',
+        getFilteredPaginationLenth(
+          this.$store.state.gallery.galleryData.length,
+          this.$store.state.settings.limitElements
+        ));
+
         return this.$store.dispatch("loadItems");
       }
       this.$store.dispatch("galleryJSON");

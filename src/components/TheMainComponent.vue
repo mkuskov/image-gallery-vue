@@ -36,10 +36,8 @@ export default {
   .content {
     width: 1280px;
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto 20px auto;
     flex-direction: column;
-    padding: 2.5%;
   }
 }
 </style>

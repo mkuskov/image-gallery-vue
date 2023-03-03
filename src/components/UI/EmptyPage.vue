@@ -26,13 +26,13 @@ export default {
 <style lang="scss">
 @media screen and (min-width: 0px) {
   .image-gallery__not-found {
-    padding: 5%;
+    padding: 34px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .image-gallery__not-found {
-    padding: 0%;
+    padding: 0;
   }
 }
 </style>

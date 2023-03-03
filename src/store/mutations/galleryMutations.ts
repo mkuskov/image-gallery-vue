@@ -10,7 +10,7 @@ const galleryMutations = {
     SET_LOADING(state: GalleryState, payload: boolean) {
       state.spinner = payload;
     },
-    SET_ITEMS(state: GalleryState, items: GalleryData) {
+    SET_ITEMS(state: GalleryState, items: Array<GalleryData>) {
       state.galleryData = items;
     },
     ADD_NEW_IMAGE(state: GalleryState, payload: AddNewImage) {
