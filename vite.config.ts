@@ -14,6 +14,7 @@ export default defineConfig({
       "@interfaces": path.resolve(__dirname, "./src/interfaces"),
       "@constants": path.resolve(__dirname, "./src/constants"),
       "@utils": path.resolve(__dirname, "./src/utils"),
+      "@store": path.resolve(__dirname, "./src/app/providers/store"),
       "vue$": "vue/dist/vue.esm.js",
     },
   },
