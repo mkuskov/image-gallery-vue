@@ -1,1 +1,0 @@
-export const limitElements = 6;

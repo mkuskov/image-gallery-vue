@@ -1,14 +1,28 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.config.json"
+  "compilerOptions": {
+    // это соответствует поддержке браузеров у Vue
+    "target": "esnext",
+    // это обеспечивает более строгий вывод для свойств данных в `this`
+    "strict": true,
+    // при использовании webpack 2+ или rollup, добавить поддержку tree-shaking:
+    "module": "esnext",
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@interfaces/*": [
+        "./src/interfaces/*"
+      ],
+      "@constants/*": [
+        "./src/constants/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@store/*": [
+        "./src/app/providers/store/*"
+      ],
     },
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.vitest.json"
-    }
-  ]
+  }
 }
