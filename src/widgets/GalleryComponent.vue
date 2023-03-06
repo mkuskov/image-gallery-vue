@@ -1,7 +1,7 @@
 <script lang="ts">
 import ImageComponent from "../features/ImageComponent.vue";
 import type { GalleryData } from "@/shared/api/types";
-import { URL_PICTURES_ROUTE } from "@/shared/api/links";
+import { URL_PICTURES_ROUTE } from "@/shared/constants/links";
 import EmptyPage from '@/shared/UI/EmptyPage.vue'
 
 export default {

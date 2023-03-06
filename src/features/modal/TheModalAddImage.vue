@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { AuthorsList, PlacesList } from '@/shared/api/types';
-import { URL_DEFAULT_PICTURE } from '@/shared/api/links';
-import { getPaginationLength } from '@/shared/api/methods';
+import { URL_DEFAULT_PICTURE } from '@/shared/constants/links';
+import { getPaginationLength } from '@/shared/constants/methods';
 
 export default {
   data() {

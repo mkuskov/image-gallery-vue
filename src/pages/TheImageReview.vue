@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { GalleryData } from '@/shared/api/types';
-import { URL_HOME } from '@/shared/api/links';
+import { URL_HOME } from '@/shared/constants/links';
 
 export default {
   data() {
