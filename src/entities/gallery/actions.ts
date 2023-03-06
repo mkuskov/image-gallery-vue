@@ -1,11 +1,11 @@
 import type { AddNewImage, Context, LoadItemsInterface, Params } from "@/shared/api/types";
 
-import { URL_GALLERY } from "@/shared/api/links";
+import { URL_GALLERY } from "@/shared/constants/links";
 
 import { instance } from "@/shared/api/instance";
-import { makeFuncWithDelay } from "@/shared/api/methods";
-import { urlParamsDTO } from "@/shared/api/methods";
-import { getPaginationLength } from "@/shared/api/methods";
+import { makeFuncWithDelay } from "@/shared/constants/methods";
+import { urlParamsDTO } from "@/shared/constants/methods";
+import { getPaginationLength } from "@/shared/constants/methods";
 
 const galleryActions = {
     async loadItems({ commit, state, rootState }: LoadItemsInterface) {

@@ -1,5 +1,5 @@
 import { instance } from "@/shared/api/instance";
-import { URL_PLACES, URL_AUTHORS } from "@/shared/api/links";
+import { URL_PLACES, URL_AUTHORS } from "@/shared/constants/links";
 
 import type { Context, CommitInterface } from "@/shared/api/types";
 

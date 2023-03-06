@@ -1,7 +1,7 @@
 <script lang="ts">
 
-import { firstPage } from '@/shared/api/pagination';
-import { getFilteredPaginationLenth } from '@/shared/api/methods';
+import { firstPage } from '@/shared/constants/pagination';
+import { getFilteredPaginationLenth } from '@/shared/constants/methods';
 
 export default {
   data() {

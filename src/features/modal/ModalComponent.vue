@@ -16,7 +16,7 @@ export default {
     <div class="modal" v-if="openModalState">
       <v-card class="modal__content">
           <v-btn
-            class="modal__hide"
+            class='modal__hide'
             icon="mdi-eye-off"
             size="small"
             @click="
