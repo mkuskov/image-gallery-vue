@@ -1,19 +1,18 @@
 <script lang="ts">
-import type { AuthorsList, PlacesList } from '@/shared/api/types';
-import { URL_DEFAULT_PICTURE } from '@/shared/constants/links';
-import { getPaginationLength } from '@/shared/constants/methods';
+import { URL_DEFAULT_PICTURE } from "@/shared/constants/links";
+import { getPaginationLength } from "@/shared/constants/methods";
 
 export default {
   data() {
     return {
       newImage: {
-          name: '',
-          img: URL_DEFAULT_PICTURE,
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcolaboris   nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatatnon  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          author: '',
-          date: '',
-          place: '',
-          id: '',
+        name: "",
+        img: URL_DEFAULT_PICTURE,
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcolaboris   nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatatnon  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        author: "",
+        date: "",
+        place: "",
+        id: "",
       },
       valid: true,
       inputRules: [
@@ -41,14 +40,14 @@ export default {
         callback: () => {
           this.$store.dispatch("galleryJSON", {
             callback: () => {
-              this.$store.dispatch('changePage', getPaginationLength(this.$store.state.gallery.galleryJSON.length, this.$store.state.settings.limitElements));
+              this.$store.dispatch("changePage", getPaginationLength(this.$store.state.gallery.galleryJSON.length, this.$store.state.settings.limitElements));
               this.$store.dispatch("loadItems");
             }
           });
         },
       });
 
-      this.$store.dispatch('changeAddImageModalStatus', false);
+      this.$store.dispatch("changeAddImageModalStatus", false);
       (this.$refs.form as HTMLFormElement).reset();
     },
   },
@@ -65,26 +64,25 @@ export default {
         :rules="inputRules"
         v-model="newImage.name"
         class="form-add__input"
-      ></v-text-field>
+      />
       <v-select
         required
-        :items="$store.state.filters.authorsList.map((item: AuthorsList) => item.author)"
+        :items="$store.state.filters.authorsList.map((item) => item.author)"
         :rules="selectRules"
         v-model="newImage.author"
         filled
         label="Автор *"
         class="form-add__select"
-      >
-      </v-select>
+      />
       <v-select
         required
-        :items="$store.state.filters.placesList.map((item: PlacesList) => item.place)"
+        :items="$store.state.filters.placesList.map((item) => item.place)"
         :rules="selectRules"
         v-model="newImage.place"
         filled
         label="Место *"
         class="form-add__select"
-      ></v-select>
+      />
       <v-select
         required
         :items="dates"
@@ -93,7 +91,7 @@ export default {
         filled
         label="Дата *"
         class="form-add__select"
-      ></v-select>
+      />
     </v-form>
     <v-btn
       class="form-add__done"

@@ -14,6 +14,6 @@ const filtersModule = {
   },
   mutations: filtersMutations,
   actions: filtersActions,
-}
+};
 
 export default filtersModule;

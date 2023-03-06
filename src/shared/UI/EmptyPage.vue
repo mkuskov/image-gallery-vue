@@ -6,14 +6,14 @@ export default {
   },
   data() {
     return {
-    }
+    };
   },
   computed: {
     getNotFounfTitle() {
-      return this.displayСondition ? "Ничего не найдено, попробуйте изменить фильтры ~" : ''
+      return this.displayСondition ? "Ничего не найдено, попробуйте изменить фильтры ~" : "";
     }
   }
-}
+};
 </script>
 
 <template>

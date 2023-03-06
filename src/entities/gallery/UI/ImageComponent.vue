@@ -16,8 +16,14 @@ export default {
       color="black"
       class="card__loading"
     />
-    <div v-else class="card__item">
-      <img class="card__image" :src="image" />
+    <div
+      v-else
+      class="card__item"
+    >
+      <img
+        class="card__image"
+        :src="image"
+      />
       <p class="card__item-name">
         {{ imageTitle }}
       </p>

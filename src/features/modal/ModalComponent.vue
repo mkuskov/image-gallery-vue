@@ -3,7 +3,7 @@
 export default {
   data() {
     return {
-    }
+    };
   },
   props: {
     openModalState: Boolean,
@@ -13,7 +13,10 @@ export default {
 </script>
 
 <template>
-    <div class="modal" v-if="openModalState">
+    <div
+      class="modal"
+      v-if="openModalState"
+    >
       <v-card class="modal__content">
           <v-btn
             class='modal__hide'

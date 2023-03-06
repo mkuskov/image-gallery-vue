@@ -2,15 +2,15 @@
 
 export default {
   data() {
-    return { 
-    }
+    return {
+    };
   },
   props: {
     className: String,
   },
   methods: {
     changePage() {
-      this.$store.dispatch('loadItems');
+      this.$store.dispatch("loadItems");
     },
   },
   mounted() {
@@ -20,7 +20,10 @@ export default {
 </script>
 
 <template>
-  <div :class="className" v-if="$store.state.filters.paginationLength > 1 && $store.state.gallery.galleryData.length">
+  <div
+    :class="className"
+    v-if="$store.state.filters.paginationLength > 1 && $store.state.gallery.galleryData.length"
+  >
     <v-pagination
       v-model="$store.state.filters.page"
       :length="$store.state.filters.paginationLength"

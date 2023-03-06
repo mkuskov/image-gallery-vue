@@ -1,9 +1,9 @@
 <script lang="ts">
 import { useTheme } from "vuetify";
 import FilterInput from "@/features/fields/FilterInput.vue";
-import FilterDropdown from "@/features/fields/FilterDropdown.vue";
 import FilterDate from "@/features/fields/FilterDate.vue";
 import { mapState } from "vuex";
+import FilterDropdown from "@/features/fields/FilterDropdown.vue";
 
 export default {
   setup() {
@@ -11,9 +11,9 @@ export default {
     return {
       theme,
       toggleTheme: () =>
-      (theme.global.name.value = theme.global.current.value.dark
-        ? "lightTheme"
-        : "darkTheme"),
+        (theme.global.name.value = theme.global.current.value.dark
+          ? "lightTheme"
+          : "darkTheme"),
     };
   },
   mounted() {
@@ -23,15 +23,15 @@ export default {
   computed: mapState(["items"]),
   components: {
     FilterInput,
-    FilterDropdown,
     FilterDate,
-  },
+    FilterDropdown,
+},
 };
 </script>
 
 <template>
   <div class="filters">
-    <FilterInput :disabled="!$store.state.settings.isTitleFilterActive" />
+    <FilterInput :disabled="!$store.state.settings.isTitleFilterActive"/>
     <FilterDropdown
       dropdownTitle="Автор"
       :data="$store.state.filters.authorsList"
@@ -51,10 +51,7 @@ export default {
   width: 100%;
   display: grid;
   gap: 1rem;
-
-  @media screen and (min-width: 0) {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: 1fr;
 
   @media screen and (min-width: 660px) {
     grid-template-columns: 1fr 1fr;

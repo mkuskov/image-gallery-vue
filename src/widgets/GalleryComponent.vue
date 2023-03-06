@@ -1,18 +1,18 @@
 <script lang="ts">
-import ImageComponent from "../features/ImageComponent.vue";
+import ImageComponent from "@/entities/gallery/UI/ImageComponent.vue";
 import type { GalleryData } from "@/shared/api/types";
 import { URL_PICTURES_ROUTE } from "@/shared/constants/links";
-import EmptyPage from '@/shared/UI/EmptyPage.vue'
+import EmptyPage from "@/shared/UI/EmptyPage.vue";
 
 export default {
   props: {
     className: String,
   },
   data() {
-  return {
+    return {
       URL_PICTURES_ROUTE,
-      imageId: '',
-    }
+      imageId: "",
+    };
   },
   components: {
     ImageComponent,
@@ -23,7 +23,7 @@ export default {
       const getImage = this.$store.state.gallery.galleryData.filter((item: GalleryData) => item.id === imageId);
 
       localStorage.setItem("image", JSON.stringify(getImage));
-  
+
       return this.$store.dispatch("image", getImage);
     },
   },
@@ -36,7 +36,10 @@ export default {
 <template>
   <EmptyPage :displayСondition="!$store.state.gallery.galleryData.length"/>
 
-  <div v-if="$store.state.gallery.spinner" :class="className">
+  <div
+    v-if="$store.state.gallery.spinner"
+    :class="className"
+  >
     <ImageComponent
       :key="loadingItem.id"
       v-for="loadingItem in $store.state.gallery.galleryData"
@@ -44,7 +47,10 @@ export default {
     />
   </div>
 
-  <div v-if="!$store.state.gallery.spinner" :class="className">
+  <div
+    v-if="!$store.state.gallery.spinner"
+    :class="className"
+  >
     <router-link
       :to="URL_PICTURES_ROUTE.replace(':id', images.id)"
       v-for="images in $store.state.gallery.galleryData"

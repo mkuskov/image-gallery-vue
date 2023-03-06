@@ -1,6 +1,6 @@
 <script lang="ts">
-import { firstPage } from '../shared/constants/pagination';
-import { getFilteredPaginationLenth } from '../shared/constants/methods';
+import { firstPage } from "@/shared/constants/pagination";
+import { getFilteredPaginationLength } from "@/shared/constants/methods";
 
 interface InputRadioEvent extends Event {
   target: HTMLInputElement;
@@ -17,14 +17,14 @@ export default {
       const data = event.target.title;
 
       this.$store.dispatch("addAuthor", data);
-      this.$store.dispatch('changePage', firstPage);
+      this.$store.dispatch("changePage", firstPage);
 
       if (data !== "Все") {
-        this.$store.dispatch('updateLength',
-        getFilteredPaginationLenth(
-          this.$store.state.gallery.galleryData.length,
-          this.$store.state.settings.limitElements
-        ));
+        this.$store.dispatch("updateLength",
+          getFilteredPaginationLength(
+            this.$store.state.gallery.galleryData.length,
+            this.$store.state.settings.limitElements
+          ));
 
         return this.$store.dispatch("loadItems");
       }
@@ -36,14 +36,14 @@ export default {
       const data = event.target.title;
 
       this.$store.dispatch("addPlace", data);
-      this.$store.dispatch('changePage', firstPage);
+      this.$store.dispatch("changePage", firstPage);
 
       if (data !== "Все") {
-        this.$store.dispatch('updateLength', 
-        getFilteredPaginationLenth(
-          this.$store.state.gallery.galleryData.length,
-          this.$store.state.settings.limitElements
-        ));
+        this.$store.dispatch("updateLength",
+          getFilteredPaginationLength(
+            this.$store.state.gallery.galleryData.length,
+            this.$store.state.settings.limitElements
+          ));
 
         return this.$store.dispatch("loadItems");
       }
@@ -52,25 +52,16 @@ export default {
       return this.$store.dispatch("loadItems");
     }
   },
-  mounted() {
-    const dropdownAuthor = document.getElementById('Автор') as HTMLDetailsElement;
-    const dropdownPlace = document.getElementById('Место') as HTMLDetailsElement;
-
-    document.onclick = () => {
-      dropdownAuthor.open = false;
-      dropdownPlace.open = false;
-    };
-  },
   computed: {
     isDisabled() {
       return !this.disabled
-      ? 'dropdown__radios'
-      : 'dropdown__radios--disabled';
+        ? "dropdown__radios"
+        : "dropdown__radios--disabled";
     },
     disabledTitle() {
       return !this.disabled
-      ? 'dropdown__input'
-      : 'dropdown__input--disabled'
+        ? "dropdown__input"
+        : "dropdown__input--disabled";
     }
   },
   props: {
@@ -82,8 +73,8 @@ export default {
 </script>
 
 <template>
-  <details 
-    class="dropdown" 
+  <details
+    class="dropdown"
     :id="dropdownTitle"
   >
     <summary
@@ -117,7 +108,7 @@ export default {
           ? handleAuthor($event as InputRadioEvent)
           : handlePlace($event as InputRadioEvent)
         "
-        :title="dropdownTitle === 'Автор' ? items.author : items.place"
+        :title="items.name"
       />
     </summary>
     <ul class="dropdown__list">
@@ -126,8 +117,11 @@ export default {
         class="dropdown__list-item"
         :key="items.id"
       >
-        <label :for="items.id + dropdownTitle" class="dropdown__label">
-          {{ dropdownTitle === "Автор" ? items.author : items.place }}
+        <label
+          :for="items.id + dropdownTitle"
+          class="dropdown__label"
+        >
+          {{ items.name }}
         </label>
       </li>
     </ul>

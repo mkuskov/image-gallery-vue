@@ -17,7 +17,10 @@ export default {
 
 <template>
   <v-app>
-    <div id="app" class="content">
+    <div
+      id="app"
+      class="content"
+    >
       <HeaderGallery className="content__header" />
       <GalleryComponent className="content__gallery" />
       <PaginationGallery className="content__pagination" />

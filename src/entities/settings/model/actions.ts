@@ -13,6 +13,6 @@ const settingsActions = {
   settingFilterDate(context: Context, payload: boolean) {
     context.commit("SET_FILTER_DATE_SETTING", payload);
   },
-}
+};
 
 export default settingsActions;

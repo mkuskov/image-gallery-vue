@@ -5,4 +5,3 @@ export const authorsMutations = {
     state.author = payload;
   }
 };
-  

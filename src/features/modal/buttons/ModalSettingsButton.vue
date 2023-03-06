@@ -1,20 +1,17 @@
 <script lang="ts">
-import ModalComponent from '../ModalComponent.vue';
-import TheModalSettings from '../TheModalSettings.vue';
+import ModalComponent from "../ModalComponent.vue";
+import TheModalSettings from "../TheModalSettings.vue";
 
 export default {
-    data() {
-        return {
-          settings: 'TheModalSettings'
-        }
-    },
-    methods: {
-
-    },
-    components: {
-      ModalComponent,
-      TheModalSettings
-    }
+  data() {
+    return {
+      settings: "TheModalSettings"
+    };
+  },
+  components: {
+    ModalComponent,
+    TheModalSettings
+  }
 };
 </script>
 

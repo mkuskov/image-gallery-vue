@@ -14,6 +14,6 @@ const galleryModule = {
   },
   mutations: galleryMutations,
   actions: galleryActions,
-}
+};
 
 export default galleryModule;

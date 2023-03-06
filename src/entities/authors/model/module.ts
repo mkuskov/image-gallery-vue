@@ -1,4 +1,3 @@
-import type { Author } from "@/shared/api/types";
 import { authorsActions } from "./actions";
 import { authorsMutations } from "./mutations";
 
@@ -8,6 +7,6 @@ const authorsModule = {
   },
   mutations: authorsMutations,
   actions: authorsActions
-}
+};
 
 export default authorsModule;

@@ -10,8 +10,8 @@ export default {
       toggleTheme: () =>
         (
           theme.global.name.value = theme.global.current.value.dark
-          ? "lightTheme"
-          : "darkTheme"
+            ? "lightTheme"
+            : "darkTheme"
         ),
     };
   },
@@ -31,8 +31,7 @@ export default {
         size="small"
         class="header__theme-icon"
         @click="toggleTheme"
-      >
-      </v-btn>
+      />
       <ModalSettingsButton />
     </div>
   </div>
@@ -69,7 +68,7 @@ export default {
 
 .header__buttons {
   margin-top: -2px;
-  
+
   @media (min-width: 380px) {
     margin-top: 0;
     font-size: 2.6rem;

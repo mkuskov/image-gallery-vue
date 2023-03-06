@@ -5,4 +5,3 @@ export const placesMutation = {
     state.place = payload;
   },
 };
-  

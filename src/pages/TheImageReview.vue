@@ -1,16 +1,16 @@
 <script lang="ts">
-import type { GalleryData } from '@/shared/api/types';
-import { URL_HOME } from '@/shared/constants/links';
+import type { GalleryData } from "@/shared/api/types";
+import { URL_HOME } from "@/shared/constants/links";
 
 export default {
   data() {
     return {
       image: [] as Array<GalleryData>,
       URL_HOME
-    }
+    };
   },
   mounted() {
-    this.image = JSON.parse(localStorage.getItem('image') as string);
+    this.image = JSON.parse(localStorage.getItem("image") as string);
   }
 };
 
