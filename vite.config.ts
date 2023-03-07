@@ -7,7 +7,7 @@ import vuetify from "vite-plugin-vuetify";
 import * as path from "path";
 
 export default defineConfig({
-  base: "/mkuskov.github.io/",
+  base: "/image-gallery-vue/",
   root: "src",
   build: {
       outDir: "../dist"
