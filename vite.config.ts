@@ -7,7 +7,7 @@ import vuetify from "vite-plugin-vuetify";
 import * as path from "path";
 
 export default defineConfig({
-  base: "/",
+  base: "/mkuskov.github.io/",
   root: "src",
   build: {
       outDir: "../dist"
