@@ -1,5 +1,5 @@
 <script lang="ts">
-import SearchInput from "@/entities/filters/UI/SearchInput.vue";
+import SearchInput from "@/shared/UI/fields/SearchInput.vue";
 
 export default {
   data() {

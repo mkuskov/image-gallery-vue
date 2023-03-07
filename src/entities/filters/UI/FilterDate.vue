@@ -1,5 +1,5 @@
 <script lang="ts">
-import DateInput from "@/entities/filters/UI/DateInput.vue";
+import DateInput from "@/shared/UI/fields/DateInput.vue";
 export default {
   components: {
     DateInput

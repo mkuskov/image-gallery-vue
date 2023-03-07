@@ -1,5 +1,5 @@
 <script lang="ts">
-import SelectDropdown from "@/entities/authors/UI/SelectDropdown.vue";
+import SelectDropdown from "@/shared/UI/fields/SelectDropdown.vue";
 
 export default {
   components: {

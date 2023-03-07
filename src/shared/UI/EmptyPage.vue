@@ -17,8 +17,14 @@ export default {
 </script>
 
 <template>
-  <div v-if="displayСondition" class="image-gallery__not-found">
-    <v-icon icon="mdi-emoticon-sad-outline" class="image-gallery__not-found-icon" />
+  <div
+    v-if="displayСondition"
+    class="image-gallery__not-found"
+  >
+    <v-icon
+      icon="mdi-emoticon-sad-outline"
+      class="image-gallery__not-found-icon"
+    />
     <p>{{ getNotFounfTitle }}</p>
   </div>
 </template>

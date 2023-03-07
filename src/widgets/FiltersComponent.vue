@@ -1,9 +1,9 @@
 <script lang="ts">
 import { useTheme } from "vuetify";
-import FilterInput from "@/features/fields/FilterInput.vue";
-import FilterDate from "@/features/fields/FilterDate.vue";
+import FilterInput from "@/entities/filters/UI/FilterInput.vue";
+import FilterDate from "@/entities/filters/UI/FilterDate.vue";
 import { mapState } from "vuex";
-import FilterDropdown from "@/features/fields/FilterDropdown.vue";
+import FilterDropdown from "@/entities/authors/UI/FilterDropdown.vue";
 
 export default {
   setup() {
