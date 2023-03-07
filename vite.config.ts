@@ -7,6 +7,11 @@ import vuetify from "vite-plugin-vuetify";
 import * as path from "path";
 
 export default defineConfig({
+  base: "/",
+  root: "src",
+  build: {
+      outDir: "../dist"
+  },
   plugins: [vue(), vueJsx(), vuetify({ autoImport: true })],
   resolve: {
     alias: {
@@ -18,4 +23,9 @@ export default defineConfig({
       "vue$": "vue/dist/vue.esm.js",
     },
   },
+  server: {
+    port: 9999,
+    open: true,
+    cors: true,
+  }
 });
