@@ -7,6 +7,7 @@ import vuetify from "vite-plugin-vuetify";
 import * as path from 'path';
 
 export default defineConfig({
+  base: "/mkuskov.github.io/",
   plugins: [vue(), vueJsx(), vuetify({ autoImport: true })],
   resolve: {
     alias: {
