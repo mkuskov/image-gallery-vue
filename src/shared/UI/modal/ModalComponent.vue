@@ -13,23 +13,22 @@ export default {
 </script>
 
 <template>
-    <div
-      class="modal"
-      v-if="openModalState"
-    >
-      <v-card class="modal__content">
-          <v-btn
-            class='modal__hide'
-            icon="mdi-eye-off"
-            size="small"
-            @click="
-              $store.dispatch(`${closeModalAction}`, false);
-              ($refs.form as HTMLFormElement).reset();
-            "
-          />
-          <slot />
-      </v-card>
-    </div>
+  <div
+    class="modal"
+    v-if="openModalState"
+  >
+    <v-card class="modal__content">
+      <v-btn
+        class='modal__hide'
+        icon="mdi-eye-off"
+        size="small"
+        @click="
+          $store.dispatch(`${closeModalAction}`, false);
+          ($refs.form as HTMLFormElement).reset();"
+      />
+      <slot></slot>
+    </v-card>
+  </div>
 </template>
 
 <style lang="scss">
@@ -41,7 +40,7 @@ export default {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 99;
-  }
+}
 
 .modal__content {
   position: fixed;

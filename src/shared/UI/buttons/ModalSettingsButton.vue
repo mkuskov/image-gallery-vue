@@ -1,16 +1,16 @@
 <script lang="ts">
-import ModalComponent from "../ModalComponent.vue";
-import TheModalSettings from "../TheModalSettings.vue";
+import ModalComponent from "../modal/ModalComponent.vue";
+import TheSettings from "@/entities/settings/UI/TheSettings.vue";
 
 export default {
   data() {
     return {
-      settings: "TheModalSettings"
+      settings: "TheSettings"
     };
   },
   components: {
     ModalComponent,
-    TheModalSettings
+    TheSettings
   }
 };
 </script>
@@ -23,13 +23,13 @@ export default {
     <component :is="settings"/>
   </ModalComponent>
 
-    <v-btn
-      color="transparent"
-      icon="mdi-cog-outline"
-      size="small"
-      class="header__settings-icon"
-      @click="$store.dispatch('changeSettingsModalStatus', true);"
-    />
+  <v-btn
+    color="transparent"
+    icon="mdi-cog-outline"
+    size="small"
+    class="header__settings-icon"
+    @click="$store.dispatch('changeSettingsModalStatus', true);"
+  />
 </template>
 
 <style lang="scss">

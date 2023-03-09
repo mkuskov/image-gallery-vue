@@ -1,18 +1,18 @@
 <script lang="ts">
-import ModalComponent from "../ModalComponent.vue";
-import TheModalAddImage from "../TheModalAddImage.vue";
+import ModalComponent from "@/shared/UI/modal/ModalComponent.vue";
+import AddImage from "@/features/add_image/AddImage.vue";
 
 export default {
   data() {
     return {
-      addImage: "TheModalAddImage"
+      addImage: "AddImage"
     };
   },
   props: {
     title: String,
   },
   components: {
-    TheModalAddImage,
+    AddImage,
     ModalComponent,
   },
 };

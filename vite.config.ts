@@ -7,7 +7,6 @@ import vuetify from "vite-plugin-vuetify";
 import * as path from "path";
 
 export default defineConfig({
-  base: "/image-gallery-vue/dist/index.html",
   plugins: [vue(), vueJsx(), vuetify({ autoImport: true })],
   resolve: {
     alias: {

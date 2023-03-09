@@ -22,7 +22,8 @@ export default {
 <template>
   <div
     :class="className"
-    v-if="$store.state.filters.paginationLength > 1 && $store.state.gallery.galleryData.length"
+    v-if="$store.state.filters.paginationLength > 1
+    && $store.state.gallery.galleryData.length"
   >
     <v-pagination
       v-model="$store.state.filters.page"

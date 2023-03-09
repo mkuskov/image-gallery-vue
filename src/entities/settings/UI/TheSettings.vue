@@ -102,19 +102,20 @@ export default {
         class="settings__filters-limit"
         :rules="limitRules"
         hint="Укажите число от 1 до 12"
-      ></v-text-field>
+      />
     </div>
     <v-btn
-    class="settings__done-button"
-    @click="updateSettings"
+      class="settings__done-button"
+      @click="updateSettings"
     >
-    Применить
+      Применить
     </v-btn>
   </div>
 </template>
 
 <style lang="scss">
-.settings__filters-heading, .settings__extra-heading {
+.settings__filters-heading,
+.settings__extra-heading {
   font-size: 17px;
   text-align: left;
   margin-bottom: 10px;
@@ -129,7 +130,8 @@ export default {
   text-align: left;
 }
 
-.settings__filters, .settings__extra {
+.settings__filters,
+.settings__extra {
   margin: 10px 25px 35px 25px;
 }
 

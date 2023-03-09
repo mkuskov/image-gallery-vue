@@ -1,6 +1,6 @@
 <script lang="ts">
 import { useTheme } from "vuetify";
-import ModalSettingsButton from "@/features/modal/buttons/ModalSettingsButton.vue";
+import ModalSettingsButton from "@/shared/UI/buttons/ModalSettingsButton.vue";
 
 export default {
   setup() {
