@@ -1,7 +1,7 @@
 <script lang="ts">
-import GalleryComponent from "@/widgets/GalleryComponent.vue";
-import HeaderGallery from "@/widgets/HeaderGallery.vue";
-import PaginationGallery from "@/features/PaginationGallery.vue";
+import GalleryComponent from "@/widgets/gallery/GalleryComponent.vue";
+import HeaderGallery from "@/widgets/header/HeaderGallery.vue";
+import PaginationGallery from "@/shared/UI/pagination/PaginationGallery.vue";
 
 export default {
   components: {
@@ -17,7 +17,10 @@ export default {
 
 <template>
   <v-app>
-    <div id="app" class="content">
+    <div
+      id="app"
+      class="content"
+    >
       <HeaderGallery className="content__header" />
       <GalleryComponent className="content__gallery" />
       <PaginationGallery className="content__pagination" />

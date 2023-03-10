@@ -15,6 +15,7 @@ export default createVuetify({
           "primary-300": "#b3b3b3",
           "primary-500": "#667085",
           "primary-100": "#e4e7ec",
+          "succes": "#4CAF50",
         },
       },
       darkTheme: {
@@ -25,6 +26,7 @@ export default createVuetify({
           "primary-300": "#ffffff",
           "primary-500": "E4E7EC",
           "primary-100": "#1d2939",
+          "succes": "#4CAF50",
         },
       },
     },
