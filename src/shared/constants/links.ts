@@ -1,4 +1,4 @@
-export const URL_GALLERY = "http://localhost:3000/gallery-data";
+export const URL_GALLERY = "https://api.jsonbin.io/v3/b/640b35f0c0e7653a05859dd0/latest";
 export const URL_AUTHORS = "http://localhost:4000/authors-data";
 export const URL_PLACES = "http://localhost:5000/places-data";
 
