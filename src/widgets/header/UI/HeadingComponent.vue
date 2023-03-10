@@ -1,11 +1,13 @@
 <script lang="ts">
 import { useTheme } from "vuetify";
-import ModalSettingsButton from "@/shared/UI/buttons/ModalSettingsButton.vue";
+import ModalSettingsButton from "@/shared/UI/buttons/OpenSettingsButton.vue";
+import { URL_SETTINGS } from "@/shared/constants/links";
 
 export default {
   setup() {
     const theme = useTheme();
     return {
+      URL_SETTINGS,
       theme,
       toggleTheme: () =>
         (
@@ -26,13 +28,14 @@ export default {
     <h1 class="header__info">Image Gallery</h1>
     <div class="header__buttons">
       <v-btn
-        color="transparent"
         icon="mdi-white-balance-sunny"
         size="small"
         class="header__theme-icon"
         @click="toggleTheme"
       />
-      <ModalSettingsButton />
+      <router-link :to="URL_SETTINGS">
+        <ModalSettingsButton />
+      </router-link>
     </div>
   </div>
 </template>
@@ -76,6 +79,7 @@ export default {
 }
 
 .header__theme-icon {
+  color: rgb(var(--v-theme-primary-900));
   margin-top: 20px;
 }
 </style>

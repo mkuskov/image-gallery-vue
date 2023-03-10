@@ -26,11 +26,21 @@ export default {
     <img
       class="current-image__image"
       :src="data.img"
-      alt="b"
+      alt="image"
     >
     <div class="current-image__info">
       <h1>
+        <v-icon
+          class="quote-icon-open"
+          icon="mdi-format-quote-open"
+          size="x-small"
+        />
         {{data.name}}
+        <v-icon
+          class="quote-icon-close"
+          icon="mdi-format-quote-close"
+          size="x-small"
+        />
       </h1>
       <h4>
         <span class="current-image__info-by">by</span>&nbsp;{{ data.author }}
@@ -57,6 +67,14 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.quote-icon-open {
+  margin: 0 -6px 15px 0;
+}
+
+.quote-icon-close {
+  margin: 10px 0 0 -6px;
 }
 
 .current-image__info-by {

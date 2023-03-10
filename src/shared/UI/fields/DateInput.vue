@@ -157,10 +157,22 @@ export default {
 
 .dropdown-date__list-input {
   padding: 5px;
-  margin: 34px 0 0 34px;
+  margin: 14px 0 0 20px;
   width: 90%;
   border-radius: 5px;
   background-color: rgb(var(--v-theme-primary-100));
+
+  @media screen and (min-width: 660px) {
+    margin: 14px 0 0 16px;
+  }
+
+  @media screen and (min-width: 960px) {
+    margin: 14px 0 0 10px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin: 14px 0 0 14px;
+  }
 }
 
 .dropdown-date__list-item:first-child {

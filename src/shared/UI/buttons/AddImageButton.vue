@@ -5,7 +5,7 @@ import AddImage from "@/features/add_image/AddImage.vue";
 export default {
   data() {
     return {
-      addImage: "AddImage"
+      AddImage: "AddImage"
     };
   },
   props: {
@@ -23,7 +23,7 @@ export default {
     :openModalState="$store.state.gallery.showAddImageModal"
     closeModalAction="changeAddImageModalStatus"
   >
-    <component :is="addImage"/>
+    <component :is="AddImage"/>
   </ModalComponent>
 
   <v-btn

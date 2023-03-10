@@ -67,7 +67,7 @@ export default {
       />
       <v-select
         required
-        :items="$store.state.filters.authorsList.map((item) => item.author)"
+        :items="$store.state.filters.authorsList.map((item) => item.name)"
         :rules="selectRules"
         v-model="newImage.author"
         filled
@@ -76,7 +76,7 @@ export default {
       />
       <v-select
         required
-        :items="$store.state.filters.placesList.map((item) => item.place)"
+        :items="$store.state.filters.placesList.map((item) => item.name)"
         :rules="selectRules"
         v-model="newImage.place"
         filled

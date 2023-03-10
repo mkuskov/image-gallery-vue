@@ -48,12 +48,12 @@ export interface Getters {
 }
 
 export interface AuthorsList {
-    author: string
+    name: string
     id: string
 }
 
 export interface PlacesList {
-    place: string
+    name: string
     id: string
 }
 

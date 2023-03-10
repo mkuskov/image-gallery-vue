@@ -1,10 +1,12 @@
 <script lang="ts">
 import { limitElements, firstPage } from "@/shared/constants/pagination";
+import { URL_HOME } from "@/shared/constants/links";
 
 
 export default {
   data() {
     return {
+      URL_HOME,
       filterByTitle: this.$store.state.settings.isTitleFilterActive,
       filterByAuthor: this.$store.state.settings.isAuthorFilterActive,
       filterByPlace: this.$store.state.settings.isPlaceFilterActive,
@@ -58,8 +60,21 @@ export default {
 <template>
   <div class="settings">
     <h2 class="settings__heading">Настройки</h2>
+
+    <hr class="separate-line">
+
+    <div class="settings__filters-caption">
+      <span>
+        <h4 class="settings__filters-caption-heading">Фильтры</h4>
+        <p class="settings__filters-caption-info">Выберите, какие фильтры вы хотите использовать</p>
+      </span>
+      <v-icon
+        class="settings__filters-caption-icon"
+        icon="mdi-map-search-outline"
+        size="large"
+      />
+    </div>
     <div class="settings__filters">
-      <h4 class="settings__filters-heading">Фильтры</h4>
       <v-switch
         v-model="filterByTitle"
         color="green"
@@ -93,8 +108,21 @@ export default {
         :label="`Поиск по дате: ${isDisabled(filterByDate)}`"
       />
     </div>
+
+    <hr class="separate-line">
+
+    <div class="settings__extra-caption">
+      <span>
+        <h4 class="settings__extra-caption-heading">Дополнительно</h4>
+        <p class="settings__extra-caption-info">Укажите дополнительные настройки галереи</p>
+      </span>
+      <v-icon
+        class="settings__extra-caption-icon"
+        icon="mdi-image-edit-outline"
+        size="large"
+      />
+    </div>
     <div class="settings__extra">
-      <h4 class="settings__extra-heading">Доп. настройки</h4>
       <v-text-field
         type="input"
         v-model="$store.state.settings.limitElements"
@@ -104,42 +132,87 @@ export default {
         hint="Укажите число от 1 до 12"
       />
     </div>
-    <v-btn
-      class="settings__done-button"
-      @click="updateSettings"
-    >
-      Применить
-    </v-btn>
+
+    <hr class="separate-line">
+
+    <div class="settings__buttons">
+      <router-link :to="URL_HOME">
+        <v-btn
+          icon="mdi-arrow-left"
+          size="small"
+          class="settings__buttons-close"
+          @click="$store.dispatch('changeSettingsModalStatus', true);"
+        />
+      </router-link>
+      <router-link :to="URL_HOME">
+        <v-btn
+          class="settings__buttons-submit"
+          @click="updateSettings"
+        >
+          Применить
+        </v-btn>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
-.settings__filters-heading,
-.settings__extra-heading {
-  font-size: 17px;
+
+.settings {
+  width: 660px;
+}
+
+.settings__filters-caption {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.settings__filters-caption-icon {
+  margin-top: 12px;
+  font-size: 40px;
+}
+
+.settings__extra-caption {
+  display: flex;
+  justify-content: space-between;
+}
+
+.settings__extra-caption-icon {
+  margin-top: 12px;
+  font-size: 40px;
+}
+
+.settings__filters-caption-heading,
+.settings__extra-caption-heading {
+  font-size: 20px;
   text-align: left;
   margin-bottom: 10px;
 }
 
-.settings__heading {
-  font-size: 26px;
+.settings__filters-caption-info,
+.settings__extra-caption-info {
+  text-align: left;
+  font-size: 15px;
+  color: rgb(var(--v-theme-primary-500));
 }
 
-.settings__extra-text {
-  font-size: 13px;
-  text-align: left;
+.separate-line {
+	margin: 20px 0;
+	border: none;
+	border-top: 1px solid rgb(var(--v-theme-primary-100));
 }
 
 .settings__filters,
-.settings__extra {
-  margin: 10px 25px 35px 25px;
+.settings__extra,
+.settings__filters-limit {
+  margin: 25px 50px 10px 50px;
 }
 
-.settings__extra {
-  margin: 10px 25px 20px 25px;
-}
-
-.settings__done-button {
-  width: 50%;
+.settings__buttons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
 }
 </style>

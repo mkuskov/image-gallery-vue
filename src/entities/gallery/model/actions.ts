@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import type { AddNewImage, Context, LoadItemsInterface, Params } from "@/shared/api/types";
+import type { AddNewImage, Context, GalleryData, LoadItemsInterface, Params } from "@/shared/api/types";
 
 import { URL_GALLERY } from "@/shared/constants/links";
 
@@ -54,7 +54,7 @@ const galleryActions = {
     }
   },
 
-  async addItems(payload: any) {
+  async addItems({ commit }: LoadItemsInterface, payload: AddNewImage) {
     const {
       callback,
       ...requestData

@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import ImageReview from "@/pages/TheImageReview.vue";
 import TheMainComponent from "@/pages/TheMainComponent.vue";
-import { URL_PICTURES_ROUTE } from "@/shared/constants/links";
+import TheGallerySettings from "@/pages/TheGallerySettings.vue";
+import { URL_PICTURES_ROUTE, URL_SETTINGS } from "@/shared/constants/links";
 
 const routes = [
   {
@@ -11,6 +12,10 @@ const routes = [
   {
     path: URL_PICTURES_ROUTE,
     component: ImageReview,
+  },
+  {
+    path: URL_SETTINGS,
+    component: TheGallerySettings,
   },
 ];
 

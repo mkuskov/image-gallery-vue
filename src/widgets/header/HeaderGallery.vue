@@ -1,7 +1,7 @@
 <script lang="ts">
 import FiltersComponent from "@/features/filters/FiltersComponent.vue";
 import HeadingComponent from "@/widgets/header/UI/HeadingComponent.vue";
-import ModalOpenButton from "@/shared/UI/buttons/ModalAddImageButton.vue";
+import ModalOpenButton from "@/shared/UI/buttons/AddImageButton.vue";
 
 export default {
   components: {
