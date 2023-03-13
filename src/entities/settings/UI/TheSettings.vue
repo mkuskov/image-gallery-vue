@@ -169,19 +169,20 @@ export default {
   margin-bottom: 20px;
 }
 
-.settings__filters-caption-icon {
-  margin-top: 12px;
-  font-size: 40px;
-}
-
 .settings__extra-caption {
   display: flex;
   justify-content: space-between;
 }
 
-.settings__extra-caption-icon {
+.settings__extra-caption-icon,
+.settings__filters-caption-icon {
   margin-top: 12px;
   font-size: 40px;
+  margin-top: 24px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 12px;
+  }
 }
 
 .settings__filters-caption-heading,
@@ -195,19 +196,30 @@ export default {
 .settings__extra-caption-info {
   text-align: left;
   font-size: 15px;
-  color: rgb(var(--v-theme-primary-500));
+  color: rgb(var(--v-theme-caption));
 }
 
 .separate-line {
 	margin: 20px 0;
 	border: none;
-	border-top: 1px solid rgb(var(--v-theme-primary-100));
+	border-top: 1px solid rgb(var(--v-theme-primary-200));
 }
 
 .settings__filters,
-.settings__extra,
+.settings__extra {
+  margin: 25px 0px 10px 0px;
+
+  @media screen and (min-width: 768px) {
+    margin: 25px 50px 10px 50px;
+  }
+}
+
 .settings__filters-limit {
-  margin: 25px 50px 10px 50px;
+  margin: 0px;
+
+  @media screen and (min-width: 768px) {
+    margin: 25px 0px 10px 0px;
+  }
 }
 
 .settings__buttons {

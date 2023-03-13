@@ -1,44 +1,37 @@
 <script lang="ts">
-import { firstPage } from "@/shared/constants/pagination";
-import { getFilteredPaginationLength } from "@/shared/constants/methods";
+import { getFilteredPaginationLength } from '@/shared/constants/methods';
+import { firstPage } from '@/shared/constants/pagination';
 
-interface InputRadioEvent extends Event {
-  target: HTMLInputElement;
-  event: Event;
-}
+// interface InputRadioEvent extends Event {
+//   target: HTMLInputElement;
+//   event: Event;
+// }
 
 export default {
+  props: {
+    disabled: Boolean,
+    data: Object,
+    dropdownTitle: String,
+  },
   data() {
     return {
+      visible: false,
+      title: this.dropdownTitle
     };
   },
   methods: {
-    handleAuthor(event: InputRadioEvent) {
-      const data = event.target.title;
-
-      this.$store.dispatch("addAuthor", data);
-      this.$store.dispatch("changePage", firstPage);
-
-      if (data !== "Все") {
-        this.$store.dispatch("updateLength",
-          getFilteredPaginationLength(
-            this.$store.state.gallery.galleryData.length,
-            this.$store.state.settings.limitElements
-          ));
-
-        return this.$store.dispatch("loadItems");
-      }
-      this.$store.dispatch("galleryJSON");
-
-      return this.$store.dispatch("loadItems");
+    toggle() {
+      this.visible = !this.visible;
     },
-    handlePlace(event: InputRadioEvent) {
-      const data = event.target.title;
+    select(option: string) {
+      this.title = option;
+      
+      this.dropdownTitle === "Автор"
+      ? this.$store.dispatch("addAuthor", option)
+      : this.$store.dispatch("addPlace", option);
 
-      this.$store.dispatch("addPlace", data);
       this.$store.dispatch("changePage", firstPage);
-
-      if (data !== "Все") {
+      if (option !== "Все") {
         this.$store.dispatch("updateLength",
           getFilteredPaginationLength(
             this.$store.state.gallery.galleryData.length,
@@ -54,239 +47,185 @@ export default {
   },
   computed: {
     isDisabled() {
-      return !this.disabled
-        ? "dropdown__radios"
-        : "dropdown__radios--disabled";
+      if (this.disabled) {
+        return "dropdown-selector--disabled";
+      } else if (this.visible) {
+        return "dropdown-selector--visible"
+      }
+      return "dropdown-selector"
     },
-    disabledTitle() {
-      return !this.disabled
-        ? "dropdown__input"
-        : "dropdown__input--disabled";
-    }
-  },
-  props: {
-    disabled: Boolean,
-    data: Object,
-    dropdownTitle: String,
   },
 };
 </script>
 
 <template>
-  <details
+  <div
     class="dropdown"
-    :id="dropdownTitle"
+    :data-value="title"
+    :data-list="data"
   >
-    <summary
-      class="dropdown__radios"
+    <div
       :class="isDisabled"
+      @click="toggle()"
     >
-      <input
-        class="dropdown__input"
-        :class="disabledTitle"
-        type="radio"
-        :name="dropdownTitle"
-        :title="!disabled ? dropdownTitle : 'Выключено'"
-        id="default"
-        @change="
-          dropdownTitle === 'Автор'
-          ? handleAuthor($event as InputRadioEvent)
-          : handlePlace($event as InputRadioEvent)
-        "
-        checked
+      <div class="dropdown-selector__label">
+        <span>{{ title }}</span>
+      </div>
+      <div
+        class="dropdown-selector__arrow"
+        :class="{ expanded: visible }"
       />
-      <input
-        class="dropdown__input"
-        :class="disabledTitle"
-        v-for="items in data"
-        type="radio"
-        :name="dropdownTitle"
-        :id="items.id + dropdownTitle"
-        :key="items.id"
-        @change="
-          dropdownTitle === 'Автор'
-          ? handleAuthor($event as InputRadioEvent)
-          : handlePlace($event as InputRadioEvent)
-        "
-        :title="items.name"
-      />
-    </summary>
-    <ul class="dropdown__list">
-      <li
-        v-for="items in data"
-        class="dropdown__list-item"
-        :key="items.id"
-      >
-        <label
-          :for="items.id + dropdownTitle"
-          class="dropdown__label"
-        >
-          {{ items.name }}
-        </label>
-      </li>
-    </ul>
-  </details>
+      <div :class="{ hidden: !visible, visible }">
+        <ul class="dropdown-selector__list">
+          <li
+            class="dropdown-selector__list-item"
+            :class="{ current: item.name === title }"
+            v-for="item in data"
+            @click="select(item.name)">
+            {{ item.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
 .dropdown {
-  position: relative;
-}
+  .dropdown-selector--visible {
+    cursor: pointer;
+    border: 1px solid rgb(var(--v-theme-primary-900));
+    position: relative;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 
-.dropdown[open] {
-  z-index: 1;
-}
+    .dropdown-selector__list {
+      min-height: 20px;
+      max-height: 250px;
+      width: 100%;
+      list-style-type: none;
+      font-size: 16px;
+      outline: 1px solid rgb(var(--v-theme-primary-900));
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      position: absolute;
+      z-index: 1;
+      background: rgb(var(--v-theme-primary-25));
+    }
 
-.dropdown__radios {
-  cursor: pointer;
-  border-radius: 10px;
-  padding: 1rem;
-  border: 1px solid rgb(var(--v-theme-primary-300));
-  list-style: none;
-}
+    .dropdown-selector__arrow {
+      position: absolute;
+      right: 10px;
+      top: 40%;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 8px solid #888;
+      transform: rotateZ(0deg);
+      transition: 0.2s;
+    }
 
-.dropdown__radios--disabled {
-  border: 1px solid rgb(var(--v-theme-primary-100));
-  color: rgb(var(--v-theme-primary-100));
-  cursor: default;
-  pointer-events: none;
-}
+    .expanded {
+      transform: rotateZ(90deg);
+    }
 
-.dropdown__label {
-  padding: 8px 0 8px 0;
-  cursor: pointer;
-}
+    .dropdown-selector__label {
+      padding: 16px;
+      color: rgb(var(--v-theme-primary-900));
+    }
+  }
 
-.dropdown[open] .dropdown__radios {
-  border-radius: 10px 10px 1px 1px;
-  border: 1px solid;
-  border-bottom: 1px solid rgb(var(--v-theme-primary-300));
-}
+  .dropdown-selector--disabled {
+    border: 1px solid rgb(var(--v-theme-primary-100));
+    color: rgb(var(--v-theme-primary-100));
+    cursor: default;
+    border-radius: 10px;
+    padding: 16px;
+    pointer-events: none;
+  }
 
-.dropdown__radios::-webkit-details-marker {
-  display: none;
-}
+  .dropdown-selector {
+    cursor: pointer;
+    border: 1px solid rgb(var(--v-theme-primary-300));
+    border-radius: 10px;
+    position: relative;
 
-.dropdown[open] .dropdown__radios:before {
-  content: "";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
+    .dropdown-selector__arrow {
+      position: absolute;
+      right: 10px;
+      top: 40%;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 8px solid #888;
+      transform: rotateZ(0deg);
+      transition: 0.2s;
+    }
 
-.dropdown__radios:after {
-  content: "";
-  float: right;
-  margin-top: 5px;
-  width: 0.5rem;
-  height: 0.5rem;
-  position: absolute;
-  right: 15px;
-  border-bottom: 1px solid;
-  border-left: 1px solid;
-  transform: rotate(-45deg) translate(0%, 0%);
-  transform-origin: center center;
-  transition: transform ease-in-out 100ms;
-}
+    .expanded {
+      transform: rotateZ(90deg);
+    }
 
-.dropdown__radios:focus {
-  outline: none;
-}
+    .dropdown-selector__label {
+      display: block;
+      padding: 16px;
+      font-size: 16px;
+      color: rgb(var(--v-theme-primary-900));
+    }
+  }
 
-.dropdown[open] .dropdown__radios:after {
-  transform: rotate(45deg) translate(50%, 0%);
-}
+  .dropdown-selector__list {
+    overflow: auto;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    position: absolute;
+    z-index: 1;
+    background: rgb(var(--v-theme-primary-25));
+  }
 
-.dropdown__list {
-  background: rgb(var(--v-theme-primary-25));
-  border-radius: 0 0 10px 10px;
-  list-style: none;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  padding: 1rem;
-  margin: 0;
-  box-sizing: border-box;
-  border: 1px solid;
-  max-height: 200px;
-  overflow-y: auto;
-  border-top: none;
-}
+  .dropdown-selector__list::-webkit-scrollbar {
+    width: 15px;
+  }
 
-.dropdown__list-item {
-  padding: 5px;
-}
+  .dropdown-selector__list::-webkit-scrollbar-thumb {
+    background-color: #777777;
+    border-radius: 20px;
+    border: 4px solid transparent;
+    background-clip: content-box;
+  }
 
-.dropdown__list-item:first-child {
-  padding-top: 0;
-}
+  .dropdown-selector__list::-webkit-scrollbar-thumb:hover {
+    background-color: #5f5f5f;
+    border-radius: 20px;
+    border: 4px solid transparent;
+    background-clip: content-box;
+  }
 
-.dropdown__list-item:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
-}
+  .dropdown-selector__list::-webkit-scrollbar-thumb:hover {
+    background-color: #5f5f5f;
+  }
 
-/* FAKE SELECT */
+  .dropdown-selector__list-item {
+    padding: 12px 16px 12px 16px;
+    color: rgb(var(--v-theme-primary-900));
 
-.dropdown__radios.radios {
-  counter-reset: radios;
-}
+    &:hover {
+      color: rgb(var(--v-theme-primary-100));
+      background: rgb(var(--v-theme-primary-900));
+    }
+  }
 
-.dropdown__radios.radios:before {
-  content: var(--selection);
-}
+  .hidden {
+    visibility: hidden;
+  }
 
-.dropdown__input[type="radio"] {
-  counter-increment: radios;
-  appearance: none;
-  display: none;
-}
-
-.dropdown__input[type="radio"]:checked {
-  display: inline;
-  --display: block;
-}
-
-.dropdown__input[type="radio"]:after {
-  content: attr(title);
-  display: inline;
-}
-
-.dropdown__input--disabled {
-  color: rgb(var(--v-theme-primary-100));
-}
-
-.dropdown__list.list {
-  counter-reset: labels;
-}
-
-.dropdown__list::-webkit-scrollbar {
-  width: 15px;
-}
-
-.dropdown__list::-webkit-scrollbar-thumb {
-  background-color: #777777;
-  border-radius: 20px;
-  border: 4px solid transparent;
-  background-clip: content-box;
-}
-
-.dropdown__list::-webkit-scrollbar-thumb:hover {
-  background-color: #5f5f5f;
-  border-radius: 20px;
-  border: 4px solid transparent;
-  background-clip: content-box;
-}
-
-.dropdown__list::-webkit-scrollbar-thumb:hover {
-  background-color: #5f5f5f;
-  border-radius: 20px;
-  border: 4px solid transparent;
-  background-clip: content-box;
-}
-
-.dropdown__list::-webkit-scrollbar-thumb:hover {
-  background-color: #5f5f5f;
+  .visible {
+    visibility: visible;
+  }
 }
 </style>

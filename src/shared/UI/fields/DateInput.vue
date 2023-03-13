@@ -1,249 +1,190 @@
 <script lang="ts">
+
 export default {
+  props: {
+    disabled: Boolean,
+    data: Object,
+    dropdownTitle: String,
+  },
   data() {
     return {
+      visible: false,
+      title: this.dropdownTitle,
       startDate: "2015-08-04",
       endDate: "2015-08-12",
       dateToSearch: "",
     };
   },
-  computed: {
-    isDisabled() {
-      return !this.disabled ? "dropdown-date__radio" : "dropdown-date__radio--disabled";
+  methods: {
+    toggle() {
+      this.visible = !this.visible;
     },
-    disabledTitle() {
-      return !this.disabled ? "dropdown-date__input" : "dropdown-date__input--disabled";
-    }
   },
-  props: {
-    disabled: Boolean
-  }
+  computed: {
+    isOpenedOrDisabled() {
+      if (this.disabled) {
+        return "dropdown-selector--disabled";
+      } else if (this.visible) {
+        return "dropdown-selector--visible"
+      }
+      return "dropdown-selector"
+    },
+  },
 };
 </script>
 
 <template>
-  <details
-    class="dropdown-date"
-    id="dropdown-date"
+  <div
+    class="dropdown"
+    :data-value="dateToSearch"
   >
-    <summary
-      class="dropdown-date__radio"
-      :class="isDisabled"
+    <div
+      :class="isOpenedOrDisabled"
+      @click="toggle()"
     >
-      <input
-        type="radio"
-        class="dropdown-date__input"
-        :class="disabledTitle"
-        name="dateField"
-        id="default"
-        :title="
-          $store.state.filters.startDate === '' ? 'Дата' : `${startDate} — ${endDate}`
-        "
-        checked
+      <div class="dropdown-selector__label">
+        <span>Дата</span>
+      </div>
+      <div
+        class="dropdown-selector__arrow"
+        :class="{ expanded: visible }"
       />
-    </summary>
-    <ul class="dropdown-date__list">
-      <li class="dropdown-date__list-item">
-        <input
-          for="date"
-          type="date"
-          class="dropdown-date__list-input"
-          v-model="startDate"
-          @change="
-            $store.dispatch('addStartDate', new Date(startDate).getTime())
-          "
-        />
-        <input
-          for="date"
-          type="date"
-          class="dropdown-date__list-input"
-          v-model="endDate"
-          @change="
-          $store.dispatch('addEndDate', new Date(endDate).getTime());
-          "
-        />
-      </li>
-    </ul>
-  </details>
+      <div :class="{ hidden: !visible, visible }">
+        <ul class="dropdown-selector__date-list">
+          <li class="dropdown-selector__date-list-item">
+            <input
+              for="date"
+              type="date"
+              class="dropdown-selector__date-input"
+              v-model="startDate"
+              @change="
+                $store.dispatch('addStartDate', new Date(startDate).getTime())
+              "
+            />
+            <input
+              for="date"
+              type="date"
+              class="dropdown-date__date-input"
+              v-model="endDate"
+              @change="
+              $store.dispatch('addEndDate', new Date(endDate).getTime());
+              "
+            />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
-.dropdown-date {
-  position: relative;
-}
-
-.dropdown-date[open] {
-  z-index: 1;
-}
-
-.dropdown-date__radio {
-  cursor: pointer;
-  border-radius: 10px;
-  padding: 1rem;
-  border: 1px solid rgb(var(--v-theme-primary-300));
-  list-style: none;
-}
-
-.dropdown-date__radio--disabled {
-  border: 1px solid rgb(var(--v-theme-primary-100));
-  color: rgb(var(--v-theme-primary-100));
-  cursor: default;
-  pointer-events: none;
-}
-
-.dropdown-date[open] .dropdown-date__radio {
-  border-radius: 10px 10px 0 0;
-  border: 1px solid;
-  border-bottom: none;
-}
-
-.dropdown-date__radio::-webkit-details-marker {
-  display: none;
-}
-
-.dropdown-date[open] .dropdown-date__radio:before {
-  content: "";
-  display: block;
-  background: transparent;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.dropdown-date__radio:after {
-  content: "";
-  float: right;
-  margin-top: 5px;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-bottom: 1px solid;
-  border-left: 1px solid;
-  transform: rotate(-45deg) translate(0%, 0%);
-  transform-origin: center center;
-  transition: transform ease-in-out 100ms;
-}
-
-.dropdown-date__radio:focus {
-  outline: none;
-}
-
-.dropdown-date[open] .dropdown-date__radio:after {
-  transform: rotate(45deg) translate(50%, 0%);
-}
-
-.dropdown-date__list {
-  background: rgb(var(--v-theme-primary-25));
-  border-radius: 0 0 10px 10px;
-  list-style: none;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  border: 1px solid;
-  border-top: none;
-
-  @media screen and (min-width: 0) {
-    height: 150px;
+.dropdown {
+  .dropdown-selector--disabled {
+    border: 1px solid rgb(var(--v-theme-primary-100));
+    color: rgb(var(--v-theme-primary-100));
+    cursor: default;
+    padding: 16px;
+    pointer-events: none;
+    border-radius: 10px;
   }
 
-  @media screen and (min-width: 660px) {
-    height: 115px;
-  }
-}
-
-.dropdown-date__list-item {
-  display: inline;
-  border-bottom: none;
-}
-
-.dropdown-date__list-input {
-  padding: 5px;
-  margin: 14px 0 0 20px;
-  width: 90%;
-  border-radius: 5px;
-  background-color: rgb(var(--v-theme-primary-100));
-
-  @media screen and (min-width: 660px) {
-    margin: 14px 0 0 16px;
+  .dropdown-selector--visible {
+    .dropdown-selector__date-list {
+      min-height: 20px;
+      max-height: 250px;
+      width: 100%;
+      list-style-type: none;
+      font-size: 16px;
+      outline: 1px solid rgb(var(--v-theme-primary-900));
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      position: absolute;
+      z-index: 1;
+      background: rgb(var(--v-theme-primary-25));
+    }
   }
 
-  @media screen and (min-width: 960px) {
-    margin: 14px 0 0 10px;
+  .dropdown-selector {
+    cursor: pointer;
+    border: 1px solid rgb(var(--v-theme-primary-300));
+    border-radius: 10px;
+    position: relative;
+
+    .dropdown-selector__arrow {
+      position: absolute;
+      right: 10px;
+      top: 40%;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 8px solid #888;
+      transform: rotateZ(0deg);
+      transition: 0.2s;
+    }
+
+    .expanded {
+      transform: rotateZ(90deg);
+    }
+
+    .dropdown-selector__label {
+      display: block;
+      padding: 16px;
+      font-size: 16px;
+      color: rgb(var(--v-theme-primary-900));
+    }
   }
 
-  @media screen and (min-width: 1280px) {
-    margin: 14px 0 0 14px;
+  .dropdown-selector__date-list {
+    overflow: auto;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    position: absolute;
+    z-index: 1;
+    background: rgb(var(--v-theme-primary-25));
   }
-}
 
-.dropdown-date__list-item:first-child {
-  padding-top: 0;
-}
+  .dropdown-selector__date-list::-webkit-scrollbar {
+    width: 15px;
+  }
 
-.dropdown-date__list-item:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
-}
+  .dropdown-selector__date-list::-webkit-scrollbar-thumb {
+    background-color: #777777;
+    border-radius: 20px;
+    border: 4px solid transparent;
+    background-clip: content-box;
+  }
 
-/* FAKE SELECT */
+  .dropdown-selector__date-list::-webkit-scrollbar-thumb:hover {
+    background-color: #5f5f5f;
+    border-radius: 20px;
+    border: 4px solid transparent;
+    background-clip: content-box;
+  }
 
-.dropdown-date__radio.radios {
-  counter-reset: radios;
-}
+  .dropdown-selector__date-list::-webkit-scrollbar-thumb:hover {
+    background-color: #5f5f5f;
+  }
 
-.dropdown-date__radio.radios:before {
-  content: var(--selection);
-}
+  .dropdown-selector__date-list-item {
+    padding: 12px 16px 12px 16px;
+    color: rgb(var(--v-theme-primary-900));
 
-.dropdown-date__input[type="radio"] {
-  appearance: none;
-  display: none;
-}
+    &:hover {
+      border-radius: 8px;
+      color: rgb(var(--v-theme-primary-100));
+    }
+  }
 
-.dropdown-date__input[type="radio"]:checked {
-  display: inline;
-  --display: block;
-}
+  .hidden {
+    visibility: hidden;
+  }
 
-.dropdown-date__input[type="radio"]:after {
-  content: attr(title);
-  display: inline;
-}
-
-.dropdown-date__input--disabled {
-  color: rgb(var(--v-theme-primary-100));
-}
-
-.dropdown-date__list.list {
-  border-top: transparent;
-  counter-reset: labels;
-}
-
-.dropdown-date__label {
-  width: 100%;
-  display: flex;
-  cursor: pointer;
-  justify-content: space-between;
-}
-
-.dropdown-date__list::-webkit-scrollbar {
-  width: 15px;
-}
-
-.dropdown-date__list::-webkit-scrollbar-thumb {
-  background-color: #777777;
-  border-radius: 20px;
-  border: 4px solid transparent;
-  background-clip: content-box;
-}
-
-.dropdown-date__list::-webkit-scrollbar-thumb:hover {
-  background-color: #5f5f5f;
-  border-radius: 20px;
-  border: 4px solid transparent;
-  background-clip: content-box;
-}
-
-.dropdown-date__list::-webkit-scrollbar-thumb:hover {
-  background-color: #5f5f5f;
+  .visible {
+    visibility: visible;
+  }
 }
 </style>

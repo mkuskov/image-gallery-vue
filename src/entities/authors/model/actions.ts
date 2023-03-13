@@ -7,7 +7,7 @@ export const authorsActions = {
   async loadAuthorsList({ commit }: CommitInterface) {
     const authors = await instance
       .get(URL_AUTHORS);
-    commit("SET_AUTHORS_LIST", authors.data);
+    commit("SET_AUTHORS_LIST", authors.data.record.authors_data);
   },
 
   addAuthor(context: Context, payload: Author) {

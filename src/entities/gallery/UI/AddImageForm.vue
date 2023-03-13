@@ -113,6 +113,18 @@ export default {
   margin-bottom: 10px;
 }
 
+.form-add__heading {
+  white-space: nowrap; /* Текст не переносится */
+  overflow: hidden; /* Обрезаем всё за пределами блока */
+  text-overflow: ellipsis; /* Добавляем многоточие */
+  padding: 0px 35px;
+  font-size: 24px;
+
+  @media screen and (min-width: 840px) {
+    padding: 0px;
+  }
+}
+
 .form-add__done {
   width: 50%;
   margin: 0 0 auto auto;

@@ -27,5 +27,14 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 30px;
+
+  @media screen and (min-width: 768px) {
+    padding: 15px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 0px;
+  }
 }
 </style>

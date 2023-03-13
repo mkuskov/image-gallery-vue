@@ -17,13 +17,4 @@ export default {
 </template>
 
 <style lang="scss">
-.form-add__select,
-.form-add__input {
-  margin-bottom: 10px;
-}
-
-.form-add__done {
-  width: 50%;
-  margin: 0 0 auto auto;
-}
 </style>

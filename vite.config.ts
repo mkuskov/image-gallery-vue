@@ -8,7 +8,6 @@ import * as path from "path";
 
 export default defineConfig({
   plugins: [vue(), vueJsx(), vuetify({ autoImport: true })],
-  base: "/image-gallery-vue",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
