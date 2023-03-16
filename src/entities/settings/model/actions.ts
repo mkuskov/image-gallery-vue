@@ -13,6 +13,12 @@ const settingsActions = {
   settingFilterDate(context: Context, payload: boolean) {
     context.commit("SET_FILTER_DATE_SETTING", payload);
   },
+  setLimitPage(context: Context, payload: number) {
+    context.commit("SET_LIMIT_ELEMENTS", payload);
+  },
+  settingPagination(context: Context, payload: boolean) {
+    context.commit("SET_PAGINATION_SETTING", payload);
+  },
 };
 
 export default settingsActions;

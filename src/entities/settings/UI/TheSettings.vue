@@ -1,5 +1,5 @@
 <script lang="ts">
-import { limitElements, firstPage } from "@/shared/constants/pagination";
+import { firstPage } from "@/shared/constants/pagination";
 import { URL_HOME } from "@/shared/constants/links";
 
 
@@ -11,7 +11,8 @@ export default {
       filterByAuthor: this.$store.state.settings.isAuthorFilterActive,
       filterByPlace: this.$store.state.settings.isPlaceFilterActive,
       filterByDate: this.$store.state.settings.isDateFilterActive,
-      limit: limitElements,
+      limit: this.$store.state.settings.limitElements,
+      isPaginationOff: false,
       limitRules: [
         (value: string) => Number(value) > 12 && "Не более 12 элементов",
         (value: string) => Number(value) < 1 && "Минимум 1 элемент"
@@ -123,6 +124,14 @@ export default {
       />
     </div>
     <div class="settings__extra">
+      <v-switch
+        v-model="$store.state.settings.isPaginationOff"
+        color="green"
+        hide-details
+        class="settings__filters-title"
+        inset
+        label="Отключить пагинацию"
+      />
       <v-text-field
         type="input"
         v-model="$store.state.settings.limitElements"
@@ -218,7 +227,7 @@ export default {
   margin: 0px;
 
   @media screen and (min-width: 768px) {
-    margin: 25px 0px 10px 0px;
+    margin: 15px 0px 10px 0px;
   }
 }
 
