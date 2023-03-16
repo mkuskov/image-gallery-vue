@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import type { AddNewImage, Context, GalleryData, LoadItemsInterface, Params } from "@/shared/api/types";
-
-import { URL_GALLERY } from "@/shared/constants/links";
+import type { AddNewImage, Context, LoadItemsInterface, Params } from "@/shared/api/types";
 
 import { instance } from "@/shared/api/instance";
 import { makeFuncWithDelay } from "@/shared/constants/methods";
@@ -17,13 +15,13 @@ const galleryActions = {
       const params: Params = {
         _limit: rootState.settings.limitElements,
         _page: rootState.filters.page,
-        name: urlParamsDTO(rootState.filters.filterByTitle),
-        author: urlParamsDTO(rootState.authors.author),
-        place: urlParamsDTO(rootState.places.place),
+        q: urlParamsDTO(rootState.filters.filterByTitle),
+        authorId: urlParamsDTO(rootState.authors.author),
+        id: urlParamsDTO(rootState.places.place),
       };
 
 
-      const gallery = await instance.get( URL_GALLERY, { params } );
+      const gallery = await instance.get( "/paintings", { params } );
       commit("SET_ITEMS", gallery.data);
 
       makeFuncWithDelay(() => {
@@ -41,7 +39,7 @@ const galleryActions = {
     } = payload;
 
     try {
-      const galleryJSON = await instance.get(URL_GALLERY);
+      const galleryJSON = await instance.get("/paintings");
       commit("SET_ALL_GALLERY", galleryJSON.data);
       commit("UPDATE_LENGTH", getPaginationLength(rootState.gallery.galleryJSON.length, rootState.settings.limitElements));
 
@@ -60,7 +58,7 @@ const galleryActions = {
       ...requestData
     } = payload;
 
-    await instance.post(URL_GALLERY, requestData);
+    await instance.post("/paintings", requestData);
 
     callback();
   },

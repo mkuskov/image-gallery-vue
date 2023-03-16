@@ -1,6 +1,6 @@
-export const URL_GALLERY = "http://localhost:3000/gallery-data"; //json-server --watch data.json -p 3000
-export const URL_AUTHORS = "https://api.jsonbin.io/v3/b/640b3bf2c0e7653a0585a1a3/latest"; //json-server --watch authors.json -p 4000
-export const URL_PLACES = "https://api.jsonbin.io/v3/b/640b3bfbc0e7653a0585a1a7/latest"; //json-server --watch places.json -p 5000
+// export const URL_GALLERY = "https://api.jsonbin.io/v3/b/640ed592c0e7653a0586fb01/latest";
+// сервер с картинами (без фильтров) 
+export const URL_BASE= "https://test-front.framework.team";
 
 export const URL_HOME = "/";
 export const URL_PICTURES_ROUTE = "/pictures/:id";

@@ -6,13 +6,12 @@ export default {
   data() {
     return {
       newImage: {
-        name: "",
-        img: URL_DEFAULT_PICTURE,
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcolaboris   nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatatnon  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        author: "",
-        date: "",
-        place: "",
+        authorId: "",
+        created: "",
         id: "",
+        imageUrl: URL_DEFAULT_PICTURE,
+        locationId: "",
+        name: ""
       },
       valid: true,
       inputRules: [
@@ -69,16 +68,16 @@ export default {
         required
         :items="$store.state.filters.authorsList.map((item) => item.name)"
         :rules="selectRules"
-        v-model="newImage.author"
+        v-model="newImage.authorId"
         filled
         label="Автор *"
         class="form-add__select"
       />
       <v-select
         required
-        :items="$store.state.filters.placesList.map((item) => item.name)"
+        :items="$store.state.filters.placesList.map((item) => item.location)"
         :rules="selectRules"
-        v-model="newImage.place"
+        v-model="newImage.locationId"
         filled
         label="Место *"
         class="form-add__select"
@@ -87,7 +86,7 @@ export default {
         required
         :items="dates"
         :rules="selectRules"
-        v-model="newImage.date"
+        v-model="newImage.created"
         filled
         label="Дата *"
         class="form-add__select"
@@ -97,9 +96,9 @@ export default {
       class="form-add__done"
       :disabled="
         !newImage.name
-        || !newImage.author
-        || !newImage.place
-        || !newImage.date
+        || !newImage.authorId
+        || !newImage.locationId
+        || !newImage.created
       "
       @click="addPicture"
     >

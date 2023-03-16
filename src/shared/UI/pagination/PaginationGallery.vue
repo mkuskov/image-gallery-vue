@@ -23,7 +23,7 @@ export default {
   <div
     :class="className"
     v-if="$store.state.filters.paginationLength > 1
-    && $store.state.gallery.galleryData.length"
+    && !$store.state.settings.isPaginationOff"
   >
     <v-pagination
       v-model="$store.state.filters.page"
@@ -39,7 +39,7 @@ export default {
 .content__pagination {
   display: flex;
   justify-content: center;
-  margin: 10px 34px 16px 34px;
+  padding: 34px 0px 16px 34px;
 
   @media screen and (min-width: 660px) {
     justify-content: flex-end;

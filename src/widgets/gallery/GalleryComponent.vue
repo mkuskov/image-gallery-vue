@@ -1,7 +1,8 @@
 <script lang="ts">
 import ImageComponent from "@/entities/gallery/UI/ImageComponent.vue";
 import type { GalleryData } from "@/shared/api/types";
-import { URL_PICTURES_ROUTE } from "@/shared/constants/links";
+import { URL_BASE, URL_PICTURES_ROUTE } from "@/shared/constants/links";
+import { loadExtraItems } from "@/shared/constants/pagination";
 import EmptyPage from "@/shared/UI/errors/EmptyPage.vue";
 
 export default {
@@ -11,6 +12,7 @@ export default {
   data() {
     return {
       URL_PICTURES_ROUTE,
+      URL_BASE,
       imageId: "",
     };
   },
@@ -26,15 +28,36 @@ export default {
 
       return this.$store.dispatch("image", getImage);
     },
+    handleScroll (e: Event) {
+      if (this.$store.state.settings.isPaginationOff) {
+        let endOfPage = innerHeight + scrollY >= document.body.offsetHeight;
+
+        if (endOfPage && this.$store.state.settings.limitElements < this.$store.state.gallery.galleryJSON.length) {
+          this.$store.dispatch("setLimitPage", this.$store.state.settings.limitElements + loadExtraItems);
+
+          return this.$store.dispatch("loadItems");
+        }
+
+        return endOfPage = false;
+      }
+
+      return null;
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
   },
   mounted() {
     this.$store.dispatch("loadItems");
-  }
+  },
+  unmounted () {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
 };
 </script>
 
 <template>
-  <EmptyPage :displayСondition="!$store.state.gallery.galleryData.length"/>
+  <EmptyPage :displayСondition="!$store.state.gallery.galleryData.length && !$store.state.gallery.spinner"/>
 
   <div
     v-if="$store.state.gallery.spinner"
@@ -59,7 +82,7 @@ export default {
     >
       <ImageComponent
         :imageTitle="images.name"
-        :image="images.img"
+        :image="URL_BASE + images.imageUrl"
         :key="images.id"
         class="image-gallery__item"
       />
@@ -71,7 +94,7 @@ export default {
 .content__gallery {
   display: grid;
   align-items: stretch;
-  margin: 34px;
+  margin: 34px 34px 0 34px;
   grid-template-columns: 1fr;
   gap: 20px;
 

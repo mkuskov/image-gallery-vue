@@ -10,6 +10,7 @@ export interface State {
 }
 
 export interface SettingsState {
+    isPaginationOff: boolean
     limitElements: number
     isDateFilterActive: boolean
     isPlaceFilterActive: boolean
@@ -24,9 +25,9 @@ export interface CommitInterface {
 export interface Params {
     _limit: number
     _page: number
-    name: string | null
-    author: string | null
-    place: string | null
+    q: string | null
+    authorId: string | null
+    id: string | null
 }
 
 export interface LoadItemsInterface {
@@ -49,12 +50,12 @@ export interface Getters {
 
 export interface AuthorsList {
     name: string
-    id: string
+    id: number
 }
 
 export interface PlacesList {
-    name: string
-    id: string
+    location: string
+    id: number
 }
 
 export interface State {
@@ -73,13 +74,12 @@ export interface RootGetters {
 
 export interface GalleryData {
     length: number
-    name: string
-    img: string
-    description: string
-    author: string
-    date: string
-    place: string
+    authorId: number
+    created: number
     id: string
+    imageUrl: string
+    locationId: number
+    name: string
 }
 
 export interface Test {
@@ -87,13 +87,12 @@ export interface Test {
 }
 
 export interface AddNewImage {
-    name: string
-    description: string
-    img: string
-    author: string
-    date: string
-    place: string
+    authorId: number
+    created: number
     id: string
+    imageUrl: string
+    locationId: number
+    name: string
     callback: () => void
 }
 
@@ -130,10 +129,12 @@ export interface FiltersState {
 
 export interface Author {
     author: string
+    authorId: number
 }
 
 export interface Place {
     place: string
+    locationId: number
 }
 
 export interface RootState {
