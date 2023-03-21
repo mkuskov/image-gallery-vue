@@ -21,6 +21,7 @@ export default {
       class="card__item"
     >
       <img
+        rel="preload"
         class="card__image"
         :src="image"
       />
