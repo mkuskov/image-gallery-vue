@@ -1,7 +1,9 @@
 <script lang="ts">
 import ImageComponent from "@/entities/gallery/UI/ImageComponent.vue";
-import type { GalleryData } from "@/shared/api/types";
+import { instance } from "@/shared/api/instance";
+import type { GalleryData, Params } from "@/shared/api/types";
 import { URL_BASE, URL_PICTURES_ROUTE } from "@/shared/constants/links";
+import { urlParamsDTO } from "@/shared/constants/methods";
 import { loadExtraItems } from "@/shared/constants/pagination";
 import EmptyPage from "@/shared/UI/errors/EmptyPage.vue";
 
@@ -14,6 +16,7 @@ export default {
       URL_PICTURES_ROUTE,
       URL_BASE,
       imageId: "",
+      loadingPageNum: 1
     };
   },
   components: {
@@ -28,31 +31,31 @@ export default {
 
       return this.$store.dispatch("image", getImage);
     },
-    handleScroll (e: Event) {
-      if (this.$store.state.settings.isPaginationOff) {
-        let endOfPage = innerHeight + scrollY >= document.body.offsetHeight;
+    getNextImages() {
+      window.onscroll = async () => {
+        const bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
 
-        if (endOfPage && this.$store.state.settings.limitElements < this.$store.state.gallery.galleryJSON.length) {
-          this.$store.dispatch("setLimitPage", this.$store.state.settings.limitElements + loadExtraItems);
+        if (bottomOfWindow && (this.$store.state.settings.limitElements < this.$store.state.gallery.galleryJSON.length && this.$store.state.settings.isPaginationOff)) {
 
-          return this.$store.dispatch("loadItems");
+          const params: Params = {
+            _limit: this.$store.state.settings.limitElements,
+            _page: ++this.loadingPageNum,
+            q: urlParamsDTO(this.$store.state.filters.filterByTitle),
+            authorId: urlParamsDTO(this.$store.state.authors.author),
+            id: urlParamsDTO(this.$store.state.places.place),
+          };
+          const gallery = await instance.get( "/paintings", { params } );
+
+          return this.$store.state.gallery.galleryData.push(...gallery.data);
         }
-
-        return endOfPage = false;
       }
-
-      return null;
     }
   },
-  created () {
-    window.addEventListener('scroll', this.handleScroll);
-  },
   mounted() {
-    this.$store.dispatch("loadItems");
-  },
-  unmounted () {
-    window.removeEventListener('scroll', this.handleScroll);
-  },
+    this.$store.state.settings.isPaginationOff
+    ? this.getNextImages()
+    : this.$store.dispatch("loadItems");
+  }
 };
 </script>
 

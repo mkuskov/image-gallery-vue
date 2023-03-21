@@ -5,7 +5,7 @@ const settingsModule = {
   state: {
     isTitleFilterActive: true,
     isAuthorFilterActive: true,
-    isPlaceFilterActive: true,
+    isPlaceFilterActive: false,
     isDateFilterActive: false,
     isPaginationOff: false,
     limitElements: 9,
