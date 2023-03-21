@@ -1,7 +1,9 @@
 <script lang="ts">
 import ImageComponent from "@/entities/gallery/UI/ImageComponent.vue";
-import type { GalleryData } from "@/shared/api/types";
-import { URL_PICTURES_ROUTE } from "@/shared/constants/links";
+import { instance } from "@/shared/api/instance";
+import type { GalleryData, Params } from "@/shared/api/types";
+import { URL_GALLERY, URL_PICTURES_ROUTE } from "@/shared/constants/links";
+import { urlParamsDTO } from "@/shared/constants/methods";
 import EmptyPage from "@/shared/UI/errors/EmptyPage.vue";
 
 export default {
@@ -12,6 +14,7 @@ export default {
     return {
       URL_PICTURES_ROUTE,
       imageId: "",
+      loadingPageNum: 1
     };
   },
   components: {
@@ -26,9 +29,31 @@ export default {
 
       return this.$store.dispatch("image", getImage);
     },
+    getNextImages() {
+      window.onscroll = async () => {
+        const bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
+        if (bottomOfWindow && this.$store.state.settings.limitElements < this.$store.state.gallery.galleryJSON.length) {
+          const params: Params = {
+          _limit: this.$store.state.settings.limitElements,
+          _page: ++this.loadingPageNum,
+          name: urlParamsDTO(this.$store.state.filters.filterByTitle),
+          author: urlParamsDTO(this.$store.state.authors.author),
+          place: urlParamsDTO(this.$store.state.places.place),
+        };
+
+
+        const gallery = await instance.get( URL_GALLERY, { params } );
+        return this.$store.state.gallery.galleryData.push(...gallery.data);
+        }
+      }
+    }
+  },
+  beforeMount() {
+    this.$store.dispatch("loadItems");
   },
   mounted() {
-    this.$store.dispatch("loadItems");
+    this.$store.state.settings.isPaginationOff
+    && this.getNextImages();
   }
 };
 </script>

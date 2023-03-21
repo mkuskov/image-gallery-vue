@@ -18,12 +18,12 @@ export default {
     toggle() {
       this.visible = !this.visible;
     },
-    select(option: string, id: number) {
+    select(option: string) {
       this.title = option;
       
       this.dropdownTitle === "Автор"
-      ? this.$store.dispatch("addAuthor", id)
-      : this.$store.dispatch("addPlace", id);
+      ? this.$store.dispatch("addAuthor", option)
+      : this.$store.dispatch("addPlace", option);
 
       this.$store.dispatch("changePage", firstPage);
       if (option !== "Все") {
@@ -74,10 +74,10 @@ export default {
         <ul class="dropdown-selector__list">
           <li
             class="dropdown-selector__list-item"
-            :class="{ current: item.name || item.location === title }"
+            :class="{ current: item.name === title }"
             v-for="item in data"
-            @click="select(item.name || item.location, item.id)">
-            {{ item.name || item.location }}
+            @click="select(item.name)">
+            {{ item.name }}
           </li>
         </ul>
       </div>
@@ -87,7 +87,6 @@ export default {
 
 <style lang="scss">
 .dropdown {
-  max-width: 100%;
   .dropdown-selector--visible {
     cursor: pointer;
     border: 1px solid rgb(var(--v-theme-primary-900));
@@ -127,9 +126,6 @@ export default {
     }
 
     .dropdown-selector__label {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
       padding: 16px;
       color: rgb(var(--v-theme-primary-900));
     }
@@ -165,9 +161,6 @@ export default {
 
     .dropdown-selector__label {
       display: block;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
       padding: 16px;
       font-size: 16px;
       color: rgb(var(--v-theme-primary-900));
@@ -209,9 +202,6 @@ export default {
   }
 
   .dropdown-selector__list-item {
-    white-space: nowrap; /* Текст не переносится */
-    overflow: hidden; /* Обрезаем всё за пределами блока */
-    text-overflow: ellipsis; /* Добавляем многоточие */
     padding: 12px 16px 12px 16px;
     color: rgb(var(--v-theme-primary-900));
 

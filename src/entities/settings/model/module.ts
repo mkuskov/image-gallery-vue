@@ -8,7 +8,7 @@ const settingsModule = {
     isPlaceFilterActive: true,
     isDateFilterActive: false,
     isPaginationOff: false,
-    limitElements: 9,
+    limitElements: 9
   },
   mutations: settingsMutations,
   actions: settingsActions,

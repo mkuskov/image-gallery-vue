@@ -107,6 +107,177 @@
       "date": "1431388800000",
       "place": "Государственный Эрмитаж",
       "id": "12"
+    },
+    {
+      "name": "Девятый вал",
+      "img": "https://cdn.culture.ru/images/66fa18f5-c1ec-5376-b264-1fd97ff33878/_/4-png.webp",
+      "description": "Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "author": "Август Мальмстрём",
+      "date": "1438387200000",
+      "place": "Третьяковская галерея",
+      "id": "13"
+    },
+    {
+      "name": "Кружевница",
+      "img": "https://cdn.culture.ru/images/43fed3ea-5009-5409-8815-c338e8d6b922/_/6-png.webp",
+      "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "author": "Джордж Иннесс",
+      "date": "1439164800000",
+      "place": "Лувр",
+      "id": "14"
+    },
+    {
+      "name": "Над вечным покоем",
+      "img": "https://cdn.culture.ru/images/01146de2-2678-5e13-8802-50bad87bf0b1/_/9-png.webp",
+      "description": "Beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
+      "author": "Кассиус Маркеллус Кулидж",
+      "date": "1431388800000",
+      "place": "Музеи Ватикана",
+      "id": "15"
+    },
+    {
+      "name": "Видение отроку Варфоломею",
+      "img": "https://cdn.culture.ru/images/7bcab9e2-dc9d-5fc3-8afa-2be819482c8c/_/11-png.webp",
+      "description": "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
+      "author": "Максфилд Пэрриш",
+      "date": "1438387200000",
+      "place": "Третьяковская галерея",
+      "id": "16"
+    },
+    {
+      "name": "Гурзуф",
+      "img": "https://cdn.culture.ru/images/6a296a89-c434-53b8-9298-f7daad6d5032/_/10-png.webp",
+      "description": "So blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
+      "author": "Дициани Гаспаро",
+      "date": "1438387200000",
+      "place": "Государственный Эрмитаж",
+      "id": "17"
+    },
+    {
+      "name": "Шестикрылый серафим",
+      "img": "https://cdn.culture.ru/images/dd785fed-46c3-5e8f-a76d-ed1dd44c8039/_/12-png.webp",
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore manga aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcolaboris   nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatatnon  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "author": "Неизвестный автор",
+      "date": "1438387200000",
+      "place": "Третьяковская галерея",
+      "id": "18"
+    },
+    {
+      "name": "Явление Христа народу",
+      "img": "https://cdn.culture.ru/images/b40355ef-9eaa-594f-ad39-0c7886ed2a04/_/3-png.webp",
+      "description": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+      "author": "Пьер Огюст Ренуар",
+      "date": "1431388800000",
+      "place": "Музей Орсе",
+      "id": "19"
+    },
+    {
+      "name": "Сватовство майора",
+      "img": "https://cdn.culture.ru/images/016f5509-f9ea-5143-9fd4-21aea027c5b0/_/7-png.webp",
+      "description": "Sed ut totam! Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+      "author": "Рене Магритта",
+      "date": "1438387200000",
+      "place": "Государственный Эрмитаж",
+      "id": "20"
+    },
+    {
+      "name": "Христос в пустыне",
+      "img": "https://cdn.culture.ru/images/0da466bd-5533-5a13-a34f-528e260bd4ad/_/8-png.webp",
+      "description": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?",
+      "author": "Иван Шишкин",
+      "date": "1439164800000",
+      "place": "Частная коллекция",
+      "id": "21"
+    },
+    {
+      "name": "Затруднительное предложение",
+      "img": "https://i0.wp.com/www.arts-dnevnik.ru/wp-content/uploads/2019/02/6C70AEB7-BAFE-466C-A010-874537F90D74.jpeg?resize=960%2C733&ssl=1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore manga liqyor. Ut enim ad minim veniam, quiz nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "author": "Сальвадор Дали",
+      "date": "1438387200000",
+      "place": "Частная коллекция",
+      "id": "22"
+    },
+    {
+      "name": "Паломничество на остров Киферу",
+      "img": "https://i1.wp.com/www.arts-dnevnik.ru/wp-content/uploads/2018/01/DC668321-AAF2-4692-A883-BEADE4B74E79.jpeg?resize=960%2C629&ssl=1",
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco la Boris nisi ut aliquip ex ea comod consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "author": "Сальвадор Дали",
+      "date": "1439164800000",
+      "place": "Музей Каподимонте",
+      "id": "23"
+    },
+    {
+      "name": "Мальчик с юлой",
+      "img": "https://i2.wp.com/www.arts-dnevnik.ru/wp-content/uploads/2019/02/E8F7340E-A9D6-4FF5-A747-43D8554D564C.jpeg?resize=595%2C503&ssl=1",
+      "description": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+      "author": "Пьер Огюст Ренуар",
+      "date": "1431388800000",
+      "place": "Музей Орсе",
+      "id": "24"
+    },
+    {
+      "name": "Гранд-Канал",
+      "img": "https://i1.wp.com/www.arts-dnevnik.ru/wp-content/uploads/2019/02/A27A0AFB-8BC7-48A1-99BE-61F32512F0FA.jpeg?resize=960%2C595&ssl=1",
+      "description": "Sed ut totam! Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+      "author": "Рене Магритта",
+      "date": "1438387200000",
+      "place": "Частная коллекция",
+      "id": "25"
+    },
+    {
+      "name": "Вестминстерское аббатство",
+      "img": "https://i2.wp.com/www.arts-dnevnik.ru/wp-content/uploads/2019/02/13646A0B-B6CF-4678-B3C1-80204C20C142.jpeg?resize=595%2C581&ssl=1",
+      "description": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?",
+      "author": "Иван Шишкин",
+      "date": "1439164800000",
+      "place": "Частная коллекция",
+      "id": "26"
+    },
+    {
+      "name": "Шоколадница",
+      "img": "https://i0.wp.com/www.arts-dnevnik.ru/wp-content/uploads/2017/11/2A0B4299-E5E0-43D6-8A60-BC14284A8335.jpeg?resize=595%2C963&ssl=1",
+      "description": "Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "author": "Август Мальмстрём",
+      "date": "1438387200000",
+      "place": "Третьяковская галерея",
+      "id": "27"
+    },
+    {
+      "name": "Рождество",
+      "img": "https://i2.wp.com/www.arts-dnevnik.ru/wp-content/uploads/2019/02/1FDBE2D1-FBC7-4D6B-9350-EDC70F742C50.jpeg?resize=595%2C837&ssl=1",
+      "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "author": "Джордж Иннесс",
+      "date": "1439164800000",
+      "place": "Лувр",
+      "id": "28"
+    },
+    {
+      "name": "Приморский город",
+      "img": "https://rusmuseumvrm.ru/data/collections/painting/17_19/ld-1034/32653_mainfoto_03.jpg",
+      "description": "So blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
+      "author": "Дициани Гаспаро",
+      "date": "1438387200000",
+      "place": "Государственный Эрмитаж",
+      "id": "29"
+    },
+    {
+      "name": "Триумф Цереры",
+      "img": "https://rusmuseumvrm.ru/data/collections/painting/17_19/ld-1039/32654_mainfoto_03.jpg",
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore manga aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcolaboris   nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatatnon  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "author": "Неизвестный автор",
+      "date": "1438387200000",
+      "place": "Музеи Ватикана",
+      "id": "30"
+    },
+    {
+      "name": "Скуола Сан-Марко",
+      "img": "https://i2.wp.com/www.arts-dnevnik.ru/wp-content/uploads/2019/02/78C0AD6F-AB79-452D-9BB5-F35F309997CB.jpeg?resize=595%2C764&ssl=1",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "author": "Шусселе Кристиан",
+      "date": "1431388800000",
+      "place": "Государственный Эрмитаж",
+      "id": "12"
     }
   ]
 }

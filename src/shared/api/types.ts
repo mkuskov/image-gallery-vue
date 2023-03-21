@@ -15,6 +15,7 @@ export interface SettingsState {
     isPlaceFilterActive: boolean
     isAuthorFilterActive: boolean
     isTitleFilterActive: boolean
+    isPaginationOff: boolean
 }
 
 export interface CommitInterface {
