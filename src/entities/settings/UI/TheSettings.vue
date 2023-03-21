@@ -189,7 +189,7 @@ export default {
   font-size: 40px;
   margin-top: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 425px) {
     margin-top: 12px;
   }
 }
@@ -199,6 +199,10 @@ export default {
   font-size: 20px;
   text-align: left;
   margin-bottom: 10px;
+}
+
+.settings__filters-title {
+  text-align: left;
 }
 
 .settings__filters-caption-info,
