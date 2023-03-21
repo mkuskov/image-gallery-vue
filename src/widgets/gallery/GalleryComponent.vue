@@ -32,18 +32,18 @@ export default {
     getNextImages() {
       window.onscroll = async () => {
         const bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
-        if (bottomOfWindow && this.$store.state.settings.limitElements < this.$store.state.gallery.galleryJSON.length) {
+
+        if (bottomOfWindow && (this.$store.state.settings.limitElements < this.$store.state.gallery.galleryJSON.length && this.$store.state.settings.isPaginationOff)) {
           const params: Params = {
-          _limit: this.$store.state.settings.limitElements,
-          _page: ++this.loadingPageNum,
-          name: urlParamsDTO(this.$store.state.filters.filterByTitle),
-          author: urlParamsDTO(this.$store.state.authors.author),
-          place: urlParamsDTO(this.$store.state.places.place),
-        };
+            _limit: this.$store.state.settings.limitElements,
+            _page: ++this.loadingPageNum,
+            name: urlParamsDTO(this.$store.state.filters.filterByTitle),
+            author: urlParamsDTO(this.$store.state.authors.author),
+            place: urlParamsDTO(this.$store.state.places.place),
+          };
+          const gallery = await instance.get( URL_GALLERY, { params } );
 
-
-        const gallery = await instance.get( URL_GALLERY, { params } );
-        return this.$store.state.gallery.galleryData.push(...gallery.data);
+          return this.$store.state.gallery.galleryData.push(...gallery.data);
         }
       }
     }
