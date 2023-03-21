@@ -39,7 +39,7 @@ export default {
 .content__pagination {
   display: flex;
   justify-content: center;
-  padding: 34px 0px 16px 34px;
+  padding: 34px 0;
 
   @media screen and (min-width: 660px) {
     justify-content: flex-end;
