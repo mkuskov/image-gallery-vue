@@ -5,7 +5,8 @@ import AddImage from "@/features/add_image/AddImage.vue";
 export default {
   data() {
     return {
-      AddImage: "AddImage"
+      AddImage: "AddImage",
+      snackbar: false
     };
   },
   props: {
@@ -28,15 +29,22 @@ export default {
 
   <v-btn
     class="modal-button"
-    @click="
-      $store.dispatch('changeAddImageModalStatus', true);
-    "
+    @click="snackbar = true"
   >
     {{ title }}
   </v-btn>
+
+  <v-snackbar
+    v-model="snackbar"
+    timeout="3500"
+  >
+    <div class="text-subtitle-1 pb-2">Невозможно выполнить операцию</div>
+    <p>В текущей версии API отсутсвует возможность добавления новых картин.</p>
+  </v-snackbar>
 </template>
 
 <style lang="scss">
+
 .modal-button {
   float: right;
   margin: 20px 0 30px 0;

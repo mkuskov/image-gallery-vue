@@ -84,8 +84,7 @@ export default {
       @click="openImage(images.id)"
     >
       <ImageComponent
-        :imageTitle="images.name"
-        :image="URL_BASE + images.imageUrl"
+        :data="images"
         :key="images.id"
         class="image-gallery__item"
       />
