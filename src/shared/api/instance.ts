@@ -1,7 +1,6 @@
 import axios from "axios";
+import { URL_BASE } from "../constants/links";
 
 export const instance = axios.create({
-    headers: {
-		Accept: 'application/json',
-	},
+  baseURL: URL_BASE,
 });

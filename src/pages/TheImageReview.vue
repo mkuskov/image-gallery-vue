@@ -1,16 +1,24 @@
 <script lang="ts">
-import type { GalleryData } from '@/shared/api/types';
-import { URL_HOME } from '@/shared/constants/links';
+import type { AuthorsList, GalleryData } from "@/shared/api/types";
+import { URL_HOME, URL_BASE } from "@/shared/constants/links";
 
 export default {
   data() {
     return {
       image: [] as Array<GalleryData>,
-      URL_HOME
+      URL_HOME,
+      URL_BASE
+    };
+  },
+  methods: {
+    getAuthorById() {
+      const author = this.$store.state.filters.authorsList.filter((element: AuthorsList) => element.id === this.image[0].authorId);
+
+      return author[0].name;
     }
   },
   mounted() {
-    this.image = JSON.parse(localStorage.getItem('image') as string);
+    this.image = JSON.parse(localStorage.getItem("image") as string);
   }
 };
 
@@ -25,18 +33,28 @@ export default {
   >
     <img
       class="current-image__image"
-      :src="data.img"
-      alt="b"
+      :src="URL_BASE + data.imageUrl"
+      alt="image"
     >
     <div class="current-image__info">
       <h1>
+        <v-icon
+          class="quote-icon-open"
+          icon="mdi-format-quote-open"
+          size="x-small"
+        />
         {{data.name}}
+        <v-icon
+          class="quote-icon-close"
+          icon="mdi-format-quote-close"
+          size="x-small"
+        />
       </h1>
       <h4>
-        <span class="current-image__info-by">by</span>&nbsp;{{ data.author }}
+        <span class="current-image__info-by">by</span>&nbsp;{{ getAuthorById() }}
       </h4>
       <p class="current-image__description">
-        {{ data.description }}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
       <router-link :to="URL_HOME">
         <v-btn
@@ -57,6 +75,14 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.quote-icon-open {
+  margin: 0 -6px 15px 0;
+}
+
+.quote-icon-close {
+  margin: 10px 0 0 -6px;
 }
 
 .current-image__info-by {
