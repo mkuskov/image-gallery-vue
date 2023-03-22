@@ -10,7 +10,7 @@ export default {
         img: URL_DEFAULT_PICTURE,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcolaboris   nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatatnon  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         author: "",
-        date: "",
+        date: 0,
         place: "",
         id: "",
       },
@@ -34,6 +34,11 @@ export default {
     };
   },
   methods: {
+    formatDate() {
+      const newDate = new Date(this.newImage.date);
+
+      return this.newImage.date = newDate.getTime()
+    },
     addPicture() {
       this.$store.dispatch("addItems", {
         ...this.newImage,
@@ -83,14 +88,13 @@ export default {
         label="Место *"
         class="form-add__select"
       />
-      <v-select
+      <v-text-field
         required
-        :items="dates"
-        :rules="selectRules"
+        label="Дата создания *"
+        :rules="inputRules"
+        type="date"
         v-model="newImage.date"
-        filled
-        label="Дата *"
-        class="form-add__select"
+        class="form-add__input"
       />
     </v-form>
     <v-btn
@@ -101,7 +105,7 @@ export default {
         || !newImage.place
         || !newImage.date
       "
-      @click="addPicture"
+      @click="formatDate(); addPicture();"
     >
       Добавить
     </v-btn>

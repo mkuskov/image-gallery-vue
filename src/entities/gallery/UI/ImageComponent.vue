@@ -1,9 +1,17 @@
 <script lang="ts">
+import { GalleryData } from '@/shared/api/types';
+
 export default {
   props: {
-    imageTitle: String,
-    image: String,
+    data: Object
   },
+  methods: {
+    getYear(date: GalleryData) {
+      const convertedDate = new Date(Number(date));
+
+      return convertedDate.getFullYear();
+    }
+  }
 };
 </script>
 
@@ -22,11 +30,14 @@ export default {
     >
       <img
         class="card__image"
-        :src="image"
+        :src="data?.img"
       />
-      <p class="card__item-name">
-        {{ imageTitle }}
-      </p>
+      <div class="card__item-description">
+        <p class="card__item-description-name">{{ data?.name }}</p>
+        <p class="card__item-description-author"><span class="card__item-description-title">Автор: </span>&nbsp{{ data?.author }}</p>
+        <p class="card__item-description-date"><span class="card__item-description-title">Дата создания: </span>&nbsp{{ getYear(data?.date) }}</p>
+        <p class="card__item-description-place"><span class="card__item-description-title">Место: </span>&nbsp{{ data?.place }}</p>
+      </div>
     </div>
   </v-card>
 </template>
@@ -54,14 +65,37 @@ export default {
   text-align: left;
 }
 
-.card__item-name {
+.card__item-description {
+  bottom: 0;
+  transform: translateY(75%);
+  transition: all .15s ease;
   font-weight: 600;
   width: 100%;
+  height: 50%;
   position: absolute;
-  bottom: 0;
   background-color: rgba(255, 255, 255, 0.603);
   color: black;
   padding: 10px;
-  padding-left: 15px;
+  padding-left: 12px;
+
+  .card__item-description-name {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 20px;
+
+    .card__item-description-title {
+      font-weight: 600;
+    }
+  }
+}
+
+.card:hover .card__item-description {
+  transform: translateY(0%);
+  transition: all .35s ease;
 }
 </style>
