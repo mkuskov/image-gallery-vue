@@ -3,6 +3,7 @@
   "exclude": [],
   "compilerOptions": {
     "composite": true,
+    "allowSyntheticDefaultImports": true,
     "lib": [],
     "types": ["node", "jsdom"]
   }
